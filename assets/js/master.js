@@ -19,13 +19,13 @@
     /* cart count from the shared demo cart */
     try {
         const c = JSON.parse(localStorage.getItem("ssdesign_cart"));
-        const n = (c || [{ qty: 1 }, { qty: 1 }]).reduce(
+        const n = (c || []).reduce(
             (s, it) => s + (it.qty || 1),
             0,
         );
         document.getElementById("cartCount").textContent = n || "";
     } catch (e) {
-        document.getElementById("cartCount").textContent = "2";
+        document.getElementById("cartCount").textContent = "";
     }
 
     /* ---------- mobile menu: floating panel slides in from the left ---------- */

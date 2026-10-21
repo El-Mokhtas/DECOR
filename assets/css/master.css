@@ -1003,6 +1003,268 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     transition-delay: .3s
 }
 
+/* ================= FEATURED PRODUCTS ================= */
+.featured {
+    padding: 88px 5% 110px
+}
+
+.fp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px 20px
+}
+
+.fp-card.fp-wide {
+    grid-column: span 2
+}
+
+.fp-media {
+    position: relative;
+    height: clamp(260px, 24vw, 340px);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #EDE6DA
+}
+
+.fp-link {
+    position: absolute;
+    inset: 0;
+    display: block
+}
+
+.fp-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity .6s var(--ease), transform 1.2s var(--ease)
+}
+
+.fp-img-alt {
+    opacity: 0
+}
+
+.fp-card:hover .fp-img {
+    transform: scale(1.04)
+}
+
+.fp-card:hover .fp-img-alt {
+    opacity: 1
+}
+
+.fp-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(251, 248, 241, .92);
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--brand-olive-d);
+    pointer-events: none
+}
+
+.fp-add {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 48px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--brand-cream);
+    color: var(--brand-ink);
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 10px 24px -12px rgba(46, 44, 32, .5);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .35s var(--ease), transform .35s var(--ease), background .3s, color .3s
+}
+
+.fp-add svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6
+}
+
+.fp-card:hover .fp-add,
+.fp-add:focus-visible {
+    opacity: 1;
+    transform: none
+}
+
+.fp-add:hover,
+.fp-add.done {
+    background: var(--brand-olive);
+    color: #fff
+}
+
+.fp-info {
+    padding: 18px 4px 0
+}
+
+.fp-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px
+}
+
+.fp-row-sub {
+    align-items: center;
+    margin-top: 6px
+}
+
+.fp-name {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--brand-ink)
+}
+
+.fp-name a {
+    transition: color .3s
+}
+
+.fp-name a:hover {
+    color: var(--brand-olive)
+}
+
+.fp-price {
+    flex: none;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--brand-olive-d)
+}
+
+.fp-price small {
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #8C8378
+}
+
+.fp-meta {
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #8C8378
+}
+
+.fp-swatches {
+    flex: none;
+    display: flex;
+    gap: 8px
+}
+
+.fp-swatch {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: 50%;
+    border: 0;
+    background: var(--c);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12);
+    cursor: pointer;
+    transition: box-shadow .25s, transform .25s var(--ease)
+}
+
+.fp-swatch:hover {
+    transform: scale(1.12)
+}
+
+.fp-swatch[aria-checked="true"] {
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12), 0 0 0 2px var(--cream), 0 0 0 3px var(--brand-olive)
+}
+
+.fp-note {
+    margin-top: 44px;
+    text-align: center;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 13px;
+    color: #8C8378
+}
+
+.fp-grid .reveal:nth-child(2) { transition-delay: .08s }
+.fp-grid .reveal:nth-child(3) { transition-delay: .16s }
+.fp-grid .reveal:nth-child(4) { transition-delay: .08s }
+.fp-grid .reveal:nth-child(5) { transition-delay: .16s }
+.fp-grid .reveal:nth-child(6) { transition-delay: .24s }
+.fp-grid .reveal:nth-child(7) { transition-delay: .32s }
+
+/* header cart count pops when something is added */
+#cartCount.bump {
+    animation: cartBump .5s var(--ease)
+}
+
+@keyframes cartBump {
+    40% {
+        transform: scale(1.4)
+    }
+}
+
+/* touch screens have no hover: keep the add button visible */
+@media (hover: none) {
+    .fp-add {
+        opacity: 1;
+        transform: none;
+        left: auto;
+        width: 48px;
+        padding: 0
+    }
+
+    .fp-add span {
+        display: none
+    }
+}
+
+@media (max-width:1024px) {
+    .fp-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media (max-width:767px) {
+    .featured {
+        padding: 56px 5% 80px
+    }
+
+    .fp-grid {
+        grid-template-columns: 1fr;
+        gap: 32px
+    }
+
+    .fp-card.fp-wide {
+        grid-column: auto
+    }
+
+    .fp-media {
+        height: 250px;
+        border-radius: 14px
+    }
+
+    .fp-name {
+        font-size: 20px
+    }
+}
+
 /* ================= ABOUT — designer's mood board ================= */
 .mb {
     --mb-bg: #F6F1E8;

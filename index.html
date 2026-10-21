@@ -184,49 +184,59 @@
                 <div>
                     <span class="cat-eyebrow">The Collection</span>
                     <h2>Shop by <em>Category</em></h2>
-                    <p>Furniture, lighting and fixtures hand-picked by our designers — ready to bring into your home.</p>
+                    <p>Turkish-made sofas, beds and carpets, hand-picked by our designers — ready to bring into your home.</p>
                 </div>
                 <a href="shop.html" class="view-all">View all categories <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg></a>
             </div>
             <div class="bento">
-                <a href="sofa.html" class="tile t-living reveal">
-                    <span class="img"
-                        style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/05/MLS-88-Eleanor-Ave-Hamilton-ON-44.jpg')"></span>
-                    <span class="tile-body"><span><span class="tile-name">Living</span><span class="tile-count">91
-                                pieces</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <a href="shop.html?cat=living" class="tile t-living reveal">
+                    <span class="img" style="background-image:url('assets/imgs/products/sofa-set/grey/1.jpg')"></span>
+                    <span class="tile-body"><span><span class="tile-name">Living</span><span class="tile-count">Sofa sets &amp; TV units</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
                                 <path d="M5 12h14M13 6l6 6-6 6" />
                             </svg></span></span>
                 </a>
-                <a href="#" class="tile t-lighting reveal">
-                    <span class="img"
-                        style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/09/IMG_0226.jpeg')"></span>
-                    <span class="tile-body"><span><span class="tile-name">Lighting</span><span class="tile-count">142
-                                pieces</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <a href="shop.html?cat=carpets" class="tile t-lighting reveal">
+                    <span class="img" style="background-image:url('assets/imgs/products/carpet/navy/2.jpg')"></span>
+                    <span class="tile-body"><span><span class="tile-name">Carpets</span><span class="tile-count">Turkish embroidered</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
                                 <path d="M5 12h14M13 6l6 6-6 6" />
                             </svg></span></span>
                 </a>
-                <a href="#" class="tile t-dining reveal">
-                    <span class="img"
-                        style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/05/MLS-88-Eleanor-Ave-Hamilton-ON-15.jpg')"></span>
-                    <span class="tile-body"><span><span class="tile-name">Dining</span><span class="tile-count">60
-                                pieces</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <a href="shop.html?cat=tv-units" class="tile t-dining reveal">
+                    <span class="img" style="background-image:url('assets/imgs/products/tv-fireplace/1.jpg')"></span>
+                    <span class="tile-body"><span><span class="tile-name">TV Units</span><span class="tile-count">With built-in fireplace</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
                                 <path d="M5 12h14M13 6l6 6-6 6" />
                             </svg></span></span>
                 </a>
-                <a href="#" class="tile t-bedroom reveal">
-                    <span class="img"
-                        style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/110987_TARRANT_110767_DOONE_109541_ESAI_107934_LOHN_109376_DEVA-scaled.jpg')"></span>
-                    <span class="tile-body"><span><span class="tile-name">Bedroom</span><span class="tile-count">21
-                                pieces</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
+                <a href="shop.html?cat=bedroom" class="tile t-bedroom reveal">
+                    <span class="img" style="background-image:url('assets/imgs/products/queen-bed-yellow/1.jpg')"></span>
+                    <span class="tile-body"><span><span class="tile-name">Bedroom</span><span class="tile-count">Beds &amp; mattresses</span></span><span class="tile-go" aria-hidden="true"><svg viewBox="0 0 24 24">
                                 <path d="M5 12h14M13 6l6 6-6 6" />
                             </svg></span></span>
                 </a>
             </div>
         </section>
+
+        <!-- ================= FEATURED PRODUCTS (rendered by assets/js/products.js) ================= -->
+        <section class="featured" id="featured">
+            <div class="cat-head">
+                <div>
+                    <span class="cat-eyebrow">Featured Pieces</span>
+                    <h2>Made to be <em>lived in</em></h2>
+                    <p>Turkish pieces in stock now. Pick a colour to see it in the room.</p>
+                </div>
+                <a href="shop.html" class="view-all">Shop all products <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg></a>
+            </div>
+            <div class="fp-grid" id="fpGrid"></div>
+            <p class="fp-note">All prices in Canadian dollars (CAD).</p>
+        </section>
+
     </main>
 
+    <script src="assets/js/products.js"></script>
     <script src="assets/js/master.js"></script>
 </body>
 
