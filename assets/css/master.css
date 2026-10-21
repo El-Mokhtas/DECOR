@@ -1265,6 +1265,242 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 }
 
+/* ================= CUSTOMER REVIEWS ================= */
+.hcg-reviews {
+    padding: 40px 5% 110px
+}
+
+.hcg-reviews[hidden] {
+    display: none
+}
+
+.rv-summary {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 18px
+}
+
+.rv-summary[hidden] {
+    display: none
+}
+
+.rv-score {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--brand-ink)
+}
+
+.rv-summary-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+}
+
+.rv-summary-text small {
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 13.5px;
+    color: #8C8378
+}
+
+.rv-google {
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--brand-olive-d);
+    text-decoration: underline;
+    text-underline-offset: 4px
+}
+
+.rv-arrows {
+    display: flex;
+    gap: 10px
+}
+
+.rv-arrows button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(107, 104, 71, .3);
+    background: #fff;
+    color: var(--brand-olive-d);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background .3s, color .3s, border-color .3s
+}
+
+.rv-arrows button:hover {
+    background: var(--brand-olive);
+    border-color: var(--brand-olive);
+    color: #fff
+}
+
+.rv-arrows svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.rv-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 40px) / 3);
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 6px
+}
+
+.rv-track::-webkit-scrollbar {
+    display: none
+}
+
+.rv-card {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 30px 28px 26px;
+    border-radius: 22px;
+    background: #fff;
+    border: 1px solid rgba(46, 44, 32, .07);
+    box-shadow: 0 18px 40px -30px rgba(46, 44, 32, .45)
+}
+
+.rv-stars {
+    display: inline-flex;
+    gap: 3px
+}
+
+.rv-stars i {
+    display: grid;
+    color: #DCD4C7
+}
+
+.rv-stars i.on {
+    color: var(--brand-gold)
+}
+
+.rv-stars svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor
+}
+
+.rv-card blockquote {
+    flex: 1;
+    margin: 0;
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--brand-ink)
+}
+
+.rv-card figcaption {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 18px;
+    font-family: "DM Sans", "Montserrat", sans-serif
+}
+
+.rv-avatar {
+    flex: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #EFE8DB;
+    color: var(--brand-olive-d);
+    font-size: 14px;
+    font-weight: 500
+}
+
+.rv-who {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0
+}
+
+.rv-who b {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--brand-ink)
+}
+
+.rv-who small {
+    font-size: 12.5px;
+    color: #8C8378;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.rv-source {
+    flex: none;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #F4EFE6;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    color: #8C8378
+}
+
+/* preview mode: make it obvious these are not real reviews */
+.hcg-reviews.is-preview .rv-card {
+    outline: 2px dashed rgba(168, 132, 74, .55);
+    outline-offset: -8px
+}
+
+.hcg-reviews.is-preview .cat-eyebrow::after {
+    content: " · Preview — sample text";
+    color: #A3543A
+}
+
+@media (max-width:1024px) {
+    .rv-track {
+        grid-auto-columns: calc((100% - 20px) / 2)
+    }
+}
+
+@media (max-width:767px) {
+    .hcg-reviews {
+        padding: 24px 5% 80px
+    }
+
+    .rv-track {
+        grid-auto-columns: 86%;
+        gap: 14px;
+        margin: 0 -5.3%;
+        padding: 0 5.3% 6px;
+        scroll-padding-inline: 5.3%
+    }
+
+    .rv-card {
+        padding: 24px 22px 22px
+    }
+
+    .rv-card blockquote {
+        font-size: 17.5px
+    }
+
+    .rv-arrows {
+        display: none
+    }
+}
+
 /* ================= FOOTER — light ================= */
 .hcg-footer {
     scroll-margin-top: 80px;

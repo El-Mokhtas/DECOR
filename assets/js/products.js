@@ -54,6 +54,42 @@
         },
     ];
 
+    /* shared demo cart in localStorage + header count; `btn` gets an "Added" state */
+    function addToCart(items, btn) {
+        let cart = [];
+        try { cart = JSON.parse(localStorage.getItem("ssdesign_cart")) || []; } catch (err) { }
+        items.forEach((item) => {
+            const line = cart.find((it) => it.code === item.code && it.option === item.option);
+            if (line) line.qty = (line.qty || 1) + 1;
+            else cart.push(Object.assign({ qty: 1 }, item));
+        });
+        try { localStorage.setItem("ssdesign_cart", JSON.stringify(cart)); } catch (err) { }
+
+        const count = document.getElementById("cartCount");
+        if (count) {
+            count.textContent = cart.reduce((s, it) => s + (it.qty || 1), 0);
+            count.classList.remove("bump");
+            void count.offsetWidth;
+            count.classList.add("bump");
+        }
+        if (!btn) return;
+        const label = btn.querySelector("span") || btn;
+        if (!btn.dataset.label) btn.dataset.label = label.textContent;
+        btn.classList.add("done");
+        label.textContent = "Added";
+        clearTimeout(btn._t);
+        btn._t = setTimeout(() => {
+            btn.classList.remove("done");
+            label.textContent = btn.dataset.label;
+        }, 1600);
+    }
+
+    /* any button with data-add='[{code,name,option,price}, ...]' adds those items */
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-add]");
+        if (btn) addToCart(JSON.parse(btn.dataset.add), btn);
+    });
+
     const grid = document.getElementById("fpGrid");
     if (!grid) return;
 
@@ -102,32 +138,13 @@
             return;
         }
 
-        /* add to cart: shared demo cart in localStorage + header count */
+        /* add to cart */
         const add = e.target.closest(".fp-add");
         if (!add) return;
         const card = add.closest(".fp-card");
         const p = PRODUCTS[card.dataset.i];
         const checked = card.querySelector('.fp-swatch[aria-checked="true"]');
         const option = checked ? p.options[checked.dataset.k].name : "";
-        let cart = [];
-        try { cart = JSON.parse(localStorage.getItem("ssdesign_cart")) || []; } catch (err) { }
-        const line = cart.find((it) => it.code === p.code && it.option === option);
-        if (line) line.qty = (line.qty || 1) + 1;
-        else cart.push({ code: p.code, name: p.name, option, price: p.price, qty: 1 });
-        try { localStorage.setItem("ssdesign_cart", JSON.stringify(cart)); } catch (err) { }
-
-        const count = document.getElementById("cartCount");
-        if (count) {
-            count.textContent = cart.reduce((s, it) => s + (it.qty || 1), 0);
-            count.classList.remove("bump");
-            void count.offsetWidth;
-            count.classList.add("bump");
-        }
-        add.classList.add("done");
-        add.querySelector("span").textContent = "Added";
-        setTimeout(() => {
-            add.classList.remove("done");
-            add.querySelector("span").textContent = "Add to cart";
-        }, 1600);
+        addToCart([{ code: p.code, name: p.name, option, price: p.price }], add);
     });
 })();
