@@ -166,9 +166,9 @@
         render();
     });
 
-    /* ---------- checkout (next page to build) ---------- */
+    /* ---------- checkout ---------- */
     document.querySelectorAll("#ctCheckout, [data-checkout]").forEach((b) =>
-        b.addEventListener("click", () => toast("Checkout is coming soon — this is a demo cart.")));
+        b.addEventListener("click", () => { location.href = "checkout.html"; }));
 
     window.hcgBindCards($("ctSuggest"));
     /* adding a suggestion updates the cart list */

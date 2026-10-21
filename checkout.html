@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Home Centre Green Hamilton</title>
+    <meta name="description" content="Secure checkout for Home Centre Green, Hamilton.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/x-icon" href="assets/imgs/fav.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css?v=f2a96686">
+    <link rel="stylesheet" href="assets/css/master.css?v=1840488e">
+    <link rel="stylesheet" href="assets/css/shop.css?v=4e4bff23">
+    <link rel="stylesheet" href="assets/css/cart.css?v=87eb7d10">
+    <link rel="stylesheet" href="assets/css/checkout.css?v=c5fc6f73">
+</head>
+
+<body class="co-body">
+    <!-- slim checkout header: fewer distractions while paying -->
+    <header class="co-header">
+        <a href="cart.html" class="co-back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Back to cart</span></a>
+        <a href="index.html" class="co-logo" aria-label="Home Centre Green Hamilton - Home"><img src="assets/imgs/logo.png" alt="Home Centre Green Hamilton"></a>
+        <span class="co-secure"><i class="fa-solid fa-lock" aria-hidden="true"></i><span>Secure checkout</span></span>
+    </header>
+
+    <main class="co-page">
+        <ol class="ct-steps co-steps" aria-label="Checkout steps">
+            <li class="is-done"><span><i class="fa-solid fa-check" aria-hidden="true"></i></span><a href="cart.html">Cart</a></li>
+            <li class="is-current" aria-current="step" id="coStepDetails"><span>2</span>Details</li>
+            <li id="coStepPay"><span>3</span>Payment</li>
+        </ol>
+
+        <div class="co-demo" role="note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Demo checkout — no payment is taken and nothing you type is saved or sent.</div>
+
+        <div class="co-layout" id="coForm">
+            <form class="co-main" id="coCheckout" novalidate>
+                <!-- 1. contact -->
+                <section class="co-card" aria-labelledby="coH1">
+                    <h2 id="coH1"><span class="co-num">1</span> Contact</h2>
+                    <div class="co-grid">
+                        <div class="co-field co-full">
+                            <label for="coEmail">Email</label>
+                            <input id="coEmail" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+                            <p class="co-err" aria-live="polite"></p>
+                        </div>
+                        <div class="co-field co-full">
+                            <label for="coPhone">Phone <small>— so our delivery team can reach you</small></label>
+                            <input id="coPhone" name="phone" type="tel" autocomplete="tel" required placeholder="(905) 555-0123">
+                            <p class="co-err" aria-live="polite"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. delivery -->
+                <section class="co-card" aria-labelledby="coH2">
+                    <h2 id="coH2"><span class="co-num">2</span> Delivery</h2>
+
+                    <div class="co-options" role="radiogroup" aria-label="Delivery method">
+                        <label class="co-option">
+                            <input type="radio" name="method" value="delivery" checked>
+                            <span class="co-option-ic"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span>
+                            <span class="co-option-text"><b>Delivery &amp; assembly</b><small>Delivered and set up in your home</small></span>
+                            <span class="co-option-price" id="coShipLabel"></span>
+                        </label>
+                        <label class="co-option">
+                            <input type="radio" name="method" value="pickup">
+                            <span class="co-option-ic"><i class="fa-solid fa-store" aria-hidden="true"></i></span>
+                            <span class="co-option-text"><b>Pick up at the showroom</b><small>Hamilton, Ontario</small></span>
+                            <span class="co-option-price">Free</span>
+                        </label>
+                    </div>
+
+                    <div id="coAddress">
+                        <div class="co-grid">
+                            <div class="co-field">
+                                <label for="coFirst">First name</label>
+                                <input id="coFirst" name="first" autocomplete="given-name" required>
+                                <p class="co-err" aria-live="polite"></p>
+                            </div>
+                            <div class="co-field">
+                                <label for="coLast">Last name</label>
+                                <input id="coLast" name="last" autocomplete="family-name" required>
+                                <p class="co-err" aria-live="polite"></p>
+                            </div>
+                            <div class="co-field co-full">
+                                <label for="coStreet">Street address</label>
+                                <input id="coStreet" name="street" autocomplete="address-line1" required placeholder="123 Main Street East">
+                                <p class="co-err" aria-live="polite"></p>
+                            </div>
+                            <div class="co-field co-full">
+                                <label for="coUnit">Apartment, unit, buzzer <small>(optional)</small></label>
+                                <input id="coUnit" name="unit" autocomplete="address-line2">
+                            </div>
+                            <div class="co-field">
+                                <label for="coCity">City</label>
+                                <input id="coCity" name="city" autocomplete="address-level2" required value="Hamilton">
+                                <p class="co-err" aria-live="polite"></p>
+                            </div>
+                            <div class="co-field co-half">
+                                <label for="coProv">Province</label>
+                                <select id="coProv" name="province" autocomplete="address-level1">
+                                    <option value="ON" selected>Ontario</option>
+                                </select>
+                            </div>
+                            <div class="co-field co-half">
+                                <label for="coPostal">Postal code</label>
+                                <input id="coPostal" name="postal" autocomplete="postal-code" required placeholder="L8P 1A1" maxlength="7">
+                                <p class="co-err" aria-live="polite"></p>
+                            </div>
+                        </div>
+
+                        <fieldset class="co-days">
+                            <legend>Preferred delivery day <small>— we'll call to confirm a time</small></legend>
+                            <div class="co-day-list" id="coDays"></div>
+                        </fieldset>
+
+                        <div class="co-field co-full">
+                            <label for="coNotes">Delivery notes <small>(optional)</small></label>
+                            <textarea id="coNotes" name="notes" rows="3" placeholder="Stairs, narrow doorways, parking…"></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. payment -->
+                <section class="co-card" aria-labelledby="coH3" id="coPaySection">
+                    <h2 id="coH3"><span class="co-num">3</span> Payment</h2>
+
+                    <div class="co-tabs" role="tablist" aria-label="Payment method">
+                        <button type="button" role="tab" aria-selected="true" data-pay="card"><i class="fa-regular fa-credit-card" aria-hidden="true"></i> Card</button>
+                        <button type="button" role="tab" aria-selected="false" data-pay="wallet"><i class="fa-brands fa-apple-pay" aria-hidden="true"></i> / <i class="fa-brands fa-google-pay" aria-hidden="true"></i></button>
+                        <button type="button" role="tab" aria-selected="false" data-pay="plan"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Payment plan</button>
+                    </div>
+
+                    <!-- card -->
+                    <div class="co-pay" data-panel="card">
+                        <div class="co-cardwrap">
+                            <div class="co-cc" id="coCC" aria-hidden="true">
+                                <div class="co-cc-front">
+                                    <div class="co-cc-top"><span class="co-cc-chip"></span><i id="coBrand" class="fa-solid fa-credit-card"></i></div>
+                                    <div class="co-cc-num" id="coCCNum">•••• •••• •••• ••••</div>
+                                    <div class="co-cc-bottom">
+                                        <div><small>Card holder</small><span id="coCCName">YOUR NAME</span></div>
+                                        <div><small>Expires</small><span id="coCCExp">MM/YY</span></div>
+                                    </div>
+                                </div>
+                                <div class="co-cc-back">
+                                    <span class="co-cc-strip"></span>
+                                    <div class="co-cc-cvc"><small>CVC</small><span id="coCCCvc">•••</span></div>
+                                </div>
+                            </div>
+
+                            <div class="co-grid">
+                                <div class="co-field co-full">
+                                    <label for="coCardNum">Card number</label>
+                                    <div class="co-input-ic"><input id="coCardNum" inputmode="numeric" autocomplete="off" placeholder="1234 5678 9012 3456" maxlength="23"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
+                                    <p class="co-err" aria-live="polite"></p>
+                                </div>
+                                <div class="co-field co-full">
+                                    <label for="coCardName">Name on card</label>
+                                    <input id="coCardName" autocomplete="off">
+                                    <p class="co-err" aria-live="polite"></p>
+                                </div>
+                                <div class="co-field">
+                                    <label for="coExp">Expiry</label>
+                                    <input id="coExp" inputmode="numeric" autocomplete="off" placeholder="MM/YY" maxlength="5">
+                                    <p class="co-err" aria-live="polite"></p>
+                                </div>
+                                <div class="co-field">
+                                    <label for="coCvc">CVC</label>
+                                    <input id="coCvc" inputmode="numeric" autocomplete="off" placeholder="123" maxlength="4">
+                                    <p class="co-err" aria-live="polite"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="co-check"><input type="checkbox" id="coSameBilling" checked><span class="sp-box" aria-hidden="true"><i class="fa-solid fa-check"></i></span> Billing address is the same as delivery</label>
+                    </div>
+
+                    <div class="co-pay" data-panel="wallet" hidden>
+                        <div class="co-info"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><p>You'll confirm the payment with Apple Pay or Google Pay on your device after you place the order.</p></div>
+                    </div>
+                    <div class="co-pay" data-panel="plan" hidden>
+                        <div class="co-info"><i class="fa-regular fa-handshake" aria-hidden="true"></i><p>Place your order and our team will call you within one business day to set up a payment plan that suits you. Nothing is charged today.</p></div>
+                    </div>
+                </section>
+
+                <label class="co-check co-terms"><input type="checkbox" id="coTerms" required><span class="sp-box" aria-hidden="true"><i class="fa-solid fa-check"></i></span> I agree to the terms of sale and delivery.</label>
+                <p class="co-err co-terms-err" id="coTermsErr" aria-live="polite"></p>
+            </form>
+
+            <!-- summary -->
+            <aside class="co-summary" aria-labelledby="coSumTitle">
+                <button type="button" class="co-sum-toggle" id="coSumToggle" aria-expanded="false" aria-controls="coSumBody">
+                    <span><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> <span id="coSumLabel">Show order summary</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+                    <b id="coSumTotalTop"></b>
+                </button>
+                <div class="co-sum-body" id="coSumBody">
+                    <h2 id="coSumTitle">Your order</h2>
+                    <ul class="co-items" id="coItems"></ul>
+                    <dl class="ct-lines">
+                        <div><dt>Subtotal</dt><dd id="coSub"></dd></div>
+                        <div><dt>Delivery</dt><dd id="coShip"></dd></div>
+                        <div><dt>Assembly</dt><dd class="ct-free-tag" id="coAssembly">Included</dd></div>
+                        <div><dt>HST (13%)</dt><dd id="coTax"></dd></div>
+                    </dl>
+                    <div class="ct-total"><span>Total <small>CAD</small></span><strong id="coTotal"></strong></div>
+                </div>
+                <button type="submit" form="coCheckout" class="ct-checkout co-place" id="coPlace"><i class="fa-solid fa-lock" aria-hidden="true"></i> <span>Place order</span></button>
+                <ul class="ct-perks">
+                    <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Encrypted, secure payment</li>
+                    <li><i class="fa-solid fa-phone" aria-hidden="true"></i> We call before every delivery</li>
+                    <li><i class="fa-solid fa-award" aria-hidden="true"></i> Warranty included</li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- empty cart -->
+        <section class="ct-empty co-empty" id="coEmpty" hidden>
+            <span class="ct-empty-icon" aria-hidden="true"><i class="fa-solid fa-bag-shopping"></i></span>
+            <h2>There's nothing to check out</h2>
+            <p>Your cart is empty. Add a piece you love, then come back here.</p>
+            <div class="ct-empty-links"><a href="shop.html" class="ct-checkout">Shop all products</a></div>
+        </section>
+
+        <!-- confirmation -->
+        <section class="co-done" id="coDone" hidden tabindex="-1" aria-labelledby="coDoneTitle">
+            <div class="co-done-icon" aria-hidden="true"><i class="fa-solid fa-check"></i></div>
+            <span class="co-done-eyebrow">Order placed · Demo</span>
+            <h1 id="coDoneTitle">Thank you, <span id="coDoneName"></span></h1>
+            <p>Your order <b id="coDoneNum"></b> is confirmed. We'll email <b id="coDoneEmail"></b> and call you to arrange <span id="coDoneWhen"></span>.</p>
+            <div class="co-done-steps">
+                <div><i class="fa-regular fa-envelope" aria-hidden="true"></i><b>Confirmation email</b><span>Sent in a few minutes</span></div>
+                <div><i class="fa-solid fa-phone" aria-hidden="true"></i><b>We call you</b><span>To confirm the time</span></div>
+                <div><i class="fa-solid fa-house-chimney" aria-hidden="true"></i><b>Delivered &amp; assembled</b><span>By our own team</span></div>
+            </div>
+            <div class="ct-empty-links">
+                <a href="index.html" class="ct-checkout">Back to home</a>
+                <a href="shop.html">Keep shopping</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/catalog.js?v=321325dc"></script>
+    <script src="assets/js/checkout.js?v=c5446fce"></script>
+</body>
+
+</html>
