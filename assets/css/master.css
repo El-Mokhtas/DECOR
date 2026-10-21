@@ -3089,6 +3089,13 @@ a.c-item:hover .go {
         linear-gradient(180deg, rgba(12, 11, 7, .42) 0%, rgba(12, 11, 7, 0) 22%, rgba(12, 11, 7, 0) 60%, rgba(12, 11, 7, .62) 100%)
 }
 
+/* brighter photos need a deeper wash behind the text */
+.hv-slide.hv-light::after {
+    background:
+        linear-gradient(90deg, rgba(12, 11, 7, .78) 0%, rgba(12, 11, 7, .6) 32%, rgba(12, 11, 7, .18) 62%, rgba(12, 11, 7, .04) 100%),
+        linear-gradient(180deg, rgba(12, 11, 7, .5) 0%, rgba(12, 11, 7, 0) 22%, rgba(12, 11, 7, 0) 58%, rgba(12, 11, 7, .7) 100%)
+}
+
 /* ---- text ---- */
 .hv-content {
     position: absolute;
