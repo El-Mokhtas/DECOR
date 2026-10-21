@@ -11,9 +11,6 @@
         //   text: "…", product: "Turkish Sofa Set" },
     ];
 
-    /* overall rating from your Google Business profile; leave null to hide */
-    const SUMMARY = null; // { rating: 4.9, count: 120, url: "https://g.page/..." }
-
     /* product name -> photo + link shown on each review card */
     const P = "assets/imgs/products/";
     const PRODUCT_INFO = {
@@ -39,14 +36,12 @@
         { name: "Sample E.", location: "Dundas, ON", rating: 4, product: "Fireplace & TV Unit",
           text: "Looks very elegant and the fireplace effect is lovely in the evenings. Easy to set up." },
     ];
-    const SAMPLE_SUMMARY = { rating: 4.9, count: 0, url: "#" };
 
     const section = document.getElementById("reviews");
     if (!section) return;
 
     const preview = new URLSearchParams(location.search).get("preview") === "reviews";
     const list = REVIEWS.length ? REVIEWS : preview ? SAMPLE_REVIEWS : [];
-    const summary = REVIEWS.length ? SUMMARY : preview ? SAMPLE_SUMMARY : null;
     if (!list.length) return; // nothing real to show yet: keep the section hidden
 
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -54,19 +49,6 @@
         .map((i) => `<i class="fa-${i <= n ? "solid" : "regular"} fa-star" aria-hidden="true"></i>`).join("")}</span>`;
     const initials = (name) => name.replace(/\./g, "").split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
     const ACCENTS = ["#4E4C33", "#A8844A", "#3C3024"]; // olive, gold, brown — cycles per card
-
-    /* rating summary */
-    if (summary) {
-        const box = section.querySelector(".rv-summary");
-        box.innerHTML = `
-            <div class="rv-rating">
-                <span class="rv-score">${summary.rating.toFixed(1)}</span>
-                <span class="rv-rating-text">${stars(Math.round(summary.rating))}
-                    <small>${summary.count ? `${summary.count} reviews` : "Average rating"}</small></span>
-            </div>
-            ${summary.url ? `<a href="${esc(summary.url)}" class="rv-google-link" target="_blank" rel="noopener">See all on Google <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>` : ""}`;
-        box.hidden = false;
-    }
 
     /* cards: a slanted photo strip peeks out above each card */
     const track = section.querySelector(".rv-track");
@@ -76,14 +58,16 @@
         <figure class="rv-card" style="--accent:${ACCENTS[k % ACCENTS.length]}">
             <a class="rv-photo" href="${info.url || "shop.html"}" tabindex="-1" aria-hidden="true">${info.img ? `<img src="${info.img}" alt="" loading="lazy">` : ""}</a>
             <div class="rv-panel">
-                <i class="fa-solid fa-quote-left rv-quote" aria-hidden="true"></i>
-                ${stars(r.rating)}
+                <div class="rv-panel-top">
+                    <i class="fa-solid fa-quote-left rv-quote" aria-hidden="true"></i>
+                    ${stars(r.rating)}
+                </div>
                 <blockquote>${esc(r.text)}</blockquote>
                 <figcaption>
                     <span class="rv-avatar" aria-hidden="true">${esc(initials(r.name))}</span>
                     <span class="rv-who"><b>${esc(r.name)}</b><small>${esc(r.location)}${r.product ? ` · <a href="${info.url || "shop.html"}">${esc(r.product)}</a>` : ""}</small></span>
+                    <span class="rv-source" title="Google review"><i class="fa-brands fa-google" aria-hidden="true"></i><span class="sr-only">Google review</span></span>
                 </figcaption>
-                <span class="rv-source"><i class="fa-brands fa-google" aria-hidden="true"></i> Google</span>
             </div>
         </figure>`;
     }).join("");
