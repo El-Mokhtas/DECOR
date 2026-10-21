@@ -12,7 +12,7 @@
     };
 
     const POSTS = [
-        { slug: "warm-neutral-living-room", topic: "living", date: "2026-10-14", read: 6, img: "sofa-set/grey/1.jpg",
+        { slug: "warm-neutral-living-room", topic: "living", date: "2026-10-14", read: 5, img: "sofa-set/grey/1.jpg",
           title: "How to build a warm, neutral living room around one statement sofa",
           excerpt: "Start with the sofa, then layer texture, metal accents and light so the room feels calm but never flat." },
         { slug: "choosing-carpet-size", topic: "carpets", date: "2026-10-06", read: 4, img: "carpet/navy/2.jpg",
@@ -63,7 +63,8 @@
     const $ = (id) => document.getElementById(id);
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     const fmt = (d) => new Date(d + "T12:00:00").toLocaleDateString("en-CA", { month: "long", day: "numeric", year: "numeric" });
-    const link = (p) => `#${p.slug}`; // TODO: article page
+    /* only the first demo article has a page so far */
+    const link = (p) => (p.slug === "warm-neutral-living-room" ? "article.html" : `#${p.slug}`);
 
     /* ---------- featured: the newest post ---------- */
     const [featured, ...rest] = POSTS;
