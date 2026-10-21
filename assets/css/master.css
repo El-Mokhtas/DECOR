@@ -1281,17 +1281,16 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 }
 
 .rv-wrap {
-    display: grid;
-    grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
-    gap: 48px;
-    align-items: center;
-    padding-left: 5%
+    padding: 0 5%
 }
 
-/* left: title + rating */
+/* header row: title on the left, rating + Google link on the right */
 .rv-intro {
-    position: relative;
-    padding-bottom: 40px
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px 48px;
+    margin-bottom: 20px
 }
 
 .rv-eyebrow {
@@ -1332,22 +1331,29 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 }
 
 .rv-intro h2 {
-    margin: 28px 0 34px;
+    margin: 22px 0 0;
     font-family: "Gilda Display", "Marcellus", serif;
     font-weight: 400;
-    font-size: clamp(46px, 4.6vw, 72px);
-    line-height: .98;
+    font-size: clamp(40px, 4.2vw, 62px);
+    line-height: 1;
     letter-spacing: -.015em;
     color: var(--brand-ink)
 }
 
 .rv-intro h2 em {
-    display: block;
     font-family: "Cormorant Garamond", "Gilda Display", serif;
     font-style: italic;
     font-weight: 600;
     font-size: 1.08em;
     color: var(--brand-gold)
+}
+
+.rv-summary {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding-bottom: 6px
 }
 
 .rv-summary[hidden] {
@@ -1387,7 +1393,6 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    margin-top: 30px;
     font-family: "DM Sans", sans-serif;
     font-size: 16px;
     color: var(--brand-ink);
@@ -1436,10 +1441,11 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 .rv-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: clamp(290px, 27vw, 400px);
+    grid-auto-columns: calc((100% - 56px) / 3);
     gap: 28px;
-    padding: 4px 5% 70px 0;
-    margin-bottom: -52px;
+    padding: 4px 24px 70px;
+    margin: 0 -24px -52px;
+    scroll-padding-inline: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -1469,7 +1475,7 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 .rv-photo {
     position: absolute;
     top: 0;
-    left: -8px;
+    left: 0;
     right: 0;
     height: 190px;
     border-radius: 6px 30px 0 0;
@@ -1600,8 +1606,8 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 .rv-arrows {
     display: flex;
     justify-content: flex-end;
-    gap: 22px;
-    padding: 18px calc(5% + 40px) 0 0
+    gap: 16px;
+    padding-top: 18px
 }
 
 .rv-arrows button {
@@ -1647,13 +1653,13 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 }
 
 @media (max-width:1024px) {
-    .rv-wrap {
-        grid-template-columns: 1fr;
-        gap: 24px
+    .rv-intro {
+        flex-direction: column;
+        align-items: flex-start
     }
 
-    .rv-intro {
-        padding: 0 5% 0 0
+    .rv-track {
+        grid-auto-columns: calc((100% - 28px) / 2)
     }
 }
 
@@ -1663,7 +1669,25 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 
     .rv-intro h2 {
-        margin: 20px 0 24px
+        margin-top: 18px
+    }
+
+    .rv-intro h2 em {
+        display: block
+    }
+
+    .rv-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px
+    }
+
+    .rv-wrap {
+        padding: 0
+    }
+
+    .rv-intro {
+        padding: 0 5%
     }
 
     .rv-score {
@@ -1673,7 +1697,9 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     .rv-track {
         grid-auto-columns: 84%;
         gap: 16px;
-        padding-right: 5%
+        padding: 4px 5% 70px;
+        margin: 0 0 -52px;
+        scroll-padding-inline: 5%
     }
 
     .rv-card {
@@ -1681,8 +1707,7 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 
     .rv-photo {
-        height: 160px;
-        left: -4px
+        height: 160px
     }
 
     .rv-panel {
