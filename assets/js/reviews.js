@@ -28,15 +28,15 @@
 
     /* PREVIEW ONLY: placeholder content so the layout can be judged */
     const SAMPLE_REVIEWS = [
-        { name: "Sample A.", location: "Hamilton, ON", rating: 5, date: "Sample", product: "Turkish Sofa Set",
+        { name: "Sample A.", location: "Hamilton, ON", rating: 5, product: "Turkish Sofa Set",
           text: "The sofa set looks even better in our living room than in the photos. Really comfortable, and the gold details are beautiful." },
-        { name: "Sample B.", location: "Burlington, ON", rating: 5, date: "Sample", product: "White Queen Bed",
+        { name: "Sample B.", location: "Burlington, ON", rating: 5, product: "White Queen Bed",
           text: "Delivered and assembled on the day we agreed. The storage under the bed is so useful in a smaller bedroom." },
-        { name: "Sample C.", location: "Stoney Creek, ON", rating: 5, date: "Sample", product: "Turkish Embroidered Carpet",
+        { name: "Sample C.", location: "Stoney Creek, ON", rating: 5, product: "Turkish Embroidered Carpet",
           text: "Rich colours and very soft underfoot. It pulled the whole dining room together." },
-        { name: "Sample D.", location: "Ancaster, ON", rating: 5, date: "Sample", product: "Upholstered Single Bed",
+        { name: "Sample D.", location: "Ancaster, ON", rating: 5, product: "Upholstered Single Bed",
           text: "Bought this for our daughter's room. Solid build, soft headboard, and she loves the colour." },
-        { name: "Sample E.", location: "Dundas, ON", rating: 4, date: "Sample", product: "Fireplace & TV Unit",
+        { name: "Sample E.", location: "Dundas, ON", rating: 4, product: "Fireplace & TV Unit",
           text: "Looks very elegant and the fireplace effect is lovely in the evenings. Easy to set up." },
     ];
     const SAMPLE_SUMMARY = { rating: 4.9, count: 0, url: "#" };
@@ -50,34 +50,40 @@
     if (!list.length) return; // nothing real to show yet: keep the section hidden
 
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-    const star = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.3 1.1 6.1L12 17l-5.4 3 1.1-6.1-4.5-4.3 6.1-.8z" /></svg>';
     const stars = (n) => `<span class="rv-stars" role="img" aria-label="${n} out of 5 stars">${[1, 2, 3, 4, 5]
-        .map((i) => `<i class="${i <= n ? "on" : ""}">${star}</i>`).join("")}</span>`;
-    const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>';
+        .map((i) => `<i class="fa-${i <= n ? "solid" : "regular"} fa-star" aria-hidden="true"></i>`).join("")}</span>`;
+    const initials = (name) => name.replace(/\./g, "").split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+    const ACCENTS = ["#4E4C33", "#A8844A", "#3C3024"]; // olive, gold, brown — cycles per card
 
     /* rating summary */
     if (summary) {
         const box = section.querySelector(".rv-summary");
         box.innerHTML = `
-            <span class="rv-score">${summary.rating.toFixed(1)}</span>
-            <span class="rv-summary-text">${stars(Math.round(summary.rating))}
-                <small>${summary.count ? `${summary.count} reviews on Google` : "Average rating on Google"}</small>
-                ${summary.url ? `<a href="${esc(summary.url)}" class="rv-google" target="_blank" rel="noopener">Read all reviews</a>` : ""}</span>`;
+            <div class="rv-rating">
+                <span class="rv-score">${summary.rating.toFixed(1)}</span>
+                <span class="rv-rating-text">${stars(Math.round(summary.rating))}
+                    <small>${summary.count ? `${summary.count} reviews` : "Average rating"}</small></span>
+            </div>
+            ${summary.url ? `<a href="${esc(summary.url)}" class="rv-google-link" target="_blank" rel="noopener">See all on Google <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></a>` : ""}`;
         box.hidden = false;
     }
 
-    /* cards */
+    /* cards: a slanted photo strip peeks out above each card */
     const track = section.querySelector(".rv-track");
-    track.innerHTML = list.map((r) => {
+    track.innerHTML = list.map((r, k) => {
         const info = PRODUCT_INFO[r.product] || {};
         return `
-        <figure class="rv-card">
-            ${info.img ? `<img class="rv-bg" src="${info.img}" alt="" loading="lazy">` : ""}
-            ${r.product ? `<a class="rv-product" href="${info.url || "shop.html"}">${esc(r.product)}${arrow}</a>` : ""}
-            <div class="rv-body">
+        <figure class="rv-card" style="--accent:${ACCENTS[k % ACCENTS.length]}">
+            <a class="rv-photo" href="${info.url || "shop.html"}" tabindex="-1" aria-hidden="true">${info.img ? `<img src="${info.img}" alt="" loading="lazy">` : ""}</a>
+            <div class="rv-panel">
+                <i class="fa-solid fa-quote-left rv-quote" aria-hidden="true"></i>
                 ${stars(r.rating)}
-                <blockquote>“${esc(r.text)}”</blockquote>
-                <figcaption><b>${esc(r.name)}</b><span>${esc(r.location)}${r.date ? " · " + esc(r.date) : ""}</span></figcaption>
+                <blockquote>${esc(r.text)}</blockquote>
+                <figcaption>
+                    <span class="rv-avatar" aria-hidden="true">${esc(initials(r.name))}</span>
+                    <span class="rv-who"><b>${esc(r.name)}</b><small>${esc(r.location)}${r.product ? ` · <a href="${info.url || "shop.html"}">${esc(r.product)}</a>` : ""}</small></span>
+                </figcaption>
+                <span class="rv-source"><i class="fa-brands fa-google" aria-hidden="true"></i> Google</span>
             </div>
         </figure>`;
     }).join("");
@@ -85,18 +91,14 @@
     if (preview && !REVIEWS.length) section.classList.add("is-preview");
     section.hidden = false;
 
-    /* arrows + progress bar */
+    /* arrows */
     const prev = section.querySelector(".rv-prev");
     const next = section.querySelector(".rv-next");
-    const bar = section.querySelector(".rv-progress span");
-    const step = () => (track.querySelector(".rv-card")?.offsetWidth || 320) + 20;
+    const step = () => (track.querySelector(".rv-card")?.offsetWidth || 320) + 28;
     prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
     next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
     const update = () => {
         const max = track.scrollWidth - track.clientWidth;
-        const visible = track.clientWidth / track.scrollWidth;
-        bar.style.width = Math.max(visible, 0.08) * 100 + "%";
-        bar.style.transform = `translateX(${max > 0 ? (track.scrollLeft / max) * ((1 - visible) / visible) * 100 : 0}%)`;
         prev.disabled = track.scrollLeft <= 2;
         next.disabled = track.scrollLeft >= max - 2;
     };

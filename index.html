@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&family=Roboto+Slab:wght@400&family=Roboto:wght@300&family=Epilogue:wght@300;400;500&family=Tenor+Sans&family=Inter:wght@400;500;600&family=Gilda+Display&family=DM+Sans:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&family=Roboto+Slab:wght@400&family=Roboto:wght@300&family=Epilogue:wght@300;400;500&family=Tenor+Sans&family=Inter:wght@400;500;600&family=Gilda+Display&family=DM+Sans:wght@400;500&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/master.css">
 </head>
 
@@ -224,19 +225,19 @@
 
         <!-- ================= CUSTOMER REVIEWS (filled by assets/js/reviews.js; hidden until real reviews are added) ================= -->
         <section class="hcg-reviews" id="reviews" hidden>
-            <div class="rv-head">
-                <div>
-                    <span class="cat-eyebrow">Customer Reviews <b class="rv-preview-tag">Preview · sample content</b></span>
+            <div class="rv-wrap">
+                <div class="rv-intro">
+                    <span class="rv-eyebrow">Customer Reviews</span>
+                    <b class="rv-preview-tag">Preview · sample content</b>
                     <h2>Loved in <em>real homes</em></h2>
+                    <div class="rv-summary" hidden></div>
                 </div>
-                <div class="rv-summary" hidden></div>
-            </div>
-            <div class="rv-track"></div>
-            <div class="rv-controls">
-                <div class="rv-progress" aria-hidden="true"><span></span></div>
-                <div class="rv-arrows">
-                    <button type="button" class="rv-prev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg></button>
-                    <button type="button" class="rv-next" aria-label="Next reviews"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></button>
+                <div class="rv-slider">
+                    <div class="rv-track"></div>
+                    <div class="rv-arrows">
+                        <button type="button" class="rv-prev" aria-label="Previous reviews"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <button type="button" class="rv-next" aria-label="Next reviews"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                    </div>
                 </div>
             </div>
         </section>

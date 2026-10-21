@@ -1265,35 +1265,52 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 }
 
-/* ================= CUSTOMER REVIEWS — photo-led cards ================= */
+/* ================= CUSTOMER REVIEWS ================= */
 .hcg-reviews {
-    padding: 40px 0 110px
+    position: relative;
+    overflow: hidden;
+    padding: 72px 0 110px;
+    background:
+        radial-gradient(50% 70% at 100% 100%, rgba(107, 104, 71, .10), transparent 70%),
+        radial-gradient(45% 60% at 0% 0%, rgba(200, 168, 119, .16), transparent 70%),
+        #F6F1E8
 }
 
 .hcg-reviews[hidden] {
     display: none
 }
 
-.rv-head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 32px;
-    padding: 0 5% 44px
+.rv-wrap {
+    display: grid;
+    grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    padding-left: 5%
 }
 
-.rv-head h2 {
-    font-family: "Gilda Display", "Marcellus", serif;
-    font-weight: 400;
-    font-size: clamp(38px, 4vw, 58px);
-    line-height: 1.04;
-    letter-spacing: -.01em;
-    color: var(--brand-ink)
+/* left: title + rating */
+.rv-intro {
+    position: relative;
+    padding-bottom: 40px
 }
 
-.rv-head h2 em {
-    font-style: normal;
-    color: var(--brand-olive)
+.rv-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--brand-gold)
+}
+
+.rv-eyebrow::before {
+    content: "";
+    width: 44px;
+    height: 1px;
+    background: currentColor
 }
 
 .rv-preview-tag {
@@ -1301,90 +1318,128 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 }
 
 .hcg-reviews.is-preview .rv-preview-tag {
-    display: inline-block;
-    margin-left: 10px;
+    display: table;
+    margin-top: 12px;
     padding: 3px 10px;
     border-radius: 999px;
     background: rgba(163, 84, 58, .1);
     color: #A3543A;
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
     font-weight: 500;
-    letter-spacing: .08em
+    letter-spacing: .1em;
+    text-transform: uppercase
 }
 
-/* rating: typographic, no box */
-.rv-summary {
-    flex: none;
-    display: flex;
-    align-items: center;
-    gap: 16px
+.rv-intro h2 {
+    margin: 28px 0 34px;
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: clamp(46px, 4.6vw, 72px);
+    line-height: .98;
+    letter-spacing: -.015em;
+    color: var(--brand-ink)
+}
+
+.rv-intro h2 em {
+    display: block;
+    font-family: "Cormorant Garamond", "Gilda Display", serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.08em;
+    color: var(--brand-gold)
 }
 
 .rv-summary[hidden] {
     display: none
 }
 
+.rv-rating {
+    display: flex;
+    align-items: center;
+    gap: 18px
+}
+
 .rv-score {
     font-family: "Gilda Display", "Marcellus", serif;
     font-size: 64px;
-    line-height: .9;
+    line-height: 1;
     color: var(--brand-ink)
 }
 
-.rv-summary-text {
+.rv-rating-text {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    font-family: "DM Sans", "Montserrat", sans-serif
+    gap: 6px
 }
 
-.rv-summary-text small {
-    font-size: 13.5px;
-    color: #8C8378
+.rv-rating-text small {
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    color: #6B6656
 }
 
-.rv-google {
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--brand-olive-d);
+.rv-rating .rv-stars i {
+    font-size: 20px
+}
+
+.rv-google-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 30px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    color: var(--brand-ink);
+    transition: color .3s, gap .35s var(--ease)
+}
+
+.rv-google-link:hover {
+    gap: 20px;
+    color: var(--brand-gold)
+}
+
+.rv-google-link i {
+    color: var(--brand-ink);
+    transition: color .3s
+}
+
+.rv-google-link:hover i {
+    color: var(--brand-gold)
+}
+
+.rv-google-link {
     text-decoration: underline;
-    text-decoration-color: rgba(107, 104, 71, .35);
-    text-underline-offset: 4px;
-    transition: color .3s, text-decoration-color .3s
-}
-
-.rv-google:hover {
-    color: var(--brand-gold);
-    text-decoration-color: currentColor
+    text-decoration-thickness: 1px;
+    text-underline-offset: 8px
 }
 
 .rv-stars {
     display: inline-flex;
-    gap: 3px
+    gap: 5px;
+    color: #C9993F
 }
 
 .rv-stars i {
-    display: grid;
-    color: rgba(221, 211, 195, .7)
+    font-size: 16px
 }
 
-.rv-stars i.on {
-    color: #D4A64A
+.rv-stars .fa-regular {
+    color: #D9CDB8
 }
 
-.rv-stars svg {
-    width: 15px;
-    height: 15px;
-    fill: currentColor
+/* right: slider */
+.rv-slider {
+    min-width: 0
 }
 
-/* track: tall photo cards, next card peeks in */
 .rv-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(300px, calc((90vw - 60px) / 3.4));
-    gap: 20px;
-    padding: 0 5% 4px;
-    scroll-padding-inline: 5%;
+    grid-auto-columns: clamp(290px, 27vw, 400px);
+    gap: 28px;
+    padding: 4px 5% 70px 0;
+    margin-bottom: -52px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -1404,196 +1459,211 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 .rv-card {
     position: relative;
     scroll-snap-align: start;
-    aspect-ratio: 3 / 4;
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    border-radius: 22px;
-    overflow: hidden;
-    background: #2E2C20;
-    isolation: isolate
+    padding-top: 92px
 }
 
-.rv-bg {
+/* slanted photo strip behind the top of the card */
+.rv-photo {
     position: absolute;
-    inset: 0;
-    z-index: -2;
-    width: 100%;
+    top: 0;
+    left: -8px;
+    right: 0;
+    height: 190px;
+    border-radius: 6px 30px 0 0;
+    background: var(--accent);
+    clip-path: polygon(0 52%, 100% 0, 100% 100%, 0 100%);
+    overflow: hidden
+}
+
+.rv-photo img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72%;
     height: 100%;
     object-fit: cover;
     pointer-events: none;
-    transition: transform 1.4s var(--ease)
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 45%);
+    transition: transform 1.2s var(--ease)
 }
 
-.rv-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(180deg, rgba(20, 18, 12, .18) 0%, rgba(20, 18, 12, 0) 22%, rgba(20, 18, 12, 0) 50%, rgba(20, 18, 12, .45) 100%)
+.rv-card:hover .rv-photo img {
+    transform: scale(1.06)
 }
 
-.rv-card:hover .rv-bg {
-    transform: scale(1.05)
-}
-
-/* product label: small glass pill on the photo */
-.rv-product {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(251, 248, 241, .18);
-    border: 1px solid rgba(251, 248, 241, .35);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    color: #fff;
-    font-family: "DM Sans", "Montserrat", sans-serif;
-    font-size: 12.5px;
-    font-weight: 500;
-    letter-spacing: .02em;
-    transition: background .3s, color .3s, border-color .3s
-}
-
-.rv-product svg {
-    width: 14px;
-    height: 14px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    transition: transform .3s var(--ease)
-}
-
-.rv-product:hover {
-    background: var(--brand-cream);
-    border-color: var(--brand-cream);
-    color: var(--brand-ink)
-}
-
-.rv-product:hover svg {
-    transform: translateX(3px)
-}
-
-.rv-body {
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
+.rv-panel {
+    position: relative;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 20px 20px 18px;
-    border-radius: 16px;
-    background: rgba(28, 25, 17, .5);
-    border: 1px solid rgba(255, 255, 255, .14);
-    -webkit-backdrop-filter: blur(16px) saturate(120%);
-    backdrop-filter: blur(16px) saturate(120%);
-    color: #fff
+    gap: 16px;
+    padding: 34px 34px 26px;
+    border-radius: 26px;
+    background: #FCF9F3;
+    box-shadow: 0 2px 4px rgba(46, 44, 32, .04), 0 30px 50px -28px rgba(46, 44, 32, .4);
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease)
+}
+
+.rv-card:hover .rv-panel {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 4px rgba(46, 44, 32, .04), 0 38px 60px -28px rgba(46, 44, 32, .5)
+}
+
+.rv-quote {
+    font-size: 34px;
+    color: var(--accent)
 }
 
 .rv-card blockquote {
-    margin: 0;
+    flex: 1;
+    margin: 4px 0 8px;
     font-family: "Gilda Display", "Marcellus", serif;
-    font-size: 18px;
-    line-height: 1.45;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden
+    font-size: 20px;
+    line-height: 1.6;
+    color: #3B372B
 }
 
 .rv-card figcaption {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, .16);
+    align-items: center;
+    gap: 14px;
     font-family: "DM Sans", "Montserrat", sans-serif
 }
 
-.rv-card figcaption b {
-    font-size: 14.5px;
-    font-weight: 500
+.rv-avatar {
+    flex: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--accent);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .04em
 }
 
-.rv-card figcaption span {
-    font-size: 12.5px;
-    color: rgba(255, 255, 255, .72)
-}
-
-/* progress + arrows */
-.rv-controls {
+.rv-who {
+    min-width: 0;
     display: flex;
+    flex-direction: column;
+    gap: 2px
+}
+
+.rv-who b {
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--brand-ink)
+}
+
+.rv-who small {
+    font-size: 14px;
+    color: #8C8378;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.rv-who small a {
+    transition: color .3s
+}
+
+.rv-who small a:hover {
+    color: var(--brand-gold)
+}
+
+.rv-source {
+    align-self: flex-end;
+    display: inline-flex;
     align-items: center;
-    gap: 28px;
-    padding: 32px 5% 0
+    gap: 7px;
+    margin-top: -4px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #F1EBE0;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    color: #4A463A
 }
 
-.rv-progress {
-    flex: 1;
-    height: 2px;
-    background: rgba(107, 104, 71, .16);
-    overflow: hidden
+.rv-source i {
+    font-size: 13px;
+    color: #4285F4
 }
 
-.rv-progress span {
-    display: block;
-    height: 100%;
-    background: var(--brand-ink);
-    transition: transform .2s linear
-}
-
+/* arrows: outline gold + filled ink */
 .rv-arrows {
     display: flex;
-    gap: 10px
+    justify-content: flex-end;
+    gap: 22px;
+    padding: 18px calc(5% + 40px) 0 0
 }
 
 .rv-arrows button {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    border: 1px solid rgba(46, 44, 32, .2);
-    background: transparent;
-    color: var(--brand-ink);
     display: grid;
     place-items: center;
+    font-size: 15px;
     cursor: pointer;
-    transition: background .3s, color .3s, border-color .3s, opacity .3s
+    transition: background .3s, color .3s, border-color .3s, opacity .3s, transform .3s var(--ease)
 }
 
-.rv-arrows button:hover:not(:disabled) {
-    background: var(--brand-ink);
-    border-color: var(--brand-ink);
+.rv-prev {
+    border: 1.5px solid var(--brand-gold);
+    background: transparent;
+    color: var(--brand-ink)
+}
+
+.rv-next {
+    border: 1.5px solid var(--brand-olive-d);
+    background: var(--brand-olive-d);
     color: #fff
 }
 
+.rv-arrows button:hover:not(:disabled) {
+    transform: scale(1.06)
+}
+
+.rv-prev:hover:not(:disabled) {
+    background: var(--brand-gold);
+    color: #fff
+}
+
+.rv-next:hover:not(:disabled) {
+    background: var(--brand-gold);
+    border-color: var(--brand-gold)
+}
+
 .rv-arrows button:disabled {
-    opacity: .35;
+    opacity: .4;
     cursor: default
 }
 
-.rv-arrows svg {
-    width: 18px;
-    height: 18px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-linejoin: round
+@media (max-width:1024px) {
+    .rv-wrap {
+        grid-template-columns: 1fr;
+        gap: 24px
+    }
+
+    .rv-intro {
+        padding: 0 5% 0 0
+    }
 }
 
 @media (max-width:767px) {
     .hcg-reviews {
-        padding: 24px 0 80px
+        padding: 56px 0 72px
     }
 
-    .rv-head {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-        padding: 0 5% 28px
+    .rv-intro h2 {
+        margin: 20px 0 24px
     }
 
     .rv-score {
@@ -1601,27 +1671,36 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 
     .rv-track {
-        grid-auto-columns: 80%;
-        gap: 12px
+        grid-auto-columns: 84%;
+        gap: 16px;
+        padding-right: 5%
     }
 
-    .rv-body {
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        padding: 18px 18px 16px
+    .rv-card {
+        padding-top: 76px
+    }
+
+    .rv-photo {
+        height: 160px;
+        left: -4px
+    }
+
+    .rv-panel {
+        padding: 26px 22px 20px;
+        border-radius: 22px
     }
 
     .rv-card blockquote {
-        font-size: 17px
-    }
-
-    .rv-controls {
-        padding-top: 24px
+        font-size: 18px
     }
 
     .rv-arrows {
-        display: none
+        padding-right: 5%
+    }
+
+    .rv-arrows button {
+        width: 50px;
+        height: 50px
     }
 }
 
