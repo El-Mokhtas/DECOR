@@ -28,17 +28,12 @@
         document.getElementById("cartCount").textContent = "2";
     }
 
-    /* ---------- mobile menu: circle reveal from the menu button ---------- */
+    /* ---------- mobile menu: floating panel slides in from the right ---------- */
     const body = document.body,
         menu = document.getElementById("mmenu"),
         toggle = document.getElementById("menuToggle"),
         closeBtn = document.getElementById("menuClose");
     function openMenu() {
-        const r = toggle.getBoundingClientRect(),
-            m =
-                menu.getBoundingClientRect(); /* circle starts at the menu button, relative to the panel */
-        menu.style.setProperty("--mx", r.left + r.width / 2 - m.left + "px");
-        menu.style.setProperty("--my", r.top + r.height / 2 - m.top + "px");
         body.classList.add("menu-open");
         menu.setAttribute("aria-hidden", "false");
         toggle.setAttribute("aria-expanded", "true");
