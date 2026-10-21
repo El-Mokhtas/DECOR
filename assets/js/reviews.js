@@ -1,18 +1,11 @@
-/* ---------- Customer reviews ----------
-   Put REAL reviews in REVIEWS (copied from Google or sent by customers).
-   While REVIEWS is empty the section stays hidden from visitors.
-
-   To preview the design with sample content, open the page with ?preview=reviews
-   e.g. https://el-mokhtas.github.io/DECOR/?preview=reviews
-   The samples below are never shown to normal visitors. */
+/* ---------- Customer reviews (demo) ----------
+   Shows REVIEWS when filled in, otherwise the demo reviews below.
+   Temporary: to be replaced by data from the backend. */
 (function () {
     const REVIEWS = [
         // { name: "First L.", location: "Hamilton, ON", rating: 5, date: "March 2026",
         //   text: "…", product: "Turkish Sofa Set" },
     ];
-
-    /* link for "Write a review" (your Google review link); null falls back to the contact section */
-    const REVIEW_URL = null; // "https://g.page/r/.../review"
 
     /* product name -> photo + link shown on each review card */
     const P = "assets/imgs/products/";
@@ -26,7 +19,7 @@
         "Fireplace & TV Unit": { img: P + "tv-fireplace/1.jpg", url: "shop.html?p=D0-0004" },
     };
 
-    /* PREVIEW ONLY: placeholder content so the layout can be judged */
+    /* demo content until the backend provides real reviews */
     const SAMPLE_REVIEWS = [
         { name: "Sample A.", location: "Hamilton, ON", rating: 5, product: "Turkish Sofa Set",
           text: "The sofa set looks even better in our living room than in the photos. Really comfortable, and the gold details are beautiful." },
@@ -43,8 +36,7 @@
     const section = document.getElementById("reviews");
     if (!section) return;
 
-    const preview = new URLSearchParams(location.search).get("preview") === "reviews";
-    const list = REVIEWS.length ? REVIEWS : preview ? SAMPLE_REVIEWS : [];
+    const list = REVIEWS.length ? REVIEWS : SAMPLE_REVIEWS;
 
     const stars = (n) => `<span class="rv-stars" role="img" aria-label="${n} out of 5 stars">${[1, 2, 3, 4, 5]
         .map((i) => `<i class="fa-${i <= n ? "solid" : "regular"} fa-star" aria-hidden="true"></i>`).join("")}</span>`;
@@ -53,26 +45,6 @@
 
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     const track = section.querySelector(".rv-track");
-
-    /* no real reviews yet: show an invitation instead of cards */
-    if (!list.length) {
-        const url = REVIEW_URL || "#contact";
-        track.outerHTML = `
-        <div class="rv-empty">
-            <figure class="rv-card" style="--accent:#4E4C33">
-                <span class="rv-photo" aria-hidden="true"><img src="${P}sofa-set/grey/1.jpg" alt="" loading="lazy"></span>
-                <div class="rv-panel rv-panel-empty">
-                    <i class="fa-solid fa-quote-left rv-quote" aria-hidden="true"></i>
-                    <p class="rv-empty-title">Bought from Home Centre Green?</p>
-                    <p class="rv-empty-text">We'd love to hear how your new piece looks at home. Your review helps other families in Hamilton choose with confidence.</p>
-                    <a class="rv-empty-btn" href="${esc(url)}"${REVIEW_URL ? ' target="_blank" rel="noopener"' : ""}><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i> Write a review</a>
-                </div>
-            </figure>
-        </div>`;
-        section.querySelector(".rv-arrows").hidden = true;
-        section.hidden = false;
-        return;
-    }
 
     /* cards: a slanted photo strip peeks out above each card */
     track.innerHTML = list.map((r, k) => {
@@ -95,7 +67,6 @@
         </figure>`;
     }).join("");
 
-    if (preview && !REVIEWS.length) section.classList.add("is-preview");
     section.hidden = false;
 
     /* arrows */
