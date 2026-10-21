@@ -163,6 +163,58 @@
     color: #8C8378
 }
 
+/* ---------- desktop: header split — text left, photo right ---------- */
+@media (min-width:1025px) {
+    .ar-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        gap: 56px;
+        align-items: center;
+        padding: 0 5%
+    }
+
+    .ar-top .ar-head {
+        max-width: none;
+        margin: 0;
+        padding: 22px 0 0;
+        text-align: left
+    }
+
+    .ar-top .pd-crumbs {
+        justify-content: flex-start
+    }
+
+    .ar-top .ar-head h1 {
+        font-size: clamp(38px, 3.6vw, 58px)
+    }
+
+    .ar-top .ar-dek {
+        margin-left: 0
+    }
+
+    .ar-top .ar-byline {
+        justify-content: flex-start
+    }
+
+    .ar-top .ar-byline .ar-share {
+        flex-basis: 100%;
+        padding: 6px 0 0;
+        border: 0
+    }
+
+    .ar-top .ar-hero {
+        margin: 22px 0 0
+    }
+
+    .ar-top .ar-hero img {
+        height: clamp(460px, 42vw, 620px)
+    }
+
+    .ar-top .ar-hero figcaption {
+        text-align: left
+    }
+}
+
 /* ---------- layout: TOC + body ---------- */
 .ar-layout {
     display: grid;
