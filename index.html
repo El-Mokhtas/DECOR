@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Center Green | Home Decor & Furniture in Ontario</title>
+  <meta name="description" content="Home Center Green — curated furniture, lighting and home decor delivered across Ontario, Canada." />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announce" role="region" aria-label="Store announcements">
+    <div class="announce__inner container">
+      <a class="announce__side" href="tel:+10000000000">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        <span>Call our designers</span>
+      </a>
+
+      <div class="announce__ticker" aria-live="polite">
+        <p class="announce__msg is-active">Free delivery across Ontario on orders over $499 CAD</p>
+        <p class="announce__msg">The Autumn Collection has arrived — <a href="#">Shop new in</a></p>
+        <p class="announce__msg">Book a free in-home design consultation — <a href="#">Learn more</a></p>
+      </div>
+
+      <div class="announce__side announce__side--end">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        <span>Ontario, Canada · CAD</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+
+      <!-- Mobile toggle -->
+      <button class="icon-btn header__burger" id="menuOpen" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Primary nav (left) -->
+      <nav class="nav nav--left" aria-label="Primary">
+        <ul class="nav__list">
+          <li class="nav__item has-mega">
+            <a href="#" class="nav__link" aria-haspopup="true">Shop
+              <svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <!-- Mega menu -->
+            <div class="mega" role="menu">
+              <div class="mega__inner container">
+                <div class="mega__col">
+                  <h4 class="mega__title">Living Room</h4>
+                  <a href="#">Sofas &amp; Sectionals</a>
+                  <a href="#">Accent Chairs</a>
+                  <a href="#">Coffee Tables</a>
+                  <a href="#">TV &amp; Media Units</a>
+                </div>
+                <div class="mega__col">
+                  <h4 class="mega__title">Bedroom</h4>
+                  <a href="#">Beds &amp; Headboards</a>
+                  <a href="#">Nightstands</a>
+                  <a href="#">Dressers</a>
+                  <a href="#">Bedding &amp; Throws</a>
+                </div>
+                <div class="mega__col">
+                  <h4 class="mega__title">Dining</h4>
+                  <a href="#">Dining Tables</a>
+                  <a href="#">Dining Chairs</a>
+                  <a href="#">Sideboards</a>
+                  <a href="#">Tableware</a>
+                </div>
+                <div class="mega__col">
+                  <h4 class="mega__title">Decor &amp; Lighting</h4>
+                  <a href="#">Pendant Lights</a>
+                  <a href="#">Lamps</a>
+                  <a href="#">Mirrors &amp; Wall Art</a>
+                  <a href="#">Plants &amp; Vases</a>
+                </div>
+                <a href="#" class="mega__feature">
+                  <span class="mega__feature-tag">New Season</span>
+                  <span class="mega__feature-title">The Sage &amp; Brass Edit</span>
+                  <span class="mega__feature-cta">Explore the collection →</span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item"><a href="#" class="nav__link">Collections</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Rooms</a></li>
+        </ul>
+      </nav>
+
+      <!-- Logo (center) -->
+      <a href="#" class="logo" aria-label="Home Center Green — Home">
+        <img src="assets/images/logo.png" alt="Home Center Green" width="450" height="284" />
+      </a>
+
+      <!-- Secondary nav + actions (right) -->
+      <div class="header__right">
+        <nav class="nav nav--right" aria-label="Secondary">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Design Services</a></li>
+            <li class="nav__item"><a href="#" class="nav__link nav__link--sale">Sale</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <button class="icon-btn" id="searchOpen" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          </button>
+          <a href="#" class="icon-btn actions__hide-sm" aria-label="My account">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+          </a>
+          <a href="#" class="icon-btn actions__hide-sm" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.3 5c2 0 3.2 1.1 3.9 2.2h3.6C14.5 6.1 15.7 5 17.7 5 21 5 22.7 8.4 21.2 11.4 19 15.6 12 20 12 20z"/></svg>
+          </a>
+          <a href="#" class="icon-btn cart" aria-label="Cart, 2 items">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+            <span class="cart__count">2</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold hairline with leaf ornament -->
+    <div class="header__line" aria-hidden="true">
+      <svg class="header__leaf" viewBox="0 0 40 16"><path d="M20 15C14 15 8 11 4 3c6 0 12 3 16 12zM20 15c6 0 12-4 16-12-6 0-12 3-16 12z"/></svg>
+    </div>
+  </header>
+
+  <!-- ============ SEARCH OVERLAY ============ -->
+  <div class="search" id="search" aria-hidden="true">
+    <button class="icon-btn search__close" id="searchClose" aria-label="Close search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <form class="search__form container" role="search" onsubmit="return false;">
+      <label for="searchInput" class="search__label">What are you looking for?</label>
+      <input id="searchInput" class="search__input" type="search" placeholder="Sofas, lamps, mirrors…" autocomplete="off" />
+      <div class="search__tags">
+        <span>Popular:</span>
+        <a href="#">Accent chairs</a>
+        <a href="#">Pendant lights</a>
+        <a href="#">Olive trees</a>
+        <a href="#">Linen bedding</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- ============ MOBILE DRAWER ============ -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
+    <div class="drawer__head">
+      <img src="assets/images/logo.png" alt="Home Center Green" class="drawer__logo" />
+      <button class="icon-btn" id="menuClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile">
+      <details class="drawer__group">
+        <summary>Shop</summary>
+        <a href="#">Living Room</a>
+        <a href="#">Bedroom</a>
+        <a href="#">Dining</a>
+        <a href="#">Decor &amp; Lighting</a>
+      </details>
+      <a href="#">Collections</a>
+      <a href="#">Rooms</a>
+      <a href="#">Design Services</a>
+      <a href="#" class="nav__link--sale">Sale</a>
+      <a href="#">My Account</a>
+      <a href="#">Wishlist</a>
+    </nav>
+    <p class="drawer__foot">Free delivery across Ontario on orders over $499 CAD</p>
+  </aside>
+
+  <!-- Placeholder content so the sticky header can be previewed -->
+  <main class="preview">
+    <section class="preview__hero">
+      <p class="preview__eyebrow">Home Center Green · Ontario</p>
+      <h1>Where nature meets <em>timeless</em> design</h1>
+      <p>The rest of the page will be built here next.</p>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
