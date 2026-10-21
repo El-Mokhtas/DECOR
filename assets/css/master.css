@@ -775,79 +775,109 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 
 /* ================= SHOP BY CATEGORY — bento grid ================= */
 .catalog {
-    padding: 120px 5% 40px
+    padding: 128px 5% 48px
 }
 
+/* header: title on the left, intro + link on the right, hairline beneath */
 .cat-head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 44px
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+    align-items: end;
+    gap: 32px 64px;
+    margin-bottom: 44px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(107, 104, 71, .16)
 }
 
 .cat-eyebrow {
-    display: block;
-    margin-bottom: 18px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 12.5px;
     font-weight: 500;
-    letter-spacing: 3px;
+    letter-spacing: .24em;
     text-transform: uppercase;
     color: var(--brand-gold)
 }
 
+.cat-eyebrow::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: currentColor
+}
+
 .cat-head h2 {
-    font-family: "Marcellus", Optima, "Tenor Sans", serif;
+    font-family: "Gilda Display", "Marcellus", serif;
     font-weight: 400;
-    font-size: clamp(34px, 3.6vw, 52px);
-    line-height: 1.05;
-    letter-spacing: -.5px;
+    font-size: clamp(40px, 4.4vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -.01em;
     color: var(--brand-ink)
 }
 
+/* "Category" in olive with a hand-drawn gold underline */
 .cat-head h2 em {
+    position: relative;
+    display: inline-block;
     font-style: normal;
     color: var(--brand-olive)
 }
 
-.cat-head p {
-    max-width: 440px;
-    margin-top: 14px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #6F6B58
+.cat-head h2 em::after {
+    content: "";
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    bottom: -.16em;
+    height: .22em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M2 10C40 3 90 2 198 6' fill='none' stroke='%23A8844A' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/100% 100% no-repeat
+}
+
+.cat-intro p {
+    margin-bottom: 22px;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #6B6656
 }
 
 .view-all {
-    flex: none;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--brand-olive);
-    font-family: "Montserrat", sans-serif;
-    font-size: 12.5px;
+    gap: 12px;
+    height: 48px;
+    padding: 0 24px;
+    border: 1px solid var(--brand-olive);
+    border-radius: 999px;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 13px;
     font-weight: 500;
-    letter-spacing: 1.6px;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--brand-olive);
-    transition: gap .35s var(--ease), color .3s, border-color .3s
+    color: var(--brand-olive-d);
+    transition: background .35s var(--ease), color .35s, border-color .35s
 }
 
 .view-all svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.6
+    stroke-width: 1.6;
+    transition: transform .4s var(--ease)
 }
 
 .view-all:hover {
-    gap: 16px;
-    color: var(--brand-gold);
-    border-color: var(--brand-gold)
+    background: var(--brand-olive);
+    border-color: var(--brand-olive);
+    color: #fff
+}
+
+.view-all:hover svg {
+    transform: translateX(4px)
 }
 
 .bento {
@@ -903,7 +933,7 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(180deg, rgba(34, 31, 21, 0) 40%, rgba(34, 31, 21, .7) 100%);
+    background: linear-gradient(180deg, rgba(34, 31, 21, 0) 45%, rgba(34, 31, 21, .72) 100%);
     transition: background .5s var(--ease)
 }
 
@@ -927,24 +957,25 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 }
 
 .tile-name {
-    font-family: "Marcellus", Optima, "Tenor Sans", serif;
+    font-family: "Gilda Display", "Marcellus", serif;
     color: var(--brand-cream);
-    font-size: 30px;
+    font-size: 32px;
     line-height: 1.05;
-    letter-spacing: -.2px
+    letter-spacing: -.005em;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, .25)
 }
 
 .t-living .tile-name {
-    font-size: clamp(36px, 3.4vw, 52px)
+    font-size: clamp(40px, 3.6vw, 58px)
 }
 
 .tile-count {
     display: block;
     margin-top: 8px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 11px;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 2.2px;
+    letter-spacing: .18em;
     text-transform: uppercase;
     color: var(--brand-gold-l)
 }
@@ -2546,14 +2577,30 @@ a.c-item:hover .go {
     }
 
     .cat-head {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        margin-bottom: 28px
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 28px;
+        padding-bottom: 28px
     }
 
-    .cat-head p {
-        font-size: 14px
+    .cat-eyebrow {
+        margin-bottom: 14px;
+        font-size: 11.5px
+    }
+
+    .cat-eyebrow::before {
+        width: 24px
+    }
+
+    .cat-intro p {
+        margin-bottom: 18px;
+        font-size: 15.5px
+    }
+
+    .view-all {
+        height: 44px;
+        padding: 0 20px;
+        font-size: 12px
     }
 
     .bento {
@@ -2584,8 +2631,8 @@ a.c-item:hover .go {
     }
 
     .tile-count {
-        font-size: 9.5px;
-        letter-spacing: 1.8px
+        font-size: 10.5px;
+        letter-spacing: .14em
     }
 
     .tile-go {
