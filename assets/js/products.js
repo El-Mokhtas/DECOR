@@ -33,14 +33,14 @@
         return `
         <article class="pc-card" data-i="${i}" data-cat="${p.cat.toLowerCase()}">
             <div class="pc-media">
-                <a href="shop.html?p=${p.code}" class="pc-link" aria-label="${esc(p.name)}">${photos(o, p.name)}</a>
+                <a href="product.html?p=${p.code}" class="pc-link" aria-label="${esc(p.name)}">${photos(o, p.name)}</a>
                 <span class="pc-tag">${p.cat}</span>
                 <button type="button" class="pc-wish${saved ? " is-on" : ""}" aria-pressed="${saved}" aria-label="Save ${esc(p.name)}">
                     <i class="fa-${saved ? "solid" : "regular"} fa-heart" aria-hidden="true"></i></button>
             </div>
             <div class="pc-body">
                 ${swatches}
-                <h3 class="pc-name"><a href="shop.html?p=${p.code}">${esc(p.name)}</a></h3>
+                <h3 class="pc-name"><a href="product.html?p=${p.code}">${esc(p.name)}</a></h3>
                 <p class="pc-meta">${esc(p.meta)}</p>
                 <div class="pc-foot">
                     <span class="pc-price">${p.from ? "<small>From</small>" : ""}${money(p.price)}<small>CAD</small></span>

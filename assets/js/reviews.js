@@ -10,13 +10,13 @@
     /* product name -> photo + link shown on each review card */
     const P = "assets/imgs/products/";
     const PRODUCT_INFO = {
-        "Turkish Sofa Set": { img: P + "sofa-set/taupe/1.jpg", url: "shop.html?p=D0-0002" },
-        "Turkish Embroidered Carpet": { img: P + "carpet/red/2.jpg", url: "shop.html?p=DB-0001" },
-        "White Queen Bed": { img: P + "queen-bed-white/2.jpg", url: "shop.html?p=BR-0002" },
-        "Yellow Queen Bed": { img: P + "queen-bed-yellow/1.jpg", url: "shop.html?p=BR-0003" },
-        "Brown Queen Bed": { img: P + "queen-bed-brown/1.jpg", url: "shop.html?p=BR-0001" },
-        "Upholstered Single Bed": { img: P + "single-bed/cream/2.jpg", url: "shop.html?p=BR-0006" },
-        "Fireplace & TV Unit": { img: P + "tv-fireplace/1.jpg", url: "shop.html?p=D0-0004" },
+        "Turkish Sofa Set": { img: P + "sofa-set/taupe/1.jpg", url: "product.html?p=D0-0002" },
+        "Turkish Embroidered Carpet": { img: P + "carpet/red/2.jpg", url: "product.html?p=DB-0001" },
+        "White Queen Bed": { img: P + "queen-bed-white/2.jpg", url: "product.html?p=BR-0002" },
+        "Yellow Queen Bed": { img: P + "queen-bed-yellow/1.jpg", url: "product.html?p=BR-0003" },
+        "Brown Queen Bed": { img: P + "queen-bed-brown/1.jpg", url: "product.html?p=BR-0001" },
+        "Upholstered Single Bed": { img: P + "single-bed/cream/2.jpg", url: "product.html?p=BR-0006" },
+        "Fireplace & TV Unit": { img: P + "tv-fireplace/1.jpg", url: "product.html?p=D0-0004" },
     };
 
     /* demo content until the backend provides real reviews */

@@ -9,7 +9,7 @@
     const PRODUCTS = [
         {
             code: "D0-0002", name: "Turkish Sofa Set", cat: "Living", price: 4000,
-            meta: "220 × 90 × 80 cm",
+            meta: "220 × 90 × 80 cm", dims: { w: 220, d: 90, h: 80 },
             desc: "A generous tufted sofa set with matching armchairs, finished with brushed gold legs and accent cushions. Made in Turkey.",
             options: [
                 { name: "Grey", color: "#C9C6BE", photos: set("sofa-set/grey", [1, 5, 2, 3, 4]) },
@@ -67,7 +67,7 @@
         },
         {
             code: "D0-0004", name: "Fireplace & TV Unit", cat: "Living", price: 500,
-            meta: "180 × 40 × 50 cm",
+            meta: "180 × 40 × 50 cm", dims: { w: 180, d: 40, h: 50 },
             desc: "A curved TV unit with a built-in electric fireplace and gold details, for a warm focal point in the living room.",
             options: [{ name: "Cream", color: "#EFE6D6", photos: set("tv-fireplace", [1, 2]) }],
         },
@@ -115,6 +115,74 @@
         const btn = e.target.closest("[data-add]");
         if (btn) addToCart(JSON.parse(btn.dataset.add), btn);
     });
+
+    /* ---- product card (same look as the homepage slider), linking to product.html ---- */
+    const money = (n) => "$" + n.toLocaleString("en-CA");
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const photos = (o, name) =>
+        `<img class="pc-img" src="${o.photos[0]}" alt="${esc(name)}" loading="lazy">` +
+        (o.photos[1] ? `<img class="pc-img pc-img-alt" src="${o.photos[1]}" alt="" loading="lazy">` : "");
+    window.hcgCard = function (p) {
+        const i = PRODUCTS.indexOf(p);
+        const saved = window.hcgWish.has(p.code);
+        const url = `product.html?p=${p.code}`;
+        const swatches = p.options.length > 1
+            ? `<div class="pc-swatches" role="radiogroup" aria-label="Colour">${p.options.map((op, n) =>
+                `<button type="button" class="pc-swatch" role="radio" aria-checked="${n === 0}" aria-label="${op.name}" title="${op.name}" data-k="${n}" style="--c:${op.color}"></button>`).join("")}
+                <span class="pc-colour-name">${p.options[0].name}</span></div>`
+            : `<div class="pc-swatches" aria-hidden="true"></div>`;
+        return `
+        <article class="pc-card" data-i="${i}">
+            <div class="pc-media">
+                <a href="${url}" class="pc-link" aria-label="${esc(p.name)}">${photos(p.options[0], p.name)}</a>
+                <span class="pc-tag">${p.cat}</span>
+                <button type="button" class="pc-wish${saved ? " is-on" : ""}" aria-pressed="${saved}" aria-label="Save ${esc(p.name)}">
+                    <i class="fa-${saved ? "solid" : "regular"} fa-heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="pc-body">
+                ${swatches}
+                <h3 class="pc-name"><a href="${url}">${esc(p.name)}</a></h3>
+                <p class="pc-meta">${esc(p.meta)}</p>
+                <div class="pc-foot">
+                    <span class="pc-price">${p.from ? "<small>From</small>" : ""}${money(p.price)}<small>CAD</small></span>
+                    <button type="button" class="pc-add" aria-label="Add ${esc(p.name)} to cart">
+                        <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><i class="fa-solid fa-check" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </article>`;
+    };
+    /* swatches, wishlist and add-to-cart for cards made by hcgCard */
+    window.hcgBindCards = function (container) {
+        container.addEventListener("click", (e) => {
+            const card = e.target.closest(".pc-card");
+            if (!card) return;
+            const p = PRODUCTS[card.dataset.i];
+            const sw = e.target.closest(".pc-swatch");
+            if (sw) {
+                const o = p.options[sw.dataset.k];
+                card.querySelectorAll(".pc-swatch").forEach((b) => b.setAttribute("aria-checked", b === sw));
+                card.querySelector(".pc-link").innerHTML = photos(o, `${p.name} — ${o.name}`);
+                card.querySelector(".pc-colour-name").textContent = o.name;
+                return;
+            }
+            const heart = e.target.closest(".pc-wish");
+            if (heart) {
+                const on = window.hcgWish.toggle(p.code);
+                heart.classList.toggle("is-on", on);
+                heart.setAttribute("aria-pressed", on);
+                heart.querySelector("i").className = `fa-${on ? "solid" : "regular"} fa-heart`;
+                return;
+            }
+            const add = e.target.closest(".pc-add");
+            if (add) {
+                const checked = card.querySelector('.pc-swatch[aria-checked="true"]');
+                addToCart([{ code: p.code, name: p.name, option: (checked ? p.options[checked.dataset.k] : p.options[0]).name, price: p.price }]);
+                add.classList.add("done");
+                clearTimeout(add._t);
+                add._t = setTimeout(() => add.classList.remove("done"), 1600);
+            }
+        });
+    };
 
     /* ---- wishlist kept in this browser (demo) ---- */
     let wish = [];

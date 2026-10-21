@@ -110,7 +110,7 @@
         return `
         <article class="pc-card" data-i="${i}">
             <div class="pc-media">
-                <a href="?p=${p.code}" class="pc-link" data-qv="${i}" aria-label="${esc(p.name)} — quick view">${photos(o, p.name)}</a>
+                <a href="product.html?p=${p.code}" class="pc-link" aria-label="${esc(p.name)}">${photos(o, p.name)}</a>
                 <span class="pc-tag">${p.cat}</span>
                 <button type="button" class="pc-wish${saved ? " is-on" : ""}" aria-pressed="${saved}" aria-label="Save ${esc(p.name)}">
                     <i class="fa-${saved ? "solid" : "regular"} fa-heart" aria-hidden="true"></i></button>
@@ -118,7 +118,7 @@
             </div>
             <div class="pc-body">
                 ${swatches}
-                <h3 class="pc-name"><a href="?p=${p.code}" data-qv="${i}">${esc(p.name)}</a></h3>
+                <h3 class="pc-name"><a href="product.html?p=${p.code}">${esc(p.name)}</a></h3>
                 <p class="pc-meta">${esc(p.meta)}</p>
                 <div class="pc-foot">
                     <span class="pc-price">${p.from ? "<small>From</small>" : ""}${money(p.price)}<small>CAD</small></span>
@@ -380,16 +380,6 @@
         const dx = e.changedTouches[0].clientX - sx;
         if (Math.abs(dx) > 40) { q.photo += dx < 0 ? 1 : -1; showPhoto(); }
         sx = null;
-    });
-
-    /* header search results link to ?p=CODE: open them here without reloading */
-    document.addEventListener("click", (e) => {
-        const a = e.target.closest('a[href^="shop.html?p="]');
-        if (!a) return;
-        const i = PRODUCTS.findIndex((p) => p.code === new URL(a.href).searchParams.get("p"));
-        if (i < 0) return;
-        e.preventDefault();
-        openQuick(i);
     });
 
     render();
