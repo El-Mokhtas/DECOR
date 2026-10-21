@@ -18,46 +18,89 @@
 
 <body>
     <!-- ================= HEADER ================= -->
-    <header class="site-header" id="siteHeader">
-        <div class="header-inner">
-            <a href="index.html" class="logo" aria-label="Home Centre Green Hamilton - Home">
+    <header class="hh-header" id="siteHeader">
+        <!-- announcement strip: messages rotate (assets/js/header.js) -->
+        <div class="hh-topbar">
+            <div class="hh-msgs" aria-live="polite">
+                <p class="hh-msg is-active"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free delivery across Hamilton on qualifying orders</p>
+                <p class="hh-msg"><i class="fa-solid fa-store" aria-hidden="true"></i> Visit our showroom in Hamilton — <a href="#showroom">get directions</a></p>
+                <p class="hh-msg"><i class="fa-regular fa-credit-card" aria-hidden="true"></i> Flexible payment options available</p>
+            </div>
+        </div>
+
+        <div class="hh-bar">
+            <button class="hh-burger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+
+            <nav class="hh-nav hh-nav-left" aria-label="Main">
+                <div class="hh-shop">
+                    <button type="button" class="hh-link hh-shop-btn" aria-expanded="false" aria-controls="hhMega">Shop <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+                </div>
+                <a class="hh-link" href="shop.html?cat=living">Living</a>
+                <a class="hh-link" href="shop.html?cat=bedroom">Bedroom</a>
+                <a class="hh-link" href="shop.html?cat=carpets">Carpets</a>
+            </nav>
+
+            <a href="index.html" class="hh-logo" aria-label="Home Centre Green Hamilton - Home">
                 <img src="assets/imgs/logo.png" alt="Home Centre Green Hamilton">
             </a>
 
-            <nav class="main-nav" aria-label="Main">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li class="has-sub">
-                        <a href="shop.html">Shop<span class="caret" aria-hidden="true"></span></a>
-                        <ul class="dropdown">
-                            <li><a href="sofa.html">Living</a></li>
-                            <li><a href="#">Dining</a></li>
-                            <li><a href="#">Bedroom</a></li>
-                            <li><a href="#">Lighting</a></li>
-                            <li><a href="#">Office</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <div class="hh-right">
+                <a class="hh-link hh-showroom" href="#showroom"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Showroom</a>
+                <button type="button" class="hh-icon" id="hhSearchBtn" aria-label="Search" aria-expanded="false" aria-controls="hhSearch"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                <a class="hh-icon hh-cart" href="cart.html" aria-label="Cart"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span class="cart-count" id="cartCount"></span></a>
+            </div>
+        </div>
 
-            <div class="header-actions">
-                <a href="my-account.html" class="icon-btn account" aria-label="My account"><svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="8" r="4" />
-                        <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-                    </svg></a>
-                <a href="cart.html" class="icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24">
-                        <path d="M5 8h14l-1.2 12H6.2z" />
-                        <path d="M9 8V6a3 3 0 0 1 6 0v2" />
-                    </svg><span class="cart-count" id="cartCount"></span></a>
-                <a href="#featured" class="btn-consult">Shop Now</a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"
-                    aria-controls="mmenu"><span></span><span></span></button>
+        <!-- Shop mega menu -->
+        <div class="hh-mega" id="hhMega" hidden>
+            <div class="hh-mega-inner">
+                <div class="hh-mega-list">
+                    <span class="hh-mega-title">Shop by room</span>
+                    <a href="shop.html?cat=living"><i class="fa-solid fa-couch" aria-hidden="true"></i> Living</a>
+                    <a href="shop.html?cat=bedroom"><i class="fa-solid fa-bed" aria-hidden="true"></i> Bedroom</a>
+                    <a href="shop.html?cat=carpets"><i class="fa-solid fa-rug" aria-hidden="true"></i> Carpets</a>
+                    <a href="shop.html?cat=tv-units"><i class="fa-solid fa-tv" aria-hidden="true"></i> TV Units</a>
+                    <a href="shop.html" class="hh-mega-all">All products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="hh-mega-cats">
+                    <a href="shop.html?cat=living" class="hh-cat"><img src="assets/imgs/products/sofa-set/grey/1.jpg" alt="" loading="lazy"><span>Living</span></a>
+                    <a href="shop.html?cat=bedroom" class="hh-cat"><img src="assets/imgs/products/queen-bed-yellow/1.jpg" alt="" loading="lazy"><span>Bedroom</span></a>
+                    <a href="shop.html?cat=carpets" class="hh-cat"><img src="assets/imgs/products/carpet/navy/2.jpg" alt="" loading="lazy"><span>Carpets</span></a>
+                    <a href="shop.html?cat=tv-units" class="hh-cat"><img src="assets/imgs/products/tv-fireplace/1.jpg" alt="" loading="lazy"><span>TV Units</span></a>
+                </div>
+                <a href="#featured" class="hh-feature">
+                    <img src="assets/imgs/products/sofa-set/rust/2.jpg" alt="" loading="lazy">
+                    <span class="hh-feature-body">
+                        <small>Featured</small>
+                        <strong>Turkish Sofa Set</strong>
+                        <span>4 colours · $4,000</span>
+                        <em>Shop now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></em>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- search panel: live results from the product list -->
+        <div class="hh-search" id="hhSearch" hidden>
+            <div class="hh-search-inner">
+                <label class="hh-search-field">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only">Search products</span>
+                    <input type="search" id="hhSearchInput" placeholder="Search sofas, beds, carpets…" autocomplete="off">
+                    <button type="button" class="hh-search-close" aria-label="Close search"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                </label>
+                <div class="hh-search-popular">
+                    <span>Popular:</span>
+                    <button type="button" data-q="sofa">Sofa set</button>
+                    <button type="button" data-q="queen">Queen beds</button>
+                    <button type="button" data-q="carpet">Carpets</button>
+                    <button type="button" data-q="tv">TV unit</button>
+                </div>
+                <div class="hh-results" role="list"></div>
             </div>
         </div>
     </header>
+    <div class="hh-scrim" id="hhScrim" hidden></div>
 
     <!-- ================= SIDEBAR (mobile menu) ================= -->
     <div class="mmenu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
@@ -73,8 +116,8 @@
                 <ol>
                     <li class="mm-in"><a href="index.html" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z" /></svg></span><span class="mm-name">Home</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
                     <li class="mm-in"><a href="shop.html" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg></span><span class="mm-name">Shop</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
-                    <li class="mm-in"><a href="projects.html" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5" /><rect x="13" y="4" width="7" height="7" rx="1.5" /><rect x="4" y="13" width="7" height="7" rx="1.5" /><rect x="13" y="13" width="7" height="7" rx="1.5" /></svg></span><span class="mm-name">Projects</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
-                    <li class="mm-in"><a href="about.html" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5M12 8h.01" /></svg></span><span class="mm-name">About</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="#showroom" class="mm-link"><span class="mm-ic"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="mm-name">Showroom</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="#faq" class="mm-link"><span class="mm-ic"><i class="fa-regular fa-circle-question" aria-hidden="true"></i></span><span class="mm-name">FAQ</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
                     <li class="mm-in"><a href="#contact" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z" /></svg></span><span class="mm-name">Contact</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
                 </ol>
             </nav>
@@ -324,13 +367,12 @@
                 <a href="shop.html">All products</a>
             </nav>
 
-            <nav class="ft-col" aria-label="Company">
-                <h3>Company</h3>
+            <nav class="ft-col" aria-label="Help">
+                <h3>Help</h3>
                 <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="projects.html">Projects</a>
+                <a href="#showroom">Showroom</a>
+                <a href="#faq">FAQ</a>
                 <a href="cart.html">Cart</a>
-                <a href="my-account.html">My account</a>
             </nav>
 
             <div class="ft-col ft-contact">
@@ -352,6 +394,7 @@
     </footer>
 
     <script src="assets/js/products.js"></script>
+    <script src="assets/js/header.js"></script>
     <script src="assets/js/reviews.js"></script>
     <script src="assets/js/faq.js"></script>
     <script src="assets/js/showroom.js"></script>

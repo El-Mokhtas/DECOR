@@ -90,6 +90,8 @@
         if (btn) addToCart(JSON.parse(btn.dataset.add), btn);
     });
 
+    window.HCG_PRODUCTS = PRODUCTS; // shared with the header search
+
     const grid = document.getElementById("fpGrid");
     if (!grid) return;
 

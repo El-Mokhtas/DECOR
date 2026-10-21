@@ -9,7 +9,8 @@
             "hide",
             y > 500 &&
                 y > lastY &&
-                !document.body.classList.contains("menu-open"),
+                !document.body.classList.contains("menu-open") &&
+                !header.classList.contains("has-panel"),
         );
         lastY = y;
     }
