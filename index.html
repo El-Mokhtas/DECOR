@@ -250,20 +250,31 @@
             </div>
         </section>
 
-        <!-- ================= FEATURED PRODUCTS (rendered by assets/js/products.js) ================= -->
-        <section class="featured" id="featured">
-            <div class="cat-head">
+        <!-- ================= PRODUCTS (cards rendered by assets/js/products.js) ================= -->
+        <section class="hcg-products" id="featured">
+            <div class="pc-head">
                 <div>
-                    <span class="cat-eyebrow">Featured Pieces</span>
-                    <h2>Made to be <em>lived in</em></h2>
-                    <p>Turkish pieces in stock now. Pick a colour to see it in the room.</p>
+                    <span class="pc-eyebrow">The Collection</span>
+                    <h2>Crafted in Turkey, <em>made for home</em></h2>
                 </div>
-                <a href="shop.html" class="view-all">Shop all products <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg></a>
+                <div class="pc-controls">
+                    <div class="pc-tabs" role="tablist" aria-label="Filter by room">
+                        <button type="button" class="pc-tab" role="tab" aria-selected="true" data-cat="all">All</button>
+                        <button type="button" class="pc-tab" role="tab" aria-selected="false" data-cat="living">Living</button>
+                        <button type="button" class="pc-tab" role="tab" aria-selected="false" data-cat="bedroom">Bedroom</button>
+                        <button type="button" class="pc-tab" role="tab" aria-selected="false" data-cat="carpets">Carpets</button>
+                    </div>
+                    <div class="pc-arrows">
+                        <button type="button" class="pc-prev" aria-label="Previous products"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <button type="button" class="pc-next" aria-label="Next products"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
             </div>
-            <div class="fp-grid" id="fpGrid"></div>
-            <p class="fp-note">All prices in Canadian dollars (CAD).</p>
+            <div class="pc-track"></div>
+            <div class="pc-bottom">
+                <div class="pc-progress" aria-hidden="true"><span></span></div>
+                <a href="shop.html" class="pc-all">All products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
         </section>
 
         <!-- ================= CUSTOMER REVIEWS (filled by assets/js/reviews.js) ================= -->
