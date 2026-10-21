@@ -59,95 +59,96 @@
         </div>
     </header>
 
-    <!-- ================= SIDEBAR (mobile menu) ================= -->
+    <!-- ================= SIDEBAR (mobile menu) — shop-first drawer ================= -->
+    <div class="mmenu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
     <div class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
         <div class="mmenu-top">
-            <a href="index.html" class="mmenu-logo"><img
-                    src="https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/SAMARA-LOGO-IDEAS-1-1-e1745428204505.png"
-                    alt="SS Design Interior Design"></a>
+            <a href="index.html" class="mmenu-logo"><img src="assets/imgs/logo.png" alt="Home Centre Green Hamilton"></a>
             <button type="button" class="mmenu-close" id="menuClose" aria-label="Close menu"><span></span><span></span></button>
         </div>
-        <nav class="mmenu-body" aria-label="Mobile">
-            <ul class="mmenu-links">
-                <li class="m-card active"><a href="index.html" class="m-item" aria-current="page"><span
-                            class="m-name">Home</span><span class="m-icon"><svg class="arrow" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></span></a></li>
-                <li class="m-card">
-                    <button type="button" class="m-item" id="shopToggle" aria-expanded="false"
-                        aria-controls="shopSub"><span class="m-name">Shop</span><span class="m-icon"><svg
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 5v14M5 12h14" />
-                            </svg></span></button>
-                    <div class="m-sub" id="shopSub">
-                        <div>
-                            <div class="m-cats">
-                                <a href="sofa.html" class="m-cat"><img
-                                        src="https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/102577_CAITLIN-SOFA_SILVER_12_ALT-scaled-450x304.jpg"
-                                        alt="" loading="lazy" width="38" height="38"><span>Living<small>91
-                                            items</small></span></a>
-                                <a href="#" class="m-cat"><img
-                                        src="https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/Screenshot-2025-05-07-at-2.12.14%E2%80%AFAM-450x349.jpg"
-                                        alt="" loading="lazy" width="38" height="38"><span>Dining<small>60
-                                            items</small></span></a>
-                                <a href="#" class="m-cat"><img
-                                        src="https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/110987_TARRANT_110767_DOONE_109541_ESAI_107934_LOHN_109376_DEVA-scaled-450x300.jpg"
-                                        alt="" loading="lazy" width="38" height="38"><span>Bedroom<small>21
-                                            items</small></span></a>
-                                <a href="#" class="m-cat"><img
-                                        src="https://mywofjpo.elementor.cloud/wp-content/uploads/2025/06/CWI-1246W8-101-21-3-450x450.jpg"
-                                        alt="" loading="lazy" width="38" height="38"><span>Lighting<small>142
-                                            items</small></span></a>
-                                <a href="#" class="m-cat"><img
-                                        src="https://mywofjpo.elementor.cloud/wp-content/uploads/2025/05/Screenshot-2025-05-09-at-1.05.17%E2%80%AFAM-450x382.jpg"
-                                        alt="" loading="lazy" width="38" height="38"><span>Office<small>14
-                                            items</small></span></a>
-                                <a href="shop.html" class="m-cat all">View all categories</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="m-card"><a href="projects.html" class="m-item"><span class="m-name">Projects</span><span
-                            class="m-icon"><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></span></a></li>
-                <li class="m-card"><a href="#services" class="m-item"><span class="m-name">Services</span><span
-                            class="m-icon"><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></span></a></li>
-                <li class="m-card"><a href="about.html" class="m-item"><span class="m-name">About</span><span
-                            class="m-icon"><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></span></a></li>
-                <li class="m-card"><a href="#contact" class="m-item"><span class="m-name">Contact</span><span
-                            class="m-icon"><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></span></a></li>
-            </ul>
 
-            <div class="mmenu-foot">
-                <a href="#contact" class="mmenu-cta">Book a consultation <span class="cta-arrow"><svg
-                            viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 12h14M13 6l6 6-6 6" />
-                        </svg></span></a>
-                <div class="mmenu-bottom">
-                    <div class="mmenu-contact"><a href="tel:+19059625883">+1 (905) 962-5883</a><a
-                            href="mailto:samara@ssdesign.ca">samara@ssdesign.ca</a></div>
-                    <div class="mmenu-social">
-                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 320 512">
-                                <path
-                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
-                            </svg></a>
-                        <a href="https://www.instagram.com/samarasharifdesign/" target="_blank" rel="noopener"
-                            aria-label="Instagram"><svg viewBox="0 0 448 512">
-                                <path
-                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                            </svg></a>
-                    </div>
+        <div class="mmenu-body">
+            <!-- search -->
+            <form class="mm-search mm-in" action="shop.html" role="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
+                <label class="sr-only" for="mmSearch">Search products</label>
+                <input id="mmSearch" name="q" type="search" placeholder="Search sofas, lamps, rugs…" autocomplete="off">
+            </form>
+            <div class="mm-chips mm-in" aria-label="Popular searches">
+                <a href="shop.html?q=sofa">Sofas</a>
+                <a href="shop.html?q=dining">Dining tables</a>
+                <a href="shop.html?q=pendant">Pendants</a>
+                <a href="shop.html?q=accent+chair">Accent chairs</a>
+            </div>
+
+            <!-- quick actions -->
+            <div class="mm-quick mm-in">
+                <a href="my-account.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" /></svg><span>Account</span></a>
+                <a href="wishlist.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.3 5c2 0 3.2 1.1 3.9 2.2h3.6C14.5 6.1 15.7 5 17.7 5 21 5 22.7 8.4 21.2 11.4 19 15.6 12 20 12 20z" /></svg><span>Wishlist</span></a>
+                <a href="cart.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg><span>Cart</span><b class="mm-q-count" id="mmCartCount"></b></a>
+                <a href="track-order.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z" /><circle cx="7" cy="17.5" r="1.8" /><circle cx="17" cy="17.5" r="1.8" /></svg><span>Track order</span></a>
+            </div>
+
+            <!-- shop by room -->
+            <section class="mm-block mm-in" aria-labelledby="mmRoomsTitle">
+                <div class="mm-head">
+                    <h3 id="mmRoomsTitle">Shop by <em>room</em></h3>
+                    <a href="shop.html">View all</a>
+                </div>
+                <div class="mm-rooms">
+                    <a href="sofa.html" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/102577_CAITLIN-SOFA_SILVER_12_ALT-scaled-450x304.jpg')"></span><span class="mm-room-name">Living</span><small>91 items</small></a>
+                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/Screenshot-2025-05-07-at-2.12.14%E2%80%AFAM-450x349.jpg')"></span><span class="mm-room-name">Dining</span><small>60 items</small></a>
+                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/110987_TARRANT_110767_DOONE_109541_ESAI_107934_LOHN_109376_DEVA-scaled-450x300.jpg')"></span><span class="mm-room-name">Bedroom</span><small>21 items</small></a>
+                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/06/CWI-1246W8-101-21-3-450x450.jpg')"></span><span class="mm-room-name">Lighting</span><small>142 items</small></a>
+                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/05/Screenshot-2025-05-09-at-1.05.17%E2%80%AFAM-450x382.jpg')"></span><span class="mm-room-name">Office</span><small>14 items</small></a>
+                </div>
+            </section>
+
+            <!-- shop shortcuts -->
+            <div class="mm-shortcuts mm-in">
+                <a href="shop.html?sort=new" class="mm-sc"><span class="mm-sc-dot"></span>New arrivals</a>
+                <a href="shop.html?sort=popular" class="mm-sc"><span class="mm-sc-dot"></span>Best sellers</a>
+                <a href="shop.html?sale=1" class="mm-sc mm-sc--sale"><span class="mm-sc-dot"></span>Sale</a>
+            </div>
+
+            <!-- featured banner -->
+            <a href="shop.html" class="mm-feature mm-in">
+                <span class="mm-feature-img" style="background-image:url('assets/imgs/bg.png')"></span>
+                <span class="mm-feature-copy">
+                    <small>The living edit</small>
+                    <strong>Warm woods,<br>soft linens</strong>
+                    <span class="mm-feature-cta">Shop the look <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                </span>
+            </a>
+
+            <!-- site pages -->
+            <nav class="mm-pages mm-in" aria-label="Mobile">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="#services">Services</a>
+                <a href="about.html">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <!-- help -->
+            <div class="mm-help mm-in">
+                <div class="mm-help-text">
+                    <strong>Not sure what fits your space?</strong>
+                    <span>Our designers will help you choose — free.</span>
+                </div>
+                <a href="#contact" class="mm-help-btn">Book a consultation <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+
+            <!-- TODO: add the store's real phone number, email and social links -->
+            <div class="mm-foot mm-in">
+                <span class="mm-loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z" /><circle cx="12" cy="9" r="2.5" /></svg>Hamilton, Ontario</span>
+                <div class="mm-social">
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".6" /></svg></a>
+                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z" /></svg></a>
+                    <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M10 21l2-8M10.5 14c1 1 4 1 5-2 1-3-1-5-3.5-5S8 9 8 11c0 1 .5 2 1 2" /></svg></a>
                 </div>
             </div>
-        </nav>
+        </div>
     </div>
 
     <main>

@@ -24,8 +24,10 @@
             0,
         );
         document.getElementById("cartCount").textContent = n || "";
+        document.getElementById("mmCartCount").textContent = n || "";
     } catch (e) {
         document.getElementById("cartCount").textContent = "2";
+        document.getElementById("mmCartCount").textContent = "2";
     }
 
     /* ---------- mobile menu: circle reveal from the menu button ---------- */
@@ -61,11 +63,7 @@
             if (a.getAttribute("href").startsWith("#")) closeMenu();
         }),
     );
-    const shopT = document.getElementById("shopToggle");
-    shopT.addEventListener("click", () => {
-        const o = shopT.closest(".m-card").classList.toggle("open");
-        shopT.setAttribute("aria-expanded", o);
-    });
+    document.getElementById("menuBackdrop").addEventListener("click", closeMenu);
     matchMedia("(min-width:1025px)").addEventListener("change", (e) => {
         if (e.matches) closeMenu();
     });
