@@ -28,7 +28,7 @@
         document.getElementById("cartCount").textContent = "2";
     }
 
-    /* ---------- mobile menu: floating panel slides in from the right ---------- */
+    /* ---------- mobile menu: floating panel slides in from the left ---------- */
     const body = document.body,
         menu = document.getElementById("mmenu"),
         toggle = document.getElementById("menuToggle"),

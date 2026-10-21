@@ -373,7 +373,7 @@ a {
     width: 24px
 }
 
-/* ================= MOBILE MENU — floating light panel that slides in from the right ================= */
+/* ================= MOBILE MENU — floating light panel that slides in from the left ================= */
 body.menu-open {
     overflow: hidden
 }
@@ -403,7 +403,7 @@ body.menu-open .mmenu-backdrop {
     --slide: cubic-bezier(.32, .72, 0, 1);
     position: fixed;
     top: 10px;
-    right: 10px;
+    left: 10px;
     bottom: 10px;
     z-index: 99;
     width: min(380px, calc(100% - 64px));
@@ -418,7 +418,7 @@ body.menu-open .mmenu-backdrop {
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;
-    transform: translateX(calc(100% + 24px));
+    transform: translateX(calc(-100% - 24px));
     visibility: hidden;
     transition: transform .6s var(--slide), visibility 0s linear .6s;
 }
@@ -442,7 +442,7 @@ body.menu-open .mmenu {
     align-items: center;
     justify-content: space-between;
     height: 76px;
-    padding: 0 14px 0 18px;
+    padding: 0 14px 0 20px;
     background: rgba(251, 248, 241, .92);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -494,145 +494,107 @@ body.menu-open .mmenu-close span:nth-child(2) {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    padding: 14px 12px 14px;
+    padding: 10px 20px 16px;
     font-family: "DM Sans", "Montserrat", sans-serif
 }
 
-/* page links */
+/* page links: clean left-aligned rows */
 .mm-nav ol {
     list-style: none;
-    display: grid;
-    gap: 4px
+    border-top: 1px solid var(--line)
 }
 
 .mm-link {
     position: relative;
-    display: grid;
-    grid-template-columns: 30px 1fr auto;
+    display: flex;
     align-items: center;
-    gap: 6px;
-    min-height: 60px;
-    padding: 8px 10px 8px 14px;
-    border-radius: 18px;
-    border: 1px solid transparent;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 17px 6px;
+    border-bottom: 1px solid var(--line);
     color: var(--ink);
-    transition: background .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease)
+    -webkit-tap-highlight-color: transparent
 }
 
-/* hairline between rows, hidden around the active card */
+/* gold underline that draws in from the left on hover / active */
 .mm-link::after {
     content: "";
     position: absolute;
-    left: 16px;
-    right: 16px;
-    bottom: -3px;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
     height: 1px;
-    background: var(--line)
-}
-
-.mm-nav li:last-child .mm-link::after,
-.mm-link[aria-current]::after,
-.mm-nav li:has(+ li .mm-link[aria-current]) .mm-link::after {
-    display: none
-}
-
-.mm-num {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    color: var(--brand-gold);
-    transition: opacity .3s
+    background: var(--brand-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .55s var(--ease)
 }
 
 .mm-name {
     font-family: "Gilda Display", "Tenor Sans", serif;
-    font-size: 24px;
-    line-height: 1.1;
+    font-size: 23px;
+    line-height: 1.15;
+    letter-spacing: .2px;
     transition: transform .45s var(--ease), color .3s
 }
 
 .mm-arrow {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
     display: grid;
     place-items: center;
-    border: 1px solid var(--line);
-    color: var(--brand-olive);
-    transition: background .35s var(--ease), border-color .35s, color .35s, transform .45s var(--ease)
+    color: #B5AC9F;
+    opacity: .7;
+    transition: color .3s, opacity .3s, transform .45s var(--ease)
 }
 
 .mm-arrow svg {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.6;
-    transition: transform .45s var(--ease)
+    stroke-width: 1.4
 }
 
-.mm-link:hover {
-    background: rgba(255, 255, 255, .7)
+.mm-link:hover::after,
+.mm-link[aria-current]::after {
+    transform: scaleX(1)
 }
 
 .mm-link:hover .mm-name {
-    transform: translateX(6px)
-}
-
-.mm-link:hover .mm-arrow {
-    border-color: var(--brand-gold);
-    color: var(--brand-gold)
-}
-
-.mm-link:hover .mm-arrow svg {
-    transform: translateX(2px)
-}
-
-/* active page: soft linen card, olive text, filled arrow */
-.mm-link[aria-current] {
-    background: linear-gradient(135deg, #fff 0%, #F6EFE2 100%);
-    border-color: rgba(168, 132, 74, .3);
-    box-shadow: 0 1px 2px rgba(46, 44, 32, .05), 0 14px 28px -18px rgba(107, 104, 71, .5)
-}
-
-.mm-link[aria-current] .mm-num {
-    color: var(--brand-olive);
-    font-weight: 600
-}
-
-.mm-link[aria-current] .mm-name {
+    transform: translateX(6px);
     color: var(--brand-olive-d)
 }
 
-.mm-link[aria-current] .mm-name::after {
-    content: "You are here";
-    display: block;
-    margin-top: 3px;
-    font-family: "DM Sans", "Montserrat", sans-serif;
-    font-size: 10px;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--brand-gold)
+.mm-link:hover .mm-arrow {
+    color: var(--brand-gold);
+    opacity: 1;
+    transform: translateX(2px)
 }
 
-.mm-link[aria-current] .mm-arrow {
-    background: var(--brand-olive);
-    border-color: var(--brand-olive);
-    color: #fff;
-    box-shadow: 0 6px 14px -6px rgba(78, 76, 51, .7)
-}
-
-.mm-link[aria-current]:hover .mm-name {
+/* active page: olive name with a small gold leaf mark in front */
+.mm-link[aria-current] .mm-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--brand-olive-d);
     transform: none
 }
 
-.mm-link:active {
-    transform: scale(.985)
+.mm-link[aria-current] .mm-name::before {
+    content: "";
+    width: 18px;
+    height: 1.5px;
+    background: var(--brand-gold)
 }
 
-.mm-link {
-    -webkit-tap-highlight-color: transparent
+.mm-link[aria-current] .mm-arrow {
+    color: var(--brand-gold);
+    opacity: 1
 }
+
+.mm-link:active .mm-name {
+    opacity: .7
+}
+
 
 /* featured banner */
 .mm-feature {
@@ -759,7 +721,7 @@ body.menu-open .mmenu-close span:nth-child(2) {
 /* entrance: blocks rise in one after another after the circle opens */
 .mm-in {
     opacity: 0;
-    transform: translateX(28px);
+    transform: translateX(-28px);
     transition: opacity .6s var(--ease), transform .7s var(--ease)
 }
 
