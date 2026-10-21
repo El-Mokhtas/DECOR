@@ -1615,6 +1615,276 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 }
 
+/* ================= VISIT OUR SHOWROOM ================= */
+.hcg-visit {
+    position: relative;
+    margin: 100px 5% 0;
+    min-height: 600px;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #E9E2D4;
+    box-shadow: 0 40px 70px -50px rgba(46, 44, 32, .55)
+}
+
+/* map fills the block, softened to sit with the brand colours */
+.vs-map {
+    position: absolute;
+    inset: 0
+}
+
+.vs-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(.35) sepia(.18) saturate(.9) contrast(.96);
+    transition: filter .6s var(--ease)
+}
+
+.hcg-visit:hover .vs-map iframe {
+    filter: none
+}
+
+/* floating info card */
+.vs-card {
+    position: relative;
+    z-index: 1;
+    width: min(440px, 100%);
+    margin: 28px;
+    padding: 38px 36px 34px;
+    border-radius: 26px;
+    background: rgba(251, 248, 241, .94);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 30px 60px -30px rgba(46, 44, 32, .55);
+    font-family: "DM Sans", "Montserrat", sans-serif
+}
+
+.vs-eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--brand-gold)
+}
+
+.vs-card h2 {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: clamp(36px, 3.4vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    color: var(--brand-ink)
+}
+
+.vs-card h2 em {
+    font-style: normal;
+    color: var(--brand-olive)
+}
+
+.vs-lead {
+    margin: 14px 0 26px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #6B6656
+}
+
+.vs-row {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(46, 44, 32, .08)
+}
+
+.vs-ic {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: #F1EBE0;
+    color: var(--brand-olive-d);
+    font-size: 17px
+}
+
+.vs-row > div {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px
+}
+
+.vs-row strong {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: 19px;
+    color: var(--brand-ink)
+}
+
+.vs-row span {
+    font-size: 15px;
+    color: #6B6656
+}
+
+.vs-status {
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(163, 84, 58, .1);
+    color: #A3543A;
+    font-family: "DM Sans", sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .04em
+}
+
+.vs-status.is-open {
+    background: rgba(78, 76, 51, .1);
+    color: var(--brand-olive-d)
+}
+
+.vs-status[hidden] {
+    display: none
+}
+
+.vs-hours {
+    list-style: none;
+    margin-top: 8px;
+    display: grid;
+    gap: 2px
+}
+
+.vs-hours li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 12px;
+    margin: 0 -12px;
+    border-radius: 10px
+}
+
+.vs-hours li span {
+    font-size: 14.5px;
+    white-space: nowrap
+}
+
+.vs-hours li span:last-child {
+    color: var(--brand-ink)
+}
+
+.vs-hours li.is-today {
+    background: #F1EBE0
+}
+
+.vs-hours li.is-today span {
+    color: var(--brand-olive-d);
+    font-weight: 500
+}
+
+.vs-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px
+}
+
+.vs-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease)
+}
+
+.vs-btn-main {
+    background: var(--brand-olive-d);
+    color: #fff
+}
+
+.vs-btn-main:hover {
+    background: var(--brand-gold);
+    transform: translateY(-2px)
+}
+
+.vs-btn-alt {
+    border: 1px solid rgba(46, 44, 32, .18);
+    color: var(--brand-ink)
+}
+
+.vs-btn-alt:hover {
+    border-color: var(--brand-olive-d);
+    background: var(--brand-olive-d);
+    color: #fff
+}
+
+@media (max-width:767px) {
+    .hcg-visit {
+        margin: 72px 10px 0;
+        min-height: 0;
+        border-radius: 24px;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible
+    }
+
+    /* map on top, card overlapping its bottom edge */
+    .vs-map {
+        position: relative;
+        height: 300px;
+        border-radius: 24px;
+        overflow: hidden;
+        background: #E9E2D4
+    }
+
+    .vs-card {
+        width: auto;
+        margin: -48px 10px 0;
+        padding: 28px 22px 24px;
+        background: #FCF9F3
+    }
+
+    .vs-actions {
+        flex-direction: column
+    }
+
+    .vs-btn {
+        flex: none;
+        width: 100%
+    }
+
+    .vs-row {
+        gap: 12px
+    }
+
+    .vs-ic {
+        width: 40px;
+        height: 40px
+    }
+
+    .vs-hours li {
+        padding: 7px 8px;
+        margin: 0 -8px
+    }
+
+    .vs-hours li span {
+        font-size: 13.5px
+    }
+}
+
 /* ================= FAQ ================= */
 .hcg-faq {
     padding: 110px 5% 120px
