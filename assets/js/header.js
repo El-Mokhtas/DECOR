@@ -59,7 +59,7 @@
             [p.name, p.cat, p.meta, ...p.options.map((o) => o.name || "")].join(" ").toLowerCase().includes(term));
         results.innerHTML = hits.length
             ? hits.map((p) => `
-                <a class="hh-result" role="listitem" href="#featured">
+                <a class="hh-result" role="listitem" href="shop.html?p=${p.code}">
                     <img src="${p.options[0].img}" alt="" loading="lazy">
                     <span><strong>${esc(p.name)}</strong><small>${esc(p.cat)} · ${esc(p.meta)}</small></span>
                     <em>${p.from ? "From " : ""}${money(p.price)}</em>

@@ -1,107 +1,13 @@
-/* ---------- Featured products: data + rendering ----------
-   Prices are CAD, from the Home Centre Green inventory list.
-   Each option is a colour: `img` is the main photo, `alt` shows on hover. */
+/* ---------- Homepage collection slider (data in catalog.js) ---------- */
 (function () {
-    const P = "assets/imgs/products/";
-    const PRODUCTS = [
-        {
-            code: "D0-0002", name: "Turkish Sofa Set", cat: "Living", price: 4000, wide: true,
-            meta: "220 × 90 × 80 cm",
-            options: [
-                { name: "Grey", color: "#C9C6BE", img: P + "sofa-set/grey/1.jpg", alt: P + "sofa-set/grey/5.jpg" },
-                { name: "Rust", color: "#B5653A", img: P + "sofa-set/rust/1.jpg", alt: P + "sofa-set/rust/2.jpg" },
-                { name: "Taupe", color: "#8E8178", img: P + "sofa-set/taupe/1.jpg", alt: P + "sofa-set/taupe/2.jpg" },
-                { name: "Mocha", color: "#7A6458", img: P + "sofa-set/mocha/1.jpg", alt: P + "sofa-set/mocha/3.jpg" },
-            ],
-        },
-        {
-            code: "DB-0001", name: "Turkish Embroidered Carpet", cat: "Carpets", price: 100, from: true,
-            meta: "3 sizes, up to 500 × 400 cm",
-            options: [
-                { name: "Navy", color: "#1F2A44", img: P + "carpet/navy/1.jpg", alt: P + "carpet/navy/2.jpg" },
-                { name: "Red", color: "#8E1F24", img: P + "carpet/red/1.jpg", alt: P + "carpet/red/2.jpg" },
-                { name: "Sage", color: "#7F8B7A", img: P + "carpet/sage/1.jpg", alt: P + "carpet/sage/2.jpg" },
-            ],
-        },
-        {
-            code: "BR-0002", name: "White Queen Bed", cat: "Bedroom", price: 2500,
-            meta: "Queen size, with storage",
-            options: [{ img: P + "queen-bed-white/1.jpg", alt: P + "queen-bed-white/2.jpg" }],
-        },
-        {
-            code: "BR-0003", name: "Yellow Queen Bed", cat: "Bedroom", price: 3000,
-            meta: "Queen size, with storage",
-            options: [{ img: P + "queen-bed-yellow/1.jpg", alt: P + "queen-bed-yellow/2.jpg" }],
-        },
-        {
-            code: "BR-0001", name: "Brown Queen Bed", cat: "Bedroom", price: 3000,
-            meta: "Queen size, with storage",
-            options: [{ img: P + "queen-bed-brown/1.jpg" }],
-        },
-        {
-            code: "BR-0006", name: "Upholstered Single Bed", cat: "Bedroom", price: 700, from: true,
-            meta: "90 or 120 cm wide, with storage",
-            options: [
-                { name: "Grey", color: "#A9A7A2", img: P + "single-bed/grey/1.jpg", alt: P + "single-bed/grey/3.jpg" },
-                { name: "Cream", color: "#EDE3D3", img: P + "single-bed/cream/2.jpg", alt: P + "single-bed/cream/1.jpg" },
-                { name: "Pink", color: "#D4878F", img: P + "single-bed/pink/1.jpg" },
-            ],
-        },
-        {
-            code: "D0-0004", name: "Fireplace & TV Unit", cat: "Living", price: 500,
-            meta: "180 × 40 × 50 cm",
-            options: [{ img: P + "tv-fireplace/1.jpg", alt: P + "tv-fireplace/2.jpg" }],
-        },
-    ];
-
-    /* shared demo cart in localStorage + header count; `btn` gets an "Added" state */
-    function addToCart(items, btn) {
-        let cart = [];
-        try { cart = JSON.parse(localStorage.getItem("ssdesign_cart")) || []; } catch (err) { }
-        items.forEach((item) => {
-            const line = cart.find((it) => it.code === item.code && it.option === item.option);
-            if (line) line.qty = (line.qty || 1) + 1;
-            else cart.push(Object.assign({ qty: 1 }, item));
-        });
-        try { localStorage.setItem("ssdesign_cart", JSON.stringify(cart)); } catch (err) { }
-
-        const count = document.getElementById("cartCount");
-        if (count) {
-            count.textContent = cart.reduce((s, it) => s + (it.qty || 1), 0);
-            count.classList.remove("bump");
-            void count.offsetWidth;
-            count.classList.add("bump");
-        }
-        if (!btn) return;
-        const label = btn.querySelector("span") || btn;
-        if (!btn.dataset.label) btn.dataset.label = label.textContent;
-        btn.classList.add("done");
-        label.textContent = "Added";
-        clearTimeout(btn._t);
-        btn._t = setTimeout(() => {
-            btn.classList.remove("done");
-            label.textContent = btn.dataset.label;
-        }, 1600);
-    }
-
-    /* any button with data-add='[{code,name,option,price}, ...]' adds those items */
-    document.addEventListener("click", (e) => {
-        const btn = e.target.closest("[data-add]");
-        if (btn) addToCart(JSON.parse(btn.dataset.add), btn);
-    });
-
-    window.HCG_PRODUCTS = PRODUCTS; // shared with the header search
+    const PRODUCTS = window.HCG_PRODUCTS || [];
+    const addToCart = window.hcgAddToCart;
 
     const section = document.getElementById("featured");
     if (!section) return;
     const track = section.querySelector(".pc-track");
     const money = (n) => "$" + n.toLocaleString("en-CA");
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-
-    /* wishlist kept in this browser only (demo) */
-    let wish = [];
-    try { wish = JSON.parse(localStorage.getItem("hcg_wishlist")) || []; } catch (err) { }
-    const saveWish = () => { try { localStorage.setItem("hcg_wishlist", JSON.stringify(wish)); } catch (err) { } };
 
     const photos = (o, name) =>
         `<img class="pc-img" src="${o.img}" alt="${esc(name)}" loading="lazy">` +
@@ -118,7 +24,7 @@
 
     track.innerHTML = intro + PRODUCTS.map((p, i) => {
         const o = p.options[0];
-        const saved = wish.includes(p.code);
+        const saved = window.hcgWish.has(p.code);
         const swatches = p.options.length > 1
             ? `<div class="pc-swatches" role="radiogroup" aria-label="Colour">${p.options.map((op, k) =>
                 `<button type="button" class="pc-swatch" role="radio" aria-checked="${k === 0}" aria-label="${op.name}" title="${op.name}" data-k="${k}" style="--c:${op.color}"></button>`).join("")}
@@ -163,9 +69,7 @@
         /* wishlist heart */
         const heart = e.target.closest(".pc-wish");
         if (heart) {
-            const on = !wish.includes(p.code);
-            wish = on ? wish.concat(p.code) : wish.filter((c) => c !== p.code);
-            saveWish();
+            const on = window.hcgWish.toggle(p.code);
             heart.classList.toggle("is-on", on);
             heart.setAttribute("aria-pressed", on);
             heart.querySelector("i").className = `fa-${on ? "solid" : "regular"} fa-heart`;

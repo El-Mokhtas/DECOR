@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop all | Home Centre Green Hamilton</title>
+    <meta name="description" content="Shop Turkish-made sofa sets, beds, carpets and TV units at Home Centre Green in Hamilton, Ontario.">
+    <link rel="icon" type="image/x-icon" href="assets/imgs/fav.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600&family=Roboto+Slab:wght@400&family=Roboto:wght@300&family=Epilogue:wght@300;400;500&family=Tenor+Sans&family=Inter:wght@400;500;600&family=Gilda+Display&family=DM+Sans:wght@400;500&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/master.css">
+    <link rel="stylesheet" href="assets/css/shop.css">
+</head>
+
+<body>
+    <header class="hh-header is-solid" id="siteHeader">
+        <!-- announcement strip: messages rotate (assets/js/header.js) -->
+        <div class="hh-topbar">
+            <div class="hh-msgs" aria-live="polite">
+                <p class="hh-msg is-active"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free delivery across Hamilton on qualifying orders</p>
+                <p class="hh-msg"><i class="fa-solid fa-store" aria-hidden="true"></i> Visit our showroom in Hamilton — <a href="index.html#showroom">get directions</a></p>
+                <p class="hh-msg"><i class="fa-regular fa-credit-card" aria-hidden="true"></i> Flexible payment options available</p>
+            </div>
+        </div>
+
+        <div class="hh-bar">
+            <button class="hh-burger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+
+            <nav class="hh-nav hh-nav-left" aria-label="Main">
+                <div class="hh-shop">
+                    <button type="button" class="hh-link hh-shop-btn" aria-expanded="false" aria-controls="hhMega">Shop <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+                </div>
+                <a class="hh-link" href="shop.html?cat=living">Living</a>
+                <a class="hh-link" href="shop.html?cat=bedroom">Bedroom</a>
+                <a class="hh-link" href="shop.html?cat=carpets">Carpets</a>
+            </nav>
+
+            <a href="index.html" class="hh-logo" aria-label="Home Centre Green Hamilton - Home">
+                <img src="assets/imgs/logo.png" alt="Home Centre Green Hamilton">
+            </a>
+
+            <div class="hh-right">
+                <a class="hh-link hh-showroom" href="index.html#showroom"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Showroom</a>
+                <button type="button" class="hh-icon" id="hhSearchBtn" aria-label="Search" aria-expanded="false" aria-controls="hhSearch"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                <a class="hh-icon hh-cart" href="cart.html" aria-label="Cart"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span class="cart-count" id="cartCount"></span></a>
+            </div>
+        </div>
+
+        <!-- Shop mega menu -->
+        <div class="hh-mega" id="hhMega" hidden>
+            <div class="hh-mega-inner">
+                <div class="hh-mega-list">
+                    <span class="hh-mega-title">Shop by room</span>
+                    <a href="shop.html?cat=living"><i class="fa-solid fa-couch" aria-hidden="true"></i> Living</a>
+                    <a href="shop.html?cat=bedroom"><i class="fa-solid fa-bed" aria-hidden="true"></i> Bedroom</a>
+                    <a href="shop.html?cat=carpets"><i class="fa-solid fa-rug" aria-hidden="true"></i> Carpets</a>
+                    <a href="shop.html?cat=tv-units"><i class="fa-solid fa-tv" aria-hidden="true"></i> TV Units</a>
+                    <a href="shop.html" class="hh-mega-all">All products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="hh-mega-cats">
+                    <a href="shop.html?cat=living" class="hh-cat"><img src="assets/imgs/products/sofa-set/grey/1.jpg" alt="" loading="lazy"><span>Living</span></a>
+                    <a href="shop.html?cat=bedroom" class="hh-cat"><img src="assets/imgs/products/queen-bed-yellow/1.jpg" alt="" loading="lazy"><span>Bedroom</span></a>
+                    <a href="shop.html?cat=carpets" class="hh-cat"><img src="assets/imgs/products/carpet/navy/2.jpg" alt="" loading="lazy"><span>Carpets</span></a>
+                    <a href="shop.html?cat=tv-units" class="hh-cat"><img src="assets/imgs/products/tv-fireplace/1.jpg" alt="" loading="lazy"><span>TV Units</span></a>
+                </div>
+                <a href="shop.html" class="hh-feature">
+                    <img src="assets/imgs/products/sofa-set/rust/2.jpg" alt="" loading="lazy">
+                    <span class="hh-feature-body">
+                        <small>Featured</small>
+                        <strong>Turkish Sofa Set</strong>
+                        <span>4 colours · $4,000</span>
+                        <em>Shop now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></em>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- search panel: live results from the product list -->
+        <div class="hh-search" id="hhSearch" hidden>
+            <div class="hh-search-inner">
+                <label class="hh-search-field">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only">Search products</span>
+                    <input type="search" id="hhSearchInput" placeholder="Search sofas, beds, carpets…" autocomplete="off">
+                    <button type="button" class="hh-search-close" aria-label="Close search"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                </label>
+                <div class="hh-search-popular">
+                    <span>Popular:</span>
+                    <button type="button" data-q="sofa">Sofa set</button>
+                    <button type="button" data-q="queen">Queen beds</button>
+                    <button type="button" data-q="carpet">Carpets</button>
+                    <button type="button" data-q="tv">TV unit</button>
+                </div>
+                <div class="hh-results" role="list"></div>
+            </div>
+        </div>
+    </header>
+    <div class="hh-scrim" id="hhScrim" hidden></div>
+
+    <!-- ================= SIDEBAR (mobile menu) ================= -->
+    <div class="mmenu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+    <div class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+        <div class="mmenu-top">
+            <a href="index.html" class="mmenu-logo"><img src="assets/imgs/logo.png" alt="Home Centre Green Hamilton"></a>
+            <button type="button" class="mmenu-close" id="menuClose" aria-label="Close menu"><span></span><span></span></button>
+        </div>
+
+        <div class="mmenu-body">
+            <!-- page links: the current page gets aria-current from master.js -->
+            <nav class="mm-nav" aria-label="Mobile">
+                <ol>
+                    <li class="mm-in"><a href="index.html" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z" /></svg></span><span class="mm-name">Home</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="shop.html" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg></span><span class="mm-name">Shop</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="index.html#showroom" class="mm-link"><span class="mm-ic"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><span class="mm-name">Showroom</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="index.html#faq" class="mm-link"><span class="mm-ic"><i class="fa-regular fa-circle-question" aria-hidden="true"></i></span><span class="mm-name">FAQ</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="#contact" class="mm-link"><span class="mm-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z" /></svg></span><span class="mm-name">Contact</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg></span></a></li>
+                </ol>
+            </nav>
+
+            <!-- featured edit -->
+            <a href="shop.html" class="mm-feature mm-in">
+                <span class="mm-feature-img" style="background-image:url('assets/imgs/bg.png')"></span>
+                <span class="mm-feature-copy">
+                    <small>The living edit</small>
+                    <strong>Warm woods,<br>soft linens</strong>
+                    <span class="mm-feature-cta">Shop the look <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                </span>
+            </a>
+
+            <!-- help -->
+            <div class="mm-help mm-in">
+                <div class="mm-help-text">
+                    <strong>Have a question about a piece?</strong>
+                    <span>Ask us about sizes, colours or availability.</span>
+                </div>
+                <a href="#contact" class="mm-help-btn">Contact us <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="shop-page" id="top">
+        <!-- ===== page banner ===== -->
+        <section class="sp-hero">
+            <img class="sp-hero-bg" src="assets/imgs/products/sofa-set/taupe/1.jpg" alt="">
+            <div class="sp-hero-inner">
+                <nav class="sp-crumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    <a href="shop.html" id="spCrumbShop">Shop</a><span id="spCrumbCat" hidden></span>
+                </nav>
+                <h1 id="spTitle">All products</h1>
+                <p id="spSub">Turkish-made pieces in stock now in Hamilton.</p>
+            </div>
+        </section>
+
+        <!-- ===== room cards (quick filter) ===== -->
+        <nav class="sp-rooms" id="spRooms" aria-label="Shop by room"></nav>
+
+        <div class="sp-layout">
+            <!-- ===== filters: sidebar on desktop, bottom sheet on mobile ===== -->
+            <aside class="sp-filters" id="spFilters" aria-label="Filters">
+                <div class="sp-filters-head">
+                    <strong><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filters</strong>
+                    <button type="button" class="sp-filters-close" aria-label="Close filters"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                </div>
+                <div class="sp-filters-body">
+                    <details class="sp-group" open>
+                        <summary>Room <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+                        <div class="sp-checks" id="spRoomChecks"></div>
+                    </details>
+                    <details class="sp-group" open>
+                        <summary>Price <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+                        <div class="sp-price">
+                            <div class="sp-range" id="spRange">
+                                <div class="sp-range-fill"></div>
+                                <input type="range" id="spMin" aria-label="Minimum price">
+                                <input type="range" id="spMax" aria-label="Maximum price">
+                            </div>
+                            <div class="sp-price-vals"><span id="spMinVal"></span><span id="spMaxVal"></span></div>
+                        </div>
+                    </details>
+                    <details class="sp-group" open>
+                        <summary>Colour <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+                        <div class="sp-colours" id="spColours"></div>
+                    </details>
+                </div>
+                <div class="sp-filters-foot">
+                    <button type="button" class="sp-clear" data-clear>Clear all</button>
+                    <button type="button" class="sp-show" id="spShow">Show results</button>
+                </div>
+            </aside>
+            <div class="sp-filters-scrim" id="spScrim" hidden></div>
+
+            <div class="sp-main">
+                <!-- ===== toolbar ===== -->
+                <div class="sp-toolbar">
+                    <button type="button" class="sp-filter-btn" id="spFilterBtn"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filters <b id="spFilterCount" hidden></b></button>
+                    <p class="sp-count" id="spCount" aria-live="polite"></p>
+                    <div class="sp-tools">
+                        <label class="sp-sort">
+                            <span class="sr-only">Sort by</span>
+                            <i class="fa-solid fa-arrow-down-wide-short" aria-hidden="true"></i>
+                            <select id="spSort">
+                                <option value="featured">Featured</option>
+                                <option value="price-asc">Price: low to high</option>
+                                <option value="price-desc">Price: high to low</option>
+                                <option value="name">Name: A to Z</option>
+                            </select>
+                        </label>
+                        <div class="sp-view" role="group" aria-label="Grid size">
+                            <button type="button" data-view="3" aria-pressed="true" aria-label="Small cards"><i class="fa-solid fa-table-cells" aria-hidden="true"></i></button>
+                            <button type="button" data-view="2" aria-pressed="false" aria-label="Large cards"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-chips" id="spChips"></div>
+
+                <div class="sp-grid" id="spGrid"></div>
+                <div class="sp-empty" id="spEmpty" hidden>
+                    <span class="sp-empty-icon" aria-hidden="true"><i class="fa-solid fa-couch"></i></span>
+                    <h2>No pieces match these filters</h2>
+                    <p>Try a different room, colour or price range.</p>
+                    <button type="button" class="sp-show" data-clear>Clear all filters</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== quick view ===== -->
+    <div class="qv" id="qv" role="dialog" aria-modal="true" aria-labelledby="qvName" hidden>
+        <div class="qv-scrim" data-qv-close></div>
+        <div class="qv-panel">
+            <button type="button" class="qv-close" data-qv-close aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <div class="qv-gallery">
+                <div class="qv-main">
+                    <img id="qvImg" src="" alt="">
+                    <button type="button" class="qv-nav qv-prev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                    <button type="button" class="qv-nav qv-next" aria-label="Next photo"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                    <span class="qv-counter" id="qvCounter"></span>
+                </div>
+                <div class="qv-thumbs" id="qvThumbs"></div>
+            </div>
+            <div class="qv-info">
+                <span class="qv-cat" id="qvCat"></span>
+                <h2 id="qvName"></h2>
+                <p class="qv-price" id="qvPrice"></p>
+                <p class="qv-desc" id="qvDesc"></p>
+                <div class="qv-field" id="qvColourField">
+                    <span class="qv-label">Colour: <b id="qvColour"></b></span>
+                    <div class="qv-swatches" id="qvSwatches" role="radiogroup" aria-label="Colour"></div>
+                </div>
+                <div class="qv-field" id="qvSizeField">
+                    <span class="qv-label">Size</span>
+                    <div class="qv-sizes" id="qvSizes" role="radiogroup" aria-label="Size"></div>
+                </div>
+                <p class="qv-meta" id="qvMeta"></p>
+                <div class="qv-buy">
+                    <div class="qv-qty">
+                        <button type="button" data-qty="-1" aria-label="Decrease quantity"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+                        <output id="qvQty">1</output>
+                        <button type="button" data-qty="1" aria-label="Increase quantity"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                    <button type="button" class="qv-add" id="qvAdd"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> <span>Add to cart</span></button>
+                    <button type="button" class="qv-wish" id="qvWish" aria-label="Save to wishlist"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+                </div>
+                <ul class="qv-perks">
+                    <li><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free delivery in Hamilton on qualifying orders</li>
+                    <li><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Home assembly by our team</li>
+                    <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Warranty included</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER (also the #contact target) ================= -->
+    <footer class="hcg-footer" id="contact">
+        <div class="ft-top">
+            <div class="ft-brand">
+                <a href="index.html" class="ft-logo"><img src="assets/imgs/logo.png" alt="Home Centre Green Hamilton" loading="lazy"></a>
+                <p>Turkish-made sofas, beds and carpets for warm, comfortable homes in Hamilton and across Ontario.</p>
+            </div>
+
+            <nav class="ft-col" aria-label="Shop">
+                <h3>Shop</h3>
+                <a href="shop.html?cat=living">Living</a>
+                <a href="shop.html?cat=bedroom">Bedroom</a>
+                <a href="shop.html?cat=carpets">Carpets</a>
+                <a href="shop.html?cat=tv-units">TV Units</a>
+                <a href="shop.html">All products</a>
+            </nav>
+
+            <nav class="ft-col" aria-label="Help">
+                <h3>Help</h3>
+                <a href="index.html">Home</a>
+                <a href="index.html#showroom">Showroom</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="cart.html">Cart</a>
+            </nav>
+
+            <div class="ft-col ft-contact">
+                <h3>Get in touch</h3>
+                <span class="ft-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z" /><circle cx="12" cy="9" r="2.5" /></svg>Hamilton, Ontario, Canada</span>
+                <!-- TODO: add the store's real details, then uncomment:
+                <a class="ft-line" href="tel:+1XXXXXXXXXX"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z" /></svg>+1 (XXX) XXX-XXXX</a>
+                <a class="ft-line" href="mailto:hello@example.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>hello@example.com</a>
+                <span class="ft-line"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>Mon–Sat, 10am – 7pm</span>
+                -->
+                <span class="ft-line"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M14.5 9.3c-.5-.8-1.4-1.3-2.5-1.3-1.5 0-2.6.8-2.6 2s1.1 1.6 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1.1 0-2-.5-2.5-1.3M12 6.5V8M12 16v1.5" /></svg>Prices in Canadian dollars (CAD)</span>
+            </div>
+        </div>
+
+        <div class="ft-bottom">
+            <p>© <span id="ftYear"></span> Home Centre Green Hamilton. All rights reserved.</p>
+            <a href="#top" class="ft-top-btn">Back to top <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg></a>
+        </div>
+    </footer>
+
+    <script src="assets/js/catalog.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/shop.js"></script>
+    <script src="assets/js/master.js"></script>
+</body>
+
+</html>
