@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Center Green | Home Decor & Furniture in Ontario</title>
+  <meta name="description" content="Home Center Green — curated furniture, lighting and home decor delivered across Ontario, Canada." />
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+</head>
+<body>
+
+  <!-- ============ ANNOUNCEMENT BAR ============ -->
+  <div class="announce" role="region" aria-label="Store announcements">
+    <div class="announce__inner container">
+      <a class="announce__side" href="tel:+10000000000">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        <span>Call our designers</span>
+      </a>
+
+      <div class="announce__ticker" aria-live="polite">
+        <p class="announce__msg is-active">Free delivery across Ontario on orders over $499 CAD</p>
+        <p class="announce__msg">The Autumn Collection has arrived — <a href="#">Shop new in</a></p>
+        <p class="announce__msg">Book a free in-home design consultation — <a href="#">Learn more</a></p>
+      </div>
+
+      <div class="announce__side announce__side--end">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        <span>Ontario, Canada · CAD</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+
+      <!-- Mobile toggle -->
+      <button class="icon-btn header__burger" id="menuOpen" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Primary nav (left) -->
+      <nav class="nav nav--left" aria-label="Primary">
+        <ul class="nav__list">
+          <li class="nav__item has-mega">
+            <a href="#" class="nav__link" aria-haspopup="true">Shop
+              <svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <!-- Mega menu -->
+            <div class="mega" role="menu">
+              <div class="mega__inner container">
+                <div class="mega__col">
+                  <h4 class="mega__title">Living Room</h4>
+                  <a href="#">Sofas &amp; Sectionals</a>
+                  <a href="#">Accent Chairs</a>
+                  <a href="#">Coffee Tables</a>
+                  <a href="#">TV &amp; Media Units</a>
+                </div>
+                <div class="mega__col">
+                  <h4 class="mega__title">Bedroom</h4>
+                  <a href="#">Beds &amp; Headboards</a>
+                  <a href="#">Nightstands</a>
+                  <a href="#">Dressers</a>
+                  <a href="#">Bedding &amp; Throws</a>
+                </div>
+                <div class="mega__col">
+                  <h4 class="mega__title">Dining</h4>
+                  <a href="#">Dining Tables</a>
+                  <a href="#">Dining Chairs</a>
+                  <a href="#">Sideboards</a>
+                  <a href="#">Tableware</a>
+                </div>
+                <div class="mega__col">
+                  <h4 class="mega__title">Decor &amp; Lighting</h4>
+                  <a href="#">Pendant Lights</a>
+                  <a href="#">Lamps</a>
+                  <a href="#">Mirrors &amp; Wall Art</a>
+                  <a href="#">Plants &amp; Vases</a>
+                </div>
+                <a href="#" class="mega__feature">
+                  <span class="mega__feature-tag">New Season</span>
+                  <span class="mega__feature-title">The Sage &amp; Brass Edit</span>
+                  <span class="mega__feature-cta">Explore the collection →</span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav__item"><a href="#" class="nav__link">Collections</a></li>
+          <li class="nav__item"><a href="#rooms" class="nav__link">Rooms</a></li>
+        </ul>
+      </nav>
+
+      <!-- Logo (center) -->
+      <a href="#" class="logo" aria-label="Home Center Green — Home">
+        <img src="assets/images/logo.png" alt="Home Center Green" width="450" height="284" />
+      </a>
+
+      <!-- Secondary nav + actions (right) -->
+      <div class="header__right">
+        <nav class="nav nav--right" aria-label="Secondary">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#services" class="nav__link">Design Services</a></li>
+            <li class="nav__item"><a href="#" class="nav__link nav__link--sale">Sale</a></li>
+          </ul>
+        </nav>
+
+        <div class="actions">
+          <button class="icon-btn" id="searchOpen" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          </button>
+          <a href="#" class="icon-btn actions__hide-sm" aria-label="My account">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+          </a>
+          <a href="#" class="icon-btn actions__hide-sm" aria-label="Wishlist">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.3 5c2 0 3.2 1.1 3.9 2.2h3.6C14.5 6.1 15.7 5 17.7 5 21 5 22.7 8.4 21.2 11.4 19 15.6 12 20 12 20z"/></svg>
+          </a>
+          <a href="#" class="icon-btn cart" aria-label="Cart, 2 items">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+            <span class="cart__count">2</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold hairline with leaf ornament -->
+    <div class="header__line" aria-hidden="true">
+      <svg class="header__leaf" viewBox="0 0 40 16"><path d="M20 15C14 15 8 11 4 3c6 0 12 3 16 12zM20 15c6 0 12-4 16-12-6 0-12 3-16 12z"/></svg>
+    </div>
+  </header>
+
+  <!-- ============ SEARCH OVERLAY ============ -->
+  <div class="search" id="search" aria-hidden="true">
+    <button class="icon-btn search__close" id="searchClose" aria-label="Close search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <form class="search__form container" role="search" onsubmit="return false;">
+      <label for="searchInput" class="search__label">What are you looking for?</label>
+      <input id="searchInput" class="search__input" type="search" placeholder="Sofas, lamps, mirrors…" autocomplete="off" />
+      <div class="search__tags">
+        <span>Popular:</span>
+        <a href="#">Accent chairs</a>
+        <a href="#">Pendant lights</a>
+        <a href="#">Olive trees</a>
+        <a href="#">Linen bedding</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- ============ MOBILE DRAWER ============ -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
+    <div class="drawer__head">
+      <img src="assets/images/logo.png" alt="Home Center Green" class="drawer__logo" />
+      <button class="icon-btn" id="menuClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="drawer__nav" aria-label="Mobile">
+      <details class="drawer__group">
+        <summary>Shop</summary>
+        <a href="#">Living Room</a>
+        <a href="#">Bedroom</a>
+        <a href="#">Dining</a>
+        <a href="#">Decor &amp; Lighting</a>
+      </details>
+      <a href="#">Collections</a>
+      <a href="#">Rooms</a>
+      <a href="#">Design Services</a>
+      <a href="#" class="nav__link--sale">Sale</a>
+      <a href="#">My Account</a>
+      <a href="#">Wishlist</a>
+    </nav>
+    <p class="drawer__foot">Free delivery across Ontario on orders over $499 CAD</p>
+  </aside>
+
+  <!-- Line-art icon sprite used by image placeholders -->
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-chair" viewBox="0 0 64 64"><path d="M18 14c0-3 2-5 5-5h18c3 0 5 2 5 5v18H18z"/><path d="M12 32h40v8H12zM16 40v14M48 40v14M12 32v-8M52 32v-8"/></symbol>
+    <symbol id="i-sofa" viewBox="0 0 64 64"><path d="M12 26v-6c0-3 2-5 5-5h30c3 0 5 2 5 5v6"/><path d="M8 28c0-2 1-3 3-3s3 1 3 3v6h36v-6c0-2 1-3 3-3s3 1 3 3v14H8z"/><path d="M12 42v6M52 42v6"/></symbol>
+    <symbol id="i-lamp" viewBox="0 0 64 64"><path d="M32 4v14"/><path d="M18 34c0-8 6-16 14-16s14 8 14 16z"/><path d="M28 34c0 2 2 4 4 4s4-2 4-4"/><path d="M24 52h16M32 38v14"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 64 64"><path d="M8 20v32M56 34v18M8 44h48M8 34h48"/><path d="M14 34v-6c0-2 1-3 3-3h10c2 0 3 1 3 3v6"/></symbol>
+    <symbol id="i-vase" viewBox="0 0 64 64"><path d="M26 30c-4 3-6 7-6 12 0 7 5 12 12 12s12-5 12-12c0-5-2-9-6-12v-6h-12z"/><path d="M32 24V10M32 16c-4-4-9-4-12-2 3 3 8 4 12 2zM32 12c4-4 9-4 12-2-3 3-8 4-12 2z"/></symbol>
+    <symbol id="i-table" viewBox="0 0 64 64"><path d="M6 22h52v5H6zM12 27v27M52 27v27M12 40h40"/><path d="M26 22v-8h12v8"/></symbol>
+    <symbol id="i-mirror" viewBox="0 0 64 64"><path d="M20 56V24c0-7 5-14 12-14s12 7 12 14v32z"/><path d="M26 24c0-4 3-8 6-8"/></symbol>
+    <symbol id="i-plant" viewBox="0 0 64 64"><path d="M22 40h20l-3 16H25z"/><path d="M32 40V14M32 30c-6-1-10-6-10-12 6 1 10 6 10 12zM32 24c6-1 10-6 10-12-6 1-10 6-10 12z"/></symbol>
+  </svg>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__inner container">
+        <div class="hero__copy">
+          <p class="eyebrow reveal">Home Center Green · Ontario, Canada</p>
+          <h1 class="hero__title reveal">Where nature<br />meets <em>timeless</em><br />design</h1>
+          <p class="hero__text reveal">Curated furniture, lighting and decor in calm, natural tones — chosen to make every room in your home feel grounded, warm and beautifully lived-in.</p>
+          <div class="hero__cta reveal">
+            <a href="#shop" class="btn btn--primary">Shop the collection</a>
+            <a href="#services" class="btn btn--link">Book a design consult <span>→</span></a>
+          </div>
+          <ul class="hero__perks reveal">
+            <li><strong>Free</strong> Ontario delivery over $499</li>
+            <li><strong>30-day</strong> easy returns</li>
+            <li><strong>Free</strong> design consultation</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hero__arch ph ph--sage">
+            <svg class="ph__icon"><use href="#i-chair" /></svg>
+          </div>
+          <div class="hero__small ph ph--sand">
+            <svg class="ph__icon"><use href="#i-lamp" /></svg>
+          </div>
+          <a href="#shop" class="hero__tag">
+            <span class="hero__tag-dot"></span>
+            <span>
+              <small>Featured</small>
+              Ashby Lounge Chair
+              <b>$649 CAD</b>
+            </span>
+          </a>
+          <div class="badge" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="badgeCircle" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0" /></defs>
+              <text><textPath href="#badgeCircle">Curated in Ontario · Delivered with care · </textPath></text>
+            </svg>
+            <svg class="badge__leaf" viewBox="0 0 40 16"><path d="M20 15C14 15 8 11 4 3c6 0 12 3 16 12zM20 15c6 0 12-4 16-12-6 0-12 3-16 12z"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Free delivery across Ontario</span><i>✦</i>
+        <span>Hand-picked pieces</span><i>✦</i>
+        <span>In-home design consultation</span><i>✦</i>
+        <span>30-day easy returns</span><i>✦</i>
+        <span>Natural materials</span><i>✦</i>
+        <span>Free delivery across Ontario</span><i>✦</i>
+        <span>Hand-picked pieces</span><i>✦</i>
+        <span>In-home design consultation</span><i>✦</i>
+        <span>30-day easy returns</span><i>✦</i>
+        <span>Natural materials</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ SHOP BY ROOM ============ -->
+    <section class="section rooms" id="rooms">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Shop by room</p>
+          <h2 class="section__title">Spaces made for <em>living</em></h2>
+        </div>
+        <div class="rooms__grid">
+          <a href="#" class="room reveal">
+            <div class="room__img ph ph--sage"><svg class="ph__icon"><use href="#i-sofa" /></svg></div>
+            <h3>Living Room</h3><span>Explore →</span>
+          </a>
+          <a href="#" class="room reveal">
+            <div class="room__img ph ph--sand"><svg class="ph__icon"><use href="#i-bed" /></svg></div>
+            <h3>Bedroom</h3><span>Explore →</span>
+          </a>
+          <a href="#" class="room reveal">
+            <div class="room__img ph ph--clay"><svg class="ph__icon"><use href="#i-table" /></svg></div>
+            <h3>Dining</h3><span>Explore →</span>
+          </a>
+          <a href="#" class="room reveal">
+            <div class="room__img ph ph--stone"><svg class="ph__icon"><use href="#i-lamp" /></svg></div>
+            <h3>Lighting</h3><span>Explore →</span>
+          </a>
+          <a href="#" class="room reveal">
+            <div class="room__img ph ph--olive"><svg class="ph__icon"><use href="#i-vase" /></svg></div>
+            <h3>Decor &amp; Accents</h3><span>Explore →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED PRODUCTS ============ -->
+    <section class="section products" id="shop">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow">The shop</p>
+            <h2 class="section__title">Pieces we <em>love</em> right now</h2>
+          </div>
+          <div class="tabs" role="tablist">
+            <button class="tabs__btn is-active" role="tab" data-filter="new">New In</button>
+            <button class="tabs__btn" role="tab" data-filter="best">Best Sellers</button>
+            <button class="tabs__btn" role="tab" data-filter="light">Lighting</button>
+          </div>
+        </div>
+        <div class="products__grid" id="productGrid"></div>
+        <div class="products__more"><a href="#" class="btn btn--outline">View all products</a></div>
+      </div>
+    </section>
+
+    <!-- ============ STORY ============ -->
+    <section class="section story">
+      <div class="story__inner container">
+        <div class="story__visual reveal">
+          <div class="story__img story__img--a ph ph--olive"><svg class="ph__icon"><use href="#i-plant" /></svg></div>
+          <div class="story__img story__img--b ph ph--sand"><svg class="ph__icon"><use href="#i-mirror" /></svg></div>
+        </div>
+        <div class="story__copy reveal">
+          <p class="eyebrow">Our story</p>
+          <h2 class="section__title">A greener way to feel <em>at home</em></h2>
+          <p>Home Center Green was born from a simple idea: a home should feel as calm as a walk through an Ontario forest. We bring together furniture and decor in natural materials — warm woods, soft linens, brushed brass and living greenery — so every piece feels right for years, not seasons.</p>
+          <ul class="story__list">
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" /></svg> Carefully selected, quality-checked pieces</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" /></svg> Local delivery &amp; white-glove setup across Ontario</li>
+            <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" /></svg> Friendly design advice, before and after you buy</li>
+          </ul>
+          <a href="#" class="btn btn--link">Read more about us <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DESIGN SERVICES ============ -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section__head section__head--light reveal">
+          <p class="eyebrow">Design services</p>
+          <h2 class="section__title">Your home, styled by <em>our designers</em></h2>
+          <p class="section__sub">From one corner to the whole house, we help you plan, choose and style — free with any furniture purchase.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Consult</h3>
+            <p>Tell us about your space, style and budget — in-store, online or at your home.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <h3>Design</h3>
+            <p>We put together a mood board and product plan made just for your rooms.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <h3>Deliver &amp; style</h3>
+            <p>Our team delivers, assembles and styles every piece so it's ready to enjoy.</p>
+          </li>
+        </ol>
+        <div class="services__cta reveal"><a href="#" class="btn btn--gold">Book a free consultation</a></div>
+      </div>
+    </section>
+
+    <!-- ============ COLLECTION BANNER ============ -->
+    <section class="section collection">
+      <div class="collection__inner container">
+        <div class="collection__copy reveal">
+          <p class="eyebrow">New season</p>
+          <h2 class="section__title">The Sage &amp; <em>Brass</em> Edit</h2>
+          <p>Muted greens, warm brass and soft boucle — a collection designed for slow mornings and cozy Canadian evenings.</p>
+          <a href="#" class="btn btn--primary">Discover the edit</a>
+        </div>
+        <div class="collection__grid">
+          <div class="collection__img ph ph--sage reveal"><svg class="ph__icon"><use href="#i-sofa" /></svg></div>
+          <div class="collection__img ph ph--clay reveal"><svg class="ph__icon"><use href="#i-lamp" /></svg></div>
+          <div class="collection__img ph ph--stone reveal"><svg class="ph__icon"><use href="#i-vase" /></svg></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features">
+      <div class="features__inner container">
+        <div class="feature reveal">
+          <svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z" /><circle cx="7" cy="17.5" r="1.8" /><circle cx="17" cy="17.5" r="1.8" /></svg>
+          <h3>Free Ontario delivery</h3>
+          <p>On all orders over $499 CAD</p>
+        </div>
+        <div class="feature reveal">
+          <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4" /></svg>
+          <h3>30-day returns</h3>
+          <p>Changed your mind? No problem</p>
+        </div>
+        <div class="feature reveal">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" /><path d="M9 12l2 2 4-4" /></svg>
+          <h3>Secure checkout</h3>
+          <p>All major cards accepted</p>
+        </div>
+        <div class="feature reveal">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z" /><path d="M8 10h8M8 13h5" /></svg>
+          <h3>Expert advice</h3>
+          <p>Our designers are here to help</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSPIRATION ============ -->
+    <section class="section inspo">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">@homecentergreen</p>
+          <h2 class="section__title">Find your <em>inspiration</em></h2>
+        </div>
+        <div class="inspo__grid">
+          <a href="#" class="inspo__item inspo__item--tall ph ph--sage reveal"><svg class="ph__icon"><use href="#i-plant" /></svg></a>
+          <a href="#" class="inspo__item ph ph--sand reveal"><svg class="ph__icon"><use href="#i-chair" /></svg></a>
+          <a href="#" class="inspo__item ph ph--stone reveal"><svg class="ph__icon"><use href="#i-mirror" /></svg></a>
+          <a href="#" class="inspo__item inspo__item--wide ph ph--clay reveal"><svg class="ph__icon"><use href="#i-table" /></svg></a>
+          <a href="#" class="inspo__item ph ph--olive reveal"><svg class="ph__icon"><use href="#i-vase" /></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="newsletter">
+      <div class="newsletter__inner container reveal">
+        <svg class="newsletter__leaf" viewBox="0 0 40 16" aria-hidden="true"><path d="M20 15C14 15 8 11 4 3c6 0 12 3 16 12zM20 15c6 0 12-4 16-12-6 0-12 3-16 12z" /></svg>
+        <h2 class="section__title">Join the <em>Green</em> circle</h2>
+        <p>Be the first to hear about new arrivals, styling tips and members-only offers.</p>
+        <form class="newsletter__form" id="newsletterForm" novalidate>
+          <label class="sr-only" for="nlEmail">Email address</label>
+          <input id="nlEmail" type="email" placeholder="Your email address" required />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+        <p class="newsletter__msg" id="newsletterMsg" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <img src="assets/images/logo.png" alt="Home Center Green" class="footer__logo" />
+        <p>Curated furniture, lighting and home decor — delivered across Ontario, Canada.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" /></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z" /></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M10 21l2-8M10.5 14c1 1 4 1 5-2 1-3-1-5-3.5-5S8 9 8 11c0 1 .5 2 1 2" /></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4 5 4" /></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <a href="#">Living Room</a><a href="#">Bedroom</a><a href="#">Dining</a><a href="#">Lighting</a><a href="#">Decor &amp; Accents</a><a href="#">Sale</a>
+      </div>
+      <div class="footer__col">
+        <h4>Help</h4>
+        <a href="#">Delivery &amp; Shipping</a><a href="#">Returns &amp; Exchanges</a><a href="#">Order Tracking</a><a href="#">FAQ</a><a href="#">Contact Us</a>
+      </div>
+      <div class="footer__col">
+        <h4>Visit us</h4>
+        <p>Showroom address<br />Ontario, Canada</p>
+        <p><a href="tel:+10000000000">+1 (000) 000-0000</a><br /><a href="mailto:hello@homecentergreen.ca">hello@homecentergreen.ca</a></p>
+        <p>Mon–Sat · 10am – 7pm<br />Sun · 11am – 5pm</p>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© <span id="year"></span> Home Center Green. All rights reserved.</p>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Accessibility</a></div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
