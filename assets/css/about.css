@@ -1,0 +1,960 @@
+/* =========================================================
+   About page (about.html) — builds on master.css
+   ========================================================= */
+.ab-page {
+    --ab-line: #ECE4D6;
+    --ab-soft: #F4EFE5;
+    --ab-muted: #6F675C;
+    padding: 0 0 110px;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    color: var(--brand-ink);
+    overflow-x: clip
+}
+
+.ab-page section {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%
+}
+
+.ab-eyebrow {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--brand-gold)
+}
+
+.ab-page h1,
+.ab-page h2,
+.ab-page h3 {
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    color: var(--brand-ink)
+}
+
+.ab-sec-head {
+    max-width: 640px;
+    margin-bottom: 44px
+}
+
+.ab-sec-head h2 {
+    font-size: clamp(30px, 3.4vw, 44px);
+    line-height: 1.12
+}
+
+.ab-sec-head p {
+    margin-top: 14px;
+    color: var(--ab-muted);
+    line-height: 1.7
+}
+
+.ab-sec-head a {
+    color: var(--brand-olive-d);
+    text-decoration: underline;
+    text-underline-offset: 3px
+}
+
+/* scroll reveal (about.js adds .is-in) */
+.js .ab-rv {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .9s var(--ease), transform .9s var(--ease)
+}
+
+.js .ab-rv.is-in {
+    opacity: 1;
+    transform: none
+}
+
+/* ---------- buttons ---------- */
+.ab-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px
+}
+
+.ab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 26px;
+    border-radius: 999px;
+    background: var(--brand-olive-d);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background .3s, color .3s, transform .3s var(--ease)
+}
+
+.ab-btn:hover {
+    background: var(--brand-ink);
+    transform: translateY(-2px)
+}
+
+.ab-btn-ghost {
+    background: transparent;
+    color: var(--brand-ink);
+    box-shadow: inset 0 0 0 1px #D9CFBF
+}
+
+.ab-btn-ghost:hover {
+    background: var(--brand-ink);
+    color: #fff
+}
+
+.ab-btn-ghost i {
+    font-size: 13px;
+    transition: transform .3s var(--ease)
+}
+
+.ab-btn-ghost:hover i {
+    transform: translateX(4px)
+}
+
+/* ---------- hero ---------- */
+.ab-page .ab-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    gap: 64px;
+    align-items: center;
+    padding-top: 128px;
+    padding-bottom: 72px
+}
+
+.ab-crumbs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 40px;
+    font-size: 13.5px;
+    color: #8C8378
+}
+
+.ab-crumbs a:hover {
+    color: var(--brand-olive-d)
+}
+
+.ab-crumbs i {
+    font-size: 9px;
+    opacity: .6
+}
+
+.ab-crumbs span {
+    color: var(--brand-ink)
+}
+
+.ab-hero h1 {
+    font-size: clamp(40px, 5.4vw, 74px);
+    line-height: 1.04;
+    letter-spacing: -.01em
+}
+
+.ab-hero h1 em {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--brand-gold)
+}
+
+.ab-lead {
+    max-width: 520px;
+    margin: 26px 0 34px;
+    font-size: 17.5px;
+    line-height: 1.75;
+    color: var(--ab-muted)
+}
+
+.ab-hero .ab-rv:nth-child(3) { transition-delay: .08s }
+.ab-hero .ab-rv:nth-child(4) { transition-delay: .16s }
+.ab-hero .ab-rv:nth-child(5) { transition-delay: .24s }
+
+.ab-visual {
+    position: relative;
+    aspect-ratio: 1 / 1.05
+}
+
+.ab-arch,
+.ab-small {
+    position: absolute;
+    overflow: hidden
+}
+
+.ab-arch img,
+.ab-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.ab-arch {
+    inset: 0 16% 10% 0;
+    border-radius: 999px 999px 28px 28px;
+    animation: abRise 1.2s var(--ease) both
+}
+
+.ab-arch img {
+    object-position: 38% 50%;
+    animation: abZoom 1.8s var(--ease) both
+}
+
+.ab-small {
+    right: 0;
+    bottom: 0;
+    width: 44%;
+    aspect-ratio: 4 / 5;
+    border: 8px solid var(--cream);
+    border-radius: 26px;
+    box-shadow: 0 30px 60px -28px rgba(46, 44, 32, .45);
+    animation: abRise 1.2s .25s var(--ease) both
+}
+
+.ab-seal {
+    position: absolute;
+    left: -5%;
+    bottom: 12%;
+    display: grid;
+    place-items: center;
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    background: var(--cream);
+    box-shadow: 0 18px 40px -20px rgba(46, 44, 32, .35);
+    animation: abPop .9s .6s var(--ease) both
+}
+
+.ab-seal svg {
+    position: absolute;
+    inset: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    animation: abSpin 22s linear infinite
+}
+
+.ab-seal text {
+    font-size: 10.4px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    fill: var(--brand-olive-d);
+    font-family: "DM Sans", sans-serif
+}
+
+.ab-seal img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain
+}
+
+@keyframes abRise {
+    from { opacity: 0; transform: translateY(40px) }
+}
+
+@keyframes abZoom {
+    from { transform: scale(1.15) }
+}
+
+@keyframes abPop {
+    from { opacity: 0; transform: scale(.6) }
+}
+
+@keyframes abSpin {
+    to { transform: rotate(360deg) }
+}
+
+/* ---------- facts ---------- */
+.ab-page .ab-facts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    padding-bottom: 110px
+}
+
+.ab-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 28px 26px;
+    border-radius: 22px;
+    background: var(--ab-soft)
+}
+
+.ab-fact:nth-child(2) { transition-delay: .08s }
+.ab-fact:nth-child(3) { transition-delay: .16s }
+.ab-fact:nth-child(4) { transition-delay: .24s }
+
+.ab-fact strong {
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    font-size: clamp(38px, 4vw, 54px);
+    line-height: 1;
+    color: var(--brand-olive-d)
+}
+
+.ab-fact small {
+    margin-left: 6px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 16px;
+    color: var(--brand-gold)
+}
+
+.ab-fact > span {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ab-muted)
+}
+
+/* ---------- story ---------- */
+.ab-page .ab-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 72px;
+    padding-bottom: 120px
+}
+
+.ab-big {
+    font-family: "Gilda Display", serif;
+    font-size: clamp(26px, 2.7vw, 38px);
+    line-height: 1.3;
+    color: var(--brand-ink)
+}
+
+.ab-story-body {
+    padding-top: 34px;
+    transition-delay: .12s
+}
+
+.ab-story-body > p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: var(--ab-muted)
+}
+
+.ab-story-body > p + p {
+    margin-top: 18px
+}
+
+.ab-quote {
+    margin-top: 36px;
+    padding: 30px 32px;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 0 0 1px var(--ab-line)
+}
+
+.ab-quote p {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.4;
+    color: var(--brand-ink)
+}
+
+.ab-quote cite {
+    display: block;
+    margin-top: 14px;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--brand-gold)
+}
+
+/* ---------- journey ---------- */
+.ab-page .ab-journey {
+    position: relative;
+    padding-top: 90px;
+    padding-bottom: 96px;
+    border-radius: 36px;
+    background: var(--ab-soft);
+    max-width: calc(1320px - 10%);
+    width: 90%
+}
+
+.ab-journey .ab-sec-head {
+    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 40px;
+    align-items: end
+}
+
+.ab-journey .ab-sec-head .ab-eyebrow {
+    grid-column: 1 / -1
+}
+
+.ab-journey .ab-sec-head h2 {
+    max-width: 560px
+}
+
+.ab-route {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 !important;
+    font-family: "Gilda Display", serif;
+    font-size: 19px;
+    color: var(--brand-ink) !important;
+    white-space: nowrap
+}
+
+.ab-route i {
+    font-size: 14px;
+    color: var(--brand-gold)
+}
+
+.ab-route small {
+    margin-left: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: #fff;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12.5px;
+    color: var(--ab-muted)
+}
+
+.ab-steps {
+    --fill: 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    list-style: none
+}
+
+/* track behind the icons; the gold part grows with scroll */
+.ab-steps::before,
+.ab-steps::after {
+    content: "";
+    position: absolute;
+    top: 31px;
+    left: 32px;
+    right: calc(25% - 4px);
+    height: 2px;
+    border-radius: 2px;
+    background: #DDD3C2
+}
+
+.ab-steps::after {
+    right: auto;
+    width: calc((75% - 36px) * var(--fill));
+    background: var(--brand-gold)
+}
+
+.ab-step {
+    position: relative;
+    z-index: 1
+}
+
+.ab-step-ic {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--brand-gold);
+    font-size: 21px;
+    box-shadow: 0 0 0 6px var(--ab-soft);
+    transition: background .5s var(--ease), color .5s var(--ease), transform .5s var(--ease)
+}
+
+.ab-step.is-on .ab-step-ic {
+    background: var(--brand-olive-d);
+    color: #fff;
+    transform: scale(1.06)
+}
+
+.ab-step small {
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--brand-gold)
+}
+
+.ab-step h3 {
+    margin: 8px 0 10px;
+    font-size: 23px
+}
+
+.ab-step p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ab-muted)
+}
+
+/* ---------- quality hotspots ---------- */
+.ab-page .ab-detail {
+    padding-top: 120px;
+    padding-bottom: 120px
+}
+
+.ab-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center
+}
+
+.ab-spots {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    aspect-ratio: 3 / 2
+}
+
+.ab-spots img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.ab-dot {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin: -19px 0 0 -19px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(251, 248, 241, .92);
+    color: var(--brand-ink);
+    font: 600 13px "DM Sans", sans-serif;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+    transition: background .3s, color .3s, transform .3s var(--ease)
+}
+
+.ab-dot::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border-radius: 50%;
+    border: 2px solid rgba(251, 248, 241, .85);
+    animation: abPulse 2.2s var(--ease) infinite
+}
+
+.ab-dot:hover {
+    transform: scale(1.1)
+}
+
+.ab-dot.is-on {
+    background: var(--brand-olive-d);
+    color: #fff;
+    transform: scale(1.15)
+}
+
+.ab-dot.is-on::before {
+    border-color: var(--brand-gold-l)
+}
+
+@keyframes abPulse {
+    0% { transform: scale(.8); opacity: 1 }
+    100% { transform: scale(1.5); opacity: 0 }
+}
+
+.ab-checks {
+    list-style: none
+}
+
+.ab-checks li {
+    border-radius: 18px;
+    transition: background .4s var(--ease)
+}
+
+.ab-checks li + li {
+    margin-top: 6px
+}
+
+.ab-checks li.is-on {
+    background: var(--ab-soft)
+}
+
+.ab-checks button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 18px 20px;
+    border: 0;
+    background: none;
+    font: 400 21px "Gilda Display", serif;
+    color: var(--brand-ink);
+    text-align: left;
+    cursor: pointer
+}
+
+.ab-checks b {
+    min-width: 22px;
+    font: 600 12.5px "DM Sans", sans-serif;
+    letter-spacing: .08em;
+    color: var(--brand-gold)
+}
+
+.ab-checks p {
+    overflow: hidden;
+    padding: 0 20px 0 54px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ab-muted);
+    max-height: 0;
+    transition: max-height .5s var(--ease), padding .5s var(--ease)
+}
+
+.ab-checks li.is-on p {
+    max-height: 160px;
+    padding-bottom: 20px
+}
+
+/* ---------- values ---------- */
+.ab-page .ab-values {
+    padding-bottom: 120px
+}
+
+.ab-value-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px
+}
+
+.ab-value {
+    padding: 32px 28px;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 0 0 1px var(--ab-line);
+    transition: opacity .9s var(--ease), transform .9s var(--ease), box-shadow .4s var(--ease)
+}
+
+.ab-value:nth-child(2) { transition-delay: .08s }
+.ab-value:nth-child(3) { transition-delay: .16s }
+.ab-value:nth-child(4) { transition-delay: .24s }
+
+.ab-value:hover {
+    box-shadow: 0 0 0 1px var(--ab-line), 0 26px 50px -30px rgba(46, 44, 32, .35)
+}
+
+.ab-value-ic {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 26px;
+    border-radius: 16px;
+    background: var(--ab-soft);
+    color: var(--brand-olive-d);
+    font-size: 19px;
+    transition: background .4s, color .4s
+}
+
+.ab-value:hover .ab-value-ic {
+    background: var(--brand-olive-d);
+    color: #fff
+}
+
+.ab-value h3 {
+    margin-bottom: 10px;
+    font-size: 22px
+}
+
+.ab-value p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ab-muted)
+}
+
+/* ---------- faq ---------- */
+.ab-page .ab-faq {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 64px;
+    padding-bottom: 120px
+}
+
+.ab-faq-list details {
+    border-bottom: 1px solid var(--ab-line)
+}
+
+.ab-faq-list details:first-child {
+    border-top: 1px solid var(--ab-line)
+}
+
+.ab-faq-list summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0;
+    font-family: "Gilda Display", serif;
+    font-size: 20px;
+    cursor: pointer;
+    list-style: none
+}
+
+.ab-faq-list summary::-webkit-details-marker {
+    display: none
+}
+
+.ab-faq-list summary i {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--ab-soft);
+    font-size: 12px;
+    color: var(--brand-olive-d);
+    transition: transform .4s var(--ease), background .4s, color .4s
+}
+
+.ab-faq-list details[open] summary i {
+    transform: rotate(45deg);
+    background: var(--brand-olive-d);
+    color: #fff
+}
+
+.ab-faq-list details p {
+    padding: 0 54px 24px 0;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--ab-muted)
+}
+
+/* ---------- cta ---------- */
+.ab-page .ab-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    max-width: calc(1320px - 10%);
+    width: 90%;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 32px;
+    background: var(--ab-soft)
+}
+
+.ab-cta-img {
+    min-height: 380px
+}
+
+.ab-cta-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.ab-cta-text {
+    align-self: center;
+    padding: 56px
+}
+
+.ab-cta h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.15
+}
+
+.ab-cta-text p {
+    margin: 16px 0 30px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ab-muted)
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+    .ab-value-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .ab-detail-grid {
+        grid-template-columns: minmax(0, 1fr)
+    }
+}
+
+@media (max-width: 900px) {
+    .ab-page .ab-hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+        padding-top: 112px
+    }
+
+    .ab-crumbs {
+        margin-bottom: 28px
+    }
+
+    .ab-visual {
+        width: min(100%, 520px);
+        margin: 0 auto
+    }
+
+    .ab-page .ab-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding-bottom: 80px
+    }
+
+    .ab-page .ab-story,
+    .ab-page .ab-faq {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding-bottom: 88px
+    }
+
+    .ab-story-body {
+        padding-top: 0
+    }
+
+    .ab-journey .ab-sec-head {
+        grid-template-columns: minmax(0, 1fr)
+    }
+
+    .ab-route {
+        margin-top: 18px !important;
+        flex-wrap: wrap
+    }
+
+    /* steps go vertical with the track on the left */
+    .ab-steps {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px
+    }
+
+    .ab-step {
+        padding-left: 86px;
+        min-height: 64px
+    }
+
+    .ab-step-ic {
+        position: absolute;
+        left: 0;
+        top: 0
+    }
+
+    .ab-steps::before,
+    .ab-steps::after {
+        top: 32px;
+        left: 31px;
+        right: auto;
+        width: 2px;
+        height: calc(100% - 100px)
+    }
+
+    .ab-steps::after {
+        height: calc((100% - 100px) * var(--fill))
+    }
+
+    .ab-page .ab-detail {
+        padding-top: 88px;
+        padding-bottom: 88px
+    }
+
+    .ab-page .ab-values {
+        padding-bottom: 88px
+    }
+
+    .ab-page .ab-cta {
+        grid-template-columns: minmax(0, 1fr)
+    }
+
+    .ab-cta-img {
+        min-height: 0;
+        aspect-ratio: 16 / 10
+    }
+
+    .ab-cta-text {
+        padding: 36px 28px 40px
+    }
+}
+
+@media (max-width: 560px) {
+    .ab-page .ab-journey {
+        width: 100%;
+        border-radius: 28px;
+        padding: 64px 20px
+    }
+
+    .ab-page .ab-cta {
+        width: calc(100% - 32px)
+    }
+
+    .ab-sec-head {
+        margin-bottom: 32px
+    }
+
+    .ab-lead {
+        font-size: 16px
+    }
+
+    .ab-btn {
+        height: 50px;
+        padding: 0 22px
+    }
+
+    .ab-seal {
+        width: 104px;
+        height: 104px;
+        left: -2%
+    }
+
+    .ab-seal img {
+        width: 36px;
+        height: 36px
+    }
+
+    .ab-fact {
+        padding: 22px 18px
+    }
+
+    .ab-value-grid {
+        grid-template-columns: minmax(0, 1fr)
+    }
+
+    .ab-dot {
+        width: 30px;
+        height: 30px;
+        margin: -15px 0 0 -15px;
+        font-size: 12px
+    }
+
+    .ab-checks button {
+        padding: 16px 14px;
+        font-size: 19px
+    }
+
+    .ab-checks p {
+        padding-left: 48px;
+        padding-right: 14px
+    }
+
+    .ab-faq-list summary {
+        font-size: 18px
+    }
+
+    .ab-faq-list details p {
+        padding-right: 0
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .ab-rv,
+    .ab-arch,
+    .ab-arch img,
+    .ab-small,
+    .ab-seal {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: none
+    }
+
+    .ab-seal svg,
+    .ab-dot::before {
+        animation: none
+    }
+}
