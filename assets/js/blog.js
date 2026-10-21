@@ -71,8 +71,7 @@
         <a class="bl-feat" href="${link(featured)}">
             <span class="bl-feat-media"><img src="${IMG + featured.img}" alt=""></span>
             <span class="bl-feat-body">
-                <span class="bl-feat-tag"><i class="fa-solid fa-star" aria-hidden="true"></i> Editor's pick</span>
-                <span class="bl-meta"><b>${TOPICS[featured.topic].label}</b><span>${fmt(featured.date)}</span><span><i class="fa-regular fa-clock" aria-hidden="true"></i> ${featured.read} min read</span></span>
+                <span class="bl-meta"><b>${TOPICS[featured.topic].label}</b><span>${featured.read} min read</span></span>
                 <strong>${esc(featured.title)}</strong>
                 <span class="bl-feat-text">${esc(featured.excerpt)}</span>
                 <span class="bl-read">Read the article <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
@@ -93,11 +92,9 @@
     }
 
     /* ---------- topics ---------- */
-    const count = (t) => rest.filter((p) => t === "all" || p.topic === t).length;
     $("blTopics").innerHTML =
-        `<button type="button" role="tab" data-topic="all"><i class="fa-solid fa-border-all" aria-hidden="true"></i>All<small>${count("all")}</small></button>` +
-        Object.entries(TOPICS).map(([k, t]) =>
-            `<button type="button" role="tab" data-topic="${k}"><i class="fa-solid ${t.icon}" aria-hidden="true"></i>${t.label}<small>${count(k)}</small></button>`).join("");
+        `<button type="button" role="tab" data-topic="all">All</button>` +
+        Object.entries(TOPICS).map(([k, t]) => `<button type="button" role="tab" data-topic="${k}">${t.label}</button>`).join("");
     $("blTopics").addEventListener("click", (e) => {
         const b = e.target.closest("[data-topic]");
         if (!b || b.dataset.topic === state.topic) return;
@@ -108,16 +105,13 @@
 
     /* ---------- cards ---------- */
     function card(p, n) {
-        const t = TOPICS[p.topic];
         return `
-        <article class="bl-card${n === 0 ? " bl-card-wide" : ""}" style="--d:${n * 60}ms">
-            <a href="${link(p)}" class="bl-card-media"><img src="${IMG + p.img}" alt="" loading="lazy">
-                <span class="bl-card-topic"><i class="fa-solid ${t.icon}" aria-hidden="true"></i> ${t.label}</span></a>
+        <article class="bl-card" style="--d:${n * 60}ms">
+            <a href="${link(p)}" class="bl-card-media"><img src="${IMG + p.img}" alt="" loading="lazy"></a>
             <div class="bl-card-body">
-                <span class="bl-meta"><span>${fmt(p.date)}</span><span><i class="fa-regular fa-clock" aria-hidden="true"></i> ${p.read} min</span></span>
+                <span class="bl-meta"><b>${TOPICS[p.topic].label}</b><span>${p.read} min read</span></span>
                 <h2><a href="${link(p)}">${esc(p.title)}</a></h2>
                 <p>${esc(p.excerpt)}</p>
-                <a href="${link(p)}" class="bl-more" aria-label="Read: ${esc(p.title)}">Read more <span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
             </div>
         </article>`;
     }
@@ -141,20 +135,14 @@
         pager.hidden = false;
         const cur = state.page;
         pager.innerHTML = `
-            <button type="button" class="bl-step bl-prev" data-page="${cur - 1}" ${cur === 1 ? "disabled" : ""} aria-label="Previous page">
-                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Prev</span></button>
+            <button type="button" class="bl-step" data-page="${cur - 1}" ${cur === 1 ? "disabled" : ""} aria-label="Previous page"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
             <div class="bl-pages">
                 <span class="bl-indicator" aria-hidden="true"></span>
                 ${pageList(cur, total).map((n) => n === "…"
                     ? `<span class="bl-gap" aria-hidden="true">…</span>`
                     : `<button type="button" class="bl-num" data-page="${n}" ${n === cur ? 'aria-current="page"' : ""} aria-label="Page ${n}">${String(n).padStart(2, "0")}</button>`).join("")}
             </div>
-            <button type="button" class="bl-step bl-next" data-page="${cur + 1}" ${cur === total ? "disabled" : ""} aria-label="Next page">
-                <span>Next</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-            <div class="bl-progress" aria-hidden="true">
-                <span>Page <b>${cur}</b> of ${total}</span>
-                <span class="bl-progress-bar"><span style="width:${(cur / total) * 100}%"></span></span>
-            </div>`;
+            <button type="button" class="bl-step" data-page="${cur + 1}" ${cur === total ? "disabled" : ""} aria-label="Next page"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>`;
         moveIndicator(false);
     }
     /* the indicator slides from the previous page number to the new one */
@@ -192,7 +180,6 @@
         const slice = list.slice((state.page - 1) * PER_PAGE, state.page * PER_PAGE);
 
         $("blTopics").querySelectorAll("[data-topic]").forEach((b) => b.setAttribute("aria-selected", b.dataset.topic === state.topic));
-        $("blTotal").innerHTML = `<b>${list.length}</b> ${list.length === 1 ? "article" : "articles"}`;
         $("blGrid").innerHTML = slice.map(card).join("");
 
         const keep = paging ? lastLeft : null;

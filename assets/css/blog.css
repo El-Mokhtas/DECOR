@@ -741,3 +741,87 @@
         font-size: 17px
     }
 }
+
+/* ---------- calmer version: fewer details ---------- */
+.bl-bar {
+    justify-content: flex-start;
+    padding-top: 64px
+}
+
+.bl-topics button {
+    height: 42px;
+    padding: 0 18px;
+    border-color: transparent;
+    background: transparent;
+    color: #6B6656
+}
+
+.bl-topics button:hover {
+    border-color: transparent;
+    color: var(--brand-ink)
+}
+
+.bl-grid {
+    gap: 44px 28px
+}
+
+.bl-card,
+.bl-card:hover {
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    transform: none
+}
+
+.bl-card-media {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 24px
+}
+
+.bl-card-body {
+    gap: 10px;
+    padding: 20px 4px 0
+}
+
+.bl-card h2 {
+    font-size: 24px
+}
+
+.bl-card p {
+    flex: none
+}
+
+.bl-pager {
+    grid-template-columns: auto auto auto;
+    gap: 14px;
+    margin-top: 72px
+}
+
+.bl-step {
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    justify-content: center
+}
+
+@media (max-width:767px) {
+    .bl-pager {
+        grid-template-columns: auto auto auto;
+        justify-content: center
+    }
+
+    .bl-pages {
+        grid-column: auto;
+        grid-row: auto
+    }
+
+    .bl-step {
+        width: 46px;
+        height: 46px
+    }
+
+    .bl-grid {
+        gap: 36px
+    }
+}
