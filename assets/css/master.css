@@ -1265,6 +1265,157 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 }
 
+/* ================= FOOTER — light ================= */
+.hcg-footer {
+    scroll-margin-top: 80px;
+    margin: 0 16px 16px;
+    border-radius: 28px;
+    background:
+        radial-gradient(70% 90% at 100% 0%, rgba(200, 168, 119, .16), transparent 60%),
+        #F4EFE6;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    color: #6B6656;
+    overflow: hidden
+}
+
+.ft-top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 48px;
+    padding: 72px 5% 56px
+}
+
+.ft-logo img {
+    display: block;
+    height: 96px;
+    width: auto;
+    margin-bottom: 18px
+}
+
+.ft-brand p {
+    max-width: 320px;
+    font-size: 15.5px;
+    line-height: 1.7
+}
+
+.ft-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px
+}
+
+.ft-col h3 {
+    margin-bottom: 8px;
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--brand-ink)
+}
+
+.ft-col a {
+    font-size: 15px;
+    color: #6B6656;
+    transition: color .3s, transform .35s var(--ease)
+}
+
+.ft-col a:hover {
+    color: var(--brand-olive-d);
+    transform: translateX(4px)
+}
+
+.ft-line {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+.ft-line svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    fill: none;
+    stroke: var(--brand-gold);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.ft-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 5%;
+    background: rgba(107, 104, 71, .07);
+    font-size: 13.5px
+}
+
+.ft-top-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--brand-olive-d);
+    transition: color .3s
+}
+
+.ft-top-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    transition: transform .35s var(--ease)
+}
+
+.ft-top-btn:hover {
+    color: var(--brand-gold)
+}
+
+.ft-top-btn:hover svg {
+    transform: translateY(-3px)
+}
+
+@media (max-width:1024px) {
+    .ft-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 32px
+    }
+}
+
+@media (max-width:767px) {
+    .hcg-footer {
+        margin: 0 10px 10px;
+        border-radius: 22px
+    }
+
+    .ft-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px 20px;
+        padding: 48px 22px 40px
+    }
+
+    .ft-brand,
+    .ft-contact {
+        grid-column: 1 / -1
+    }
+
+    .ft-logo img {
+        height: 80px
+    }
+
+    .ft-bottom {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px 22px
+    }
+}
+
 /* ================= ABOUT — designer's mood board ================= */
 .mb {
     --mb-bg: #F6F1E8;

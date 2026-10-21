@@ -66,6 +66,10 @@
         if (e.matches) closeMenu();
     });
 
+    /* footer year */
+    const ftYear = document.getElementById("ftYear");
+    if (ftYear) ftYear.textContent = new Date().getFullYear();
+
     /* ---------- scroll reveal ---------- */
     const io = new IntersectionObserver(
         (es) =>
