@@ -1350,6 +1350,61 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     gap: 12px
 }
 
+.rv-arrows[hidden] {
+    display: none
+}
+
+/* invitation shown until real reviews are added */
+.rv-empty {
+    max-width: 680px;
+    margin: 0 auto;
+    padding-bottom: 18px
+}
+
+.rv-panel-empty {
+    gap: 12px;
+    padding: 32px 34px 30px
+}
+
+.rv-empty-title {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-size: 26px;
+    line-height: 1.2;
+    color: var(--brand-ink)
+}
+
+.rv-empty-text {
+    max-width: 460px;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6656
+}
+
+.rv-empty-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    height: 50px;
+    padding: 0 26px;
+    border-radius: 999px;
+    background: var(--brand-olive-d);
+    color: #fff;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    transition: background .3s, transform .3s var(--ease)
+}
+
+.rv-empty-btn:hover {
+    background: var(--brand-gold);
+    transform: translateY(-2px)
+}
+
 .rv-arrows button {
     width: 54px;
     height: 54px;
@@ -1437,34 +1492,35 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding-top: 84px
+    padding-top: 96px
 }
 
-/* photo strip: a rounded card tilted slightly, tucked behind the top of the review card,
-   inset so it never shows past the card's sides */
+/* photo strip: slanted top like a wedge, kept inside the card's width,
+   with rounded corners (a skewed rounded box) instead of a sharp point */
 .rv-photo {
     position: absolute;
-    top: 30px;
-    left: 18px;
-    right: 18px;
-    height: 150px;
-    border-radius: 18px;
+    top: 64px;
+    left: 14px;
+    right: 14px;
+    height: 130px;
+    border-radius: 16px;
     background: var(--accent);
     overflow: hidden;
-    transform: rotate(-4deg);
-    transform-origin: 50% 100%
+    transform: skewY(-9deg);
+    transform-origin: 0 0
 }
 
 .rv-photo img {
     position: absolute;
-    inset: -12% -6%;
-    width: 112%;
-    height: 124%;
+    top: -30%;
+    right: 0;
+    width: 74%;
+    height: 160%;
     object-fit: cover;
     pointer-events: none;
-    transform: rotate(4deg);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 50%);
-    mask-image: linear-gradient(90deg, transparent 0%, #000 50%);
+    transform: skewY(9deg);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
     transition: scale 1.2s var(--ease)
 }
 
@@ -1601,6 +1657,10 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
         display: none
     }
 
+    .rv-empty {
+        padding: 0 5% 10px
+    }
+
     .rv-track {
         grid-auto-columns: 84%;
         gap: 16px;
@@ -1610,14 +1670,14 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 
     .rv-card {
-        padding-top: 72px
+        padding-top: 84px
     }
 
     .rv-photo {
-        top: 24px;
-        height: 130px;
-        left: 14px;
-        right: 14px
+        top: 54px;
+        height: 110px;
+        left: 12px;
+        right: 12px
     }
 
     .rv-panel {

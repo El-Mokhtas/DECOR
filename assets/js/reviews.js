@@ -11,6 +11,9 @@
         //   text: "…", product: "Turkish Sofa Set" },
     ];
 
+    /* link for "Write a review" (your Google review link); null falls back to the contact section */
+    const REVIEW_URL = null; // "https://g.page/r/.../review"
+
     /* product name -> photo + link shown on each review card */
     const P = "assets/imgs/products/";
     const PRODUCT_INFO = {
@@ -42,16 +45,36 @@
 
     const preview = new URLSearchParams(location.search).get("preview") === "reviews";
     const list = REVIEWS.length ? REVIEWS : preview ? SAMPLE_REVIEWS : [];
-    if (!list.length) return; // nothing real to show yet: keep the section hidden
 
-    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     const stars = (n) => `<span class="rv-stars" role="img" aria-label="${n} out of 5 stars">${[1, 2, 3, 4, 5]
         .map((i) => `<i class="fa-${i <= n ? "solid" : "regular"} fa-star" aria-hidden="true"></i>`).join("")}</span>`;
     const initials = (name) => name.replace(/\./g, "").split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
     const ACCENTS = ["#4E4C33", "#A8844A", "#3C3024"]; // olive, gold, brown — cycles per card
 
-    /* cards: a slanted photo strip peeks out above each card */
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     const track = section.querySelector(".rv-track");
+
+    /* no real reviews yet: show an invitation instead of cards */
+    if (!list.length) {
+        const url = REVIEW_URL || "#contact";
+        track.outerHTML = `
+        <div class="rv-empty">
+            <figure class="rv-card" style="--accent:#4E4C33">
+                <span class="rv-photo" aria-hidden="true"><img src="${P}sofa-set/grey/1.jpg" alt="" loading="lazy"></span>
+                <div class="rv-panel rv-panel-empty">
+                    <i class="fa-solid fa-quote-left rv-quote" aria-hidden="true"></i>
+                    <p class="rv-empty-title">Bought from Home Centre Green?</p>
+                    <p class="rv-empty-text">We'd love to hear how your new piece looks at home. Your review helps other families in Hamilton choose with confidence.</p>
+                    <a class="rv-empty-btn" href="${esc(url)}"${REVIEW_URL ? ' target="_blank" rel="noopener"' : ""}><i class="fa-regular fa-pen-to-square" aria-hidden="true"></i> Write a review</a>
+                </div>
+            </figure>
+        </div>`;
+        section.querySelector(".rv-arrows").hidden = true;
+        section.hidden = false;
+        return;
+    }
+
+    /* cards: a slanted photo strip peeks out above each card */
     track.innerHTML = list.map((r, k) => {
         const info = PRODUCT_INFO[r.product] || {};
         return `
