@@ -1,0 +1,773 @@
+/* =========================================================
+   Cart page (cart.html) — builds on master, shop and product css
+   ========================================================= */
+.ct-page {
+    padding: 128px 0 110px;
+    font-family: "DM Sans", "Montserrat", sans-serif
+}
+
+.ct-page [hidden],
+.ct-bar[hidden] {
+    display: none !important
+}
+
+.ct-head {
+    padding: 22px 5% 34px
+}
+
+.ct-head .pd-crumbs {
+    padding: 0 0 22px
+}
+
+.ct-title-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap
+}
+
+.ct-head h1 {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 4.4vw, 64px);
+    line-height: 1;
+    color: var(--brand-ink)
+}
+
+.ct-head h1 span {
+    font-size: .5em;
+    color: #A39A8E;
+    vertical-align: middle
+}
+
+/* steps */
+.ct-steps {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #A39A8E
+}
+
+.ct-steps li {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.ct-steps li + li::before {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: rgba(46, 44, 32, .18)
+}
+
+.ct-steps span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(46, 44, 32, .16);
+    font-size: 12.5px
+}
+
+.ct-steps .is-current {
+    color: var(--brand-ink);
+    font-weight: 500
+}
+
+.ct-steps .is-current span {
+    background: var(--brand-olive-d);
+    border-color: var(--brand-olive-d);
+    color: #fff
+}
+
+/* ---------- layout ---------- */
+.ct-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 36px;
+    align-items: start;
+    padding: 0 5%
+}
+
+/* free delivery progress */
+.ct-free {
+    padding: 20px 22px;
+    border-radius: 22px;
+    background: #F4EFE6;
+    font-size: 15px;
+    color: #4A463A
+}
+
+.ct-free-text {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.ct-free-text i {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    color: var(--brand-olive-d)
+}
+
+.ct-free b {
+    font-weight: 500;
+    color: var(--brand-ink)
+}
+
+.ct-free-bar {
+    height: 6px;
+    margin-top: 14px;
+    border-radius: 6px;
+    background: rgba(107, 104, 71, .15);
+    overflow: hidden
+}
+
+.ct-free-bar span {
+    display: block;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--brand-gold), var(--brand-olive-d));
+    transition: width .6s var(--ease)
+}
+
+.ct-free.is-done .ct-free-text i {
+    background: var(--brand-olive-d);
+    color: #fff
+}
+
+/* items */
+.ct-list {
+    list-style: none;
+    display: grid;
+    gap: 14px;
+    margin-top: 18px
+}
+
+.ct-item {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr) auto;
+    gap: 22px;
+    align-items: center;
+    padding: 12px 24px 12px 12px;
+    border-radius: 26px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(46, 44, 32, .04), 0 18px 40px -36px rgba(46, 44, 32, .5);
+    animation: hhFade .4s var(--ease);
+    transition: opacity .28s, transform .28s var(--ease)
+}
+
+.ct-item.is-leaving {
+    opacity: 0;
+    transform: translateX(30px)
+}
+
+.ct-img {
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #EDE6DA
+}
+
+.ct-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s var(--ease)
+}
+
+.ct-item:hover .ct-img img {
+    transform: scale(1.05)
+}
+
+.ct-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+}
+
+.ct-cat {
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--brand-gold)
+}
+
+.ct-info h3 {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--brand-ink)
+}
+
+.ct-info h3 a:hover {
+    color: var(--brand-olive)
+}
+
+.ct-opts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    font-size: 13.5px;
+    color: #8C8378
+}
+
+.ct-opts span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px
+}
+
+.ct-opts i {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12)
+}
+
+.ct-unit {
+    font-size: 14px;
+    color: #6B6656
+}
+
+.ct-item-actions {
+    display: flex;
+    gap: 18px;
+    margin-top: 4px
+}
+
+.ct-item-actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 13.5px;
+    color: #8C8378;
+    cursor: pointer;
+    transition: color .3s
+}
+
+.ct-item-actions button:hover {
+    color: var(--brand-ink)
+}
+
+.ct-item-actions [data-act="remove"]:hover {
+    color: #B4533A
+}
+
+.ct-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px
+}
+
+.ct-qty {
+    height: 48px
+}
+
+.ct-qty button:disabled {
+    opacity: .3;
+    cursor: default
+}
+
+.ct-line {
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--brand-ink)
+}
+
+.ct-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 22px
+}
+
+.ct-back,
+.ct-clear {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--brand-olive-d);
+    cursor: pointer;
+    transition: color .3s
+}
+
+.ct-back i {
+    transition: transform .3s var(--ease)
+}
+
+.ct-back:hover i {
+    transform: translateX(-4px)
+}
+
+.ct-clear {
+    color: #8C8378
+}
+
+.ct-clear:hover {
+    color: #B4533A
+}
+
+/* ---------- summary ---------- */
+.ct-summary {
+    position: sticky;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 30px 28px;
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(46, 44, 32, .04), 0 30px 60px -44px rgba(46, 44, 32, .6)
+}
+
+.ct-summary h2 {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--brand-ink)
+}
+
+.ct-lines {
+    display: grid;
+    gap: 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed rgba(46, 44, 32, .16)
+}
+
+.ct-lines div {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 15px
+}
+
+.ct-lines dt {
+    color: #6B6656
+}
+
+.ct-lines dd {
+    font-weight: 500;
+    color: var(--brand-ink);
+    text-align: right
+}
+
+.ct-free-tag {
+    color: #5E7A44 !important
+}
+
+.ct-discount dd {
+    color: #5E7A44
+}
+
+.ct-promo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 6px 0 18px;
+    border: 1px solid rgba(46, 44, 32, .12);
+    border-radius: 999px;
+    color: #A39A8E;
+    transition: border-color .3s
+}
+
+.ct-promo:focus-within {
+    border-color: var(--brand-gold)
+}
+
+.ct-promo input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: none;
+    font: inherit;
+    font-size: 14.5px;
+    text-transform: uppercase;
+    color: var(--brand-ink)
+}
+
+.ct-promo input::placeholder {
+    text-transform: none;
+    color: #A39A8E
+}
+
+.ct-promo button {
+    height: 40px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 999px;
+    background: #F1EBE0;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--brand-ink);
+    cursor: pointer;
+    transition: background .3s, color .3s
+}
+
+.ct-promo button:hover {
+    background: var(--brand-olive-d);
+    color: #fff
+}
+
+.ct-promo-msg {
+    min-height: 0;
+    margin-top: -8px;
+    font-size: 13px
+}
+
+.ct-promo-msg:empty {
+    display: none
+}
+
+.ct-promo-msg.is-ok {
+    color: #5E7A44
+}
+
+.ct-promo-msg.is-bad {
+    color: #B4533A
+}
+
+.ct-total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 4px
+}
+
+.ct-total span {
+    font-size: 16px;
+    color: var(--brand-ink)
+}
+
+.ct-total small {
+    font-size: 12px;
+    color: #A39A8E
+}
+
+.ct-total strong {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--brand-ink)
+}
+
+.ct-checkout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 58px;
+    padding: 0 28px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--brand-olive-d);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 14px 30px -18px rgba(46, 44, 32, .8);
+    transition: background .3s, transform .3s var(--ease)
+}
+
+.ct-checkout:hover {
+    background: var(--brand-gold);
+    transform: translateY(-2px)
+}
+
+.ct-pay {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    font-size: 28px;
+    color: #A39A8E
+}
+
+.ct-perks {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: #F7F3EC;
+    font-size: 13.5px;
+    color: #4A463A
+}
+
+.ct-perks li {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.ct-perks i {
+    width: 18px;
+    color: var(--brand-olive-d);
+    text-align: center
+}
+
+/* ---------- empty ---------- */
+.ct-empty {
+    margin: 0 5%;
+    padding: 70px 24px;
+    border-radius: 34px;
+    background: radial-gradient(60% 80% at 50% 0%, rgba(200, 168, 119, .18), transparent 70%), #fff;
+    text-align: center
+}
+
+.ct-empty-icon {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 22px;
+    border-radius: 30px;
+    display: grid;
+    place-items: center;
+    background: var(--brand-olive-d);
+    color: var(--brand-gold-l);
+    font-size: 36px;
+    transform: rotate(-6deg);
+    box-shadow: 0 24px 40px -24px rgba(46, 44, 32, .8)
+}
+
+.ct-empty h2 {
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-weight: 400;
+    font-size: clamp(30px, 3vw, 40px);
+    color: var(--brand-ink)
+}
+
+.ct-empty p {
+    max-width: 460px;
+    margin: 12px auto 28px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #6B6656
+}
+
+.ct-empty-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+.ct-empty-links a:not(.ct-checkout) {
+    height: 50px;
+    padding: 0 22px;
+    border: 1px solid rgba(46, 44, 32, .14);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 14.5px;
+    color: var(--brand-ink);
+    transition: border-color .3s, background .3s
+}
+
+.ct-empty-links a:not(.ct-checkout):hover {
+    border-color: var(--brand-gold);
+    background: #F7F3EC
+}
+
+.ct-more {
+    padding-top: 90px
+}
+
+/* toast with undo */
+.ct-toast {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 12px 12px 22px
+}
+
+.ct-toast button {
+    height: 34px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(251, 248, 241, .16);
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--brand-gold-l);
+    cursor: pointer;
+    pointer-events: auto
+}
+
+.ct-toast.is-show {
+    pointer-events: auto
+}
+
+/* mobile checkout bar */
+.ct-bar {
+    display: none
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px) {
+    .ct-layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 24px
+    }
+
+    .ct-item {
+        grid-template-columns: 120px minmax(0, 1fr) auto
+    }
+}
+
+@media (max-width:900px) {
+    .ct-page {
+        padding-top: 112px
+    }
+
+    .ct-layout {
+        grid-template-columns: minmax(0, 1fr)
+    }
+
+    .ct-summary {
+        position: static
+    }
+}
+
+@media (max-width:767px) {
+    .ct-page {
+        padding: 104px 0 120px
+    }
+
+    .ct-head {
+        padding: 16px 5% 24px
+    }
+
+    .ct-steps {
+        font-size: 12.5px;
+        gap: 6px
+    }
+
+    .ct-steps li + li::before {
+        width: 16px
+    }
+
+    .ct-steps span {
+        width: 26px;
+        height: 26px
+    }
+
+    .ct-item {
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 14px;
+        padding: 10px 14px 14px 10px;
+        border-radius: 22px
+    }
+
+    .ct-img {
+        align-self: start;
+        border-radius: 14px
+    }
+
+    .ct-info h3 {
+        font-size: 19px
+    }
+
+    .ct-right {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 12px;
+        border-top: 1px solid rgba(46, 44, 32, .07)
+    }
+
+    .ct-qty {
+        height: 44px
+    }
+
+    .ct-item-actions {
+        gap: 14px
+    }
+
+    .ct-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px
+    }
+
+    .ct-summary {
+        padding: 24px 20px;
+        border-radius: 26px
+    }
+
+    .ct-bar {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 80;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 8px 8px 8px 20px;
+        border-radius: 22px;
+        background: rgba(251, 248, 241, .96);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 20px 40px -20px rgba(46, 44, 32, .6), 0 0 0 1px rgba(46, 44, 32, .06)
+    }
+
+    .ct-bar div {
+        display: flex;
+        flex-direction: column
+    }
+
+    .ct-bar small {
+        font-size: 12px;
+        color: #8C8378
+    }
+
+    .ct-bar b {
+        font-size: 19px;
+        font-weight: 500;
+        color: var(--brand-ink)
+    }
+
+    .ct-bar .ct-checkout {
+        height: 50px;
+        padding: 0 22px;
+        font-size: 13px
+    }
+
+    .ct-empty {
+        margin: 0 10px;
+        padding: 50px 20px
+    }
+}
