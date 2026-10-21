@@ -273,17 +273,6 @@ body.drawer-open .drawer-backdrop { opacity: 1; visibility: visible; }
 .drawer__nav .nav__link--sale { color: var(--sale); }
 .drawer__foot { margin: 0; padding: 18px 24px; background: var(--green-900); color: var(--gold-300); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; text-align: center; }
 
-/* ================= Preview placeholder ================= */
-.preview__hero {
-  min-height: 160vh; padding: 18vh 32px 0;
-  text-align: center;
-  background: linear-gradient(180deg, var(--linen), var(--cream));
-}
-.preview__eyebrow { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-600); }
-.preview__hero h1 { margin: 12px 0; font-family: var(--font-serif); font-weight: 400; font-size: clamp(40px, 6vw, 76px); color: var(--green-900); }
-.preview__hero h1 em { color: var(--gold-600); }
-.preview__hero p:last-child { color: var(--muted); }
-
 /* ================= Responsive ================= */
 @media (max-width: 1180px) {
   .nav--right { display: none; }
