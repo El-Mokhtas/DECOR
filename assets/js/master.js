@@ -24,10 +24,8 @@
             0,
         );
         document.getElementById("cartCount").textContent = n || "";
-        document.getElementById("mmCartCount").textContent = n || "";
     } catch (e) {
         document.getElementById("cartCount").textContent = "2";
-        document.getElementById("mmCartCount").textContent = "2";
     }
 
     /* ---------- mobile menu: circle reveal from the menu button ---------- */
@@ -64,6 +62,11 @@
         }),
     );
     document.getElementById("menuBackdrop").addEventListener("click", closeMenu);
+    /* mark the current page in the menu */
+    const page = location.pathname.split("/").pop() || "index.html";
+    menu.querySelectorAll(".mm-link").forEach((a) => {
+        if (a.getAttribute("href") === page) a.setAttribute("aria-current", "page");
+    });
     matchMedia("(min-width:1025px)").addEventListener("change", (e) => {
         if (e.matches) closeMenu();
     });

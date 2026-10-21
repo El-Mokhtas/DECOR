@@ -59,7 +59,7 @@
         </div>
     </header>
 
-    <!-- ================= SIDEBAR (mobile menu) — shop-first drawer ================= -->
+    <!-- ================= SIDEBAR (mobile menu) ================= -->
     <div class="mmenu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
     <div class="mmenu" id="mmenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
         <div class="mmenu-top">
@@ -68,50 +68,19 @@
         </div>
 
         <div class="mmenu-body">
-            <!-- search -->
-            <form class="mm-search mm-in" action="shop.html" role="search">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
-                <label class="sr-only" for="mmSearch">Search products</label>
-                <input id="mmSearch" name="q" type="search" placeholder="Search sofas, lamps, rugs…" autocomplete="off">
-            </form>
-            <div class="mm-chips mm-in" aria-label="Popular searches">
-                <a href="shop.html?q=sofa">Sofas</a>
-                <a href="shop.html?q=dining">Dining tables</a>
-                <a href="shop.html?q=pendant">Pendants</a>
-                <a href="shop.html?q=accent+chair">Accent chairs</a>
-            </div>
+            <!-- page links: the current page gets aria-current from master.js -->
+            <nav class="mm-nav" aria-label="Mobile">
+                <ol>
+                    <li class="mm-in"><a href="index.html" class="mm-link"><span class="mm-num">01</span><span class="mm-name">Home</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="shop.html" class="mm-link"><span class="mm-num">02</span><span class="mm-name">Shop</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="projects.html" class="mm-link"><span class="mm-num">03</span><span class="mm-name">Projects</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="#services" class="mm-link"><span class="mm-num">04</span><span class="mm-name">Services</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="about.html" class="mm-link"><span class="mm-num">05</span><span class="mm-name">About</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a></li>
+                    <li class="mm-in"><a href="#contact" class="mm-link"><span class="mm-num">06</span><span class="mm-name">Contact</span><span class="mm-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></a></li>
+                </ol>
+            </nav>
 
-            <!-- quick actions -->
-            <div class="mm-quick mm-in">
-                <a href="my-account.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" /></svg><span>Account</span></a>
-                <a href="wishlist.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.3 5c2 0 3.2 1.1 3.9 2.2h3.6C14.5 6.1 15.7 5 17.7 5 21 5 22.7 8.4 21.2 11.4 19 15.6 12 20 12 20z" /></svg><span>Wishlist</span></a>
-                <a href="cart.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg><span>Cart</span><b class="mm-q-count" id="mmCartCount"></b></a>
-                <a href="track-order.html" class="mm-q"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z" /><circle cx="7" cy="17.5" r="1.8" /><circle cx="17" cy="17.5" r="1.8" /></svg><span>Track order</span></a>
-            </div>
-
-            <!-- shop by room -->
-            <section class="mm-block mm-in" aria-labelledby="mmRoomsTitle">
-                <div class="mm-head">
-                    <h3 id="mmRoomsTitle">Shop by <em>room</em></h3>
-                    <a href="shop.html">View all</a>
-                </div>
-                <div class="mm-rooms">
-                    <a href="sofa.html" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/102577_CAITLIN-SOFA_SILVER_12_ALT-scaled-450x304.jpg')"></span><span class="mm-room-name">Living</span><small>91 items</small></a>
-                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/Screenshot-2025-05-07-at-2.12.14%E2%80%AFAM-450x349.jpg')"></span><span class="mm-room-name">Dining</span><small>60 items</small></a>
-                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/04/110987_TARRANT_110767_DOONE_109541_ESAI_107934_LOHN_109376_DEVA-scaled-450x300.jpg')"></span><span class="mm-room-name">Bedroom</span><small>21 items</small></a>
-                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/06/CWI-1246W8-101-21-3-450x450.jpg')"></span><span class="mm-room-name">Lighting</span><small>142 items</small></a>
-                    <a href="#" class="mm-room"><span class="mm-room-img" style="background-image:url('https://mywofjpo.elementor.cloud/wp-content/uploads/2025/05/Screenshot-2025-05-09-at-1.05.17%E2%80%AFAM-450x382.jpg')"></span><span class="mm-room-name">Office</span><small>14 items</small></a>
-                </div>
-            </section>
-
-            <!-- shop shortcuts -->
-            <div class="mm-shortcuts mm-in">
-                <a href="shop.html?sort=new" class="mm-sc"><span class="mm-sc-dot"></span>New arrivals</a>
-                <a href="shop.html?sort=popular" class="mm-sc"><span class="mm-sc-dot"></span>Best sellers</a>
-                <a href="shop.html?sale=1" class="mm-sc mm-sc--sale"><span class="mm-sc-dot"></span>Sale</a>
-            </div>
-
-            <!-- featured banner -->
+            <!-- featured edit -->
             <a href="shop.html" class="mm-feature mm-in">
                 <span class="mm-feature-img" style="background-image:url('assets/imgs/bg.png')"></span>
                 <span class="mm-feature-copy">
@@ -121,15 +90,6 @@
                 </span>
             </a>
 
-            <!-- site pages -->
-            <nav class="mm-pages mm-in" aria-label="Mobile">
-                <a href="index.html" aria-current="page">Home</a>
-                <a href="projects.html">Projects</a>
-                <a href="#services">Services</a>
-                <a href="about.html">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
             <!-- help -->
             <div class="mm-help mm-in">
                 <div class="mm-help-text">
@@ -137,16 +97,6 @@
                     <span>Our designers will help you choose — free.</span>
                 </div>
                 <a href="#contact" class="mm-help-btn">Book a consultation <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
-            </div>
-
-            <!-- TODO: add the store's real phone number, email and social links -->
-            <div class="mm-foot mm-in">
-                <span class="mm-loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z" /><circle cx="12" cy="9" r="2.5" /></svg>Hamilton, Ontario</span>
-                <div class="mm-social">
-                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".6" /></svg></a>
-                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z" /></svg></a>
-                    <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M10 21l2-8M10.5 14c1 1 4 1 5-2 1-3-1-5-3.5-5S8 9 8 11c0 1 .5 2 1 2" /></svg></a>
-                </div>
             </div>
         </div>
     </div>
