@@ -1265,38 +1265,29 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     }
 }
 
-/* ================= CUSTOMER REVIEWS ================= */
+/* ================= CUSTOMER REVIEWS — photo-led cards ================= */
 .hcg-reviews {
-    padding: 24px 16px 96px
+    padding: 40px 0 110px
 }
 
 .hcg-reviews[hidden] {
     display: none
 }
 
-/* soft tinted block that sets the section apart */
-.rv-box {
-    padding: 64px 0 48px;
-    border-radius: 32px;
-    background:
-        radial-gradient(60% 80% at 0% 0%, rgba(200, 168, 119, .18), transparent 60%),
-        #F4EFE6;
-    overflow: hidden
-}
-
 .rv-head {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 24px;
-    padding: 0 calc(5% - 16px) 40px
+    gap: 32px;
+    padding: 0 5% 44px
 }
 
 .rv-head h2 {
     font-family: "Gilda Display", "Marcellus", serif;
     font-weight: 400;
-    font-size: clamp(36px, 3.8vw, 54px);
-    line-height: 1.05;
+    font-size: clamp(38px, 4vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -.01em;
     color: var(--brand-ink)
 }
 
@@ -1314,115 +1305,86 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     margin-left: 10px;
     padding: 3px 10px;
     border-radius: 999px;
-    background: rgba(163, 84, 58, .12);
+    background: rgba(163, 84, 58, .1);
     color: #A3543A;
     font-weight: 500;
     letter-spacing: .08em
 }
 
-/* Google rating pill */
+/* rating: typographic, no box */
 .rv-summary {
     flex: none;
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 12px 12px 12px 14px;
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 16px 34px -24px rgba(46, 44, 32, .45)
+    gap: 16px
 }
 
 .rv-summary[hidden] {
     display: none
 }
 
-.rv-g {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    background: #F4EFE6;
-    font-family: "DM Sans", sans-serif;
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--brand-olive-d)
-}
-
 .rv-score {
     font-family: "Gilda Display", "Marcellus", serif;
-    font-size: 40px;
-    line-height: 1;
+    font-size: 64px;
+    line-height: .9;
     color: var(--brand-ink)
 }
 
 .rv-summary-text {
     display: flex;
     flex-direction: column;
-    gap: 3px
+    gap: 4px;
+    font-family: "DM Sans", "Montserrat", sans-serif
 }
 
 .rv-summary-text small {
-    font-family: "DM Sans", sans-serif;
-    font-size: 13px;
+    font-size: 13.5px;
     color: #8C8378
 }
 
 .rv-google {
-    width: 40px;
-    height: 40px;
-    margin-left: 6px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: var(--brand-olive);
-    color: #fff;
-    transition: background .3s
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--brand-olive-d);
+    text-decoration: underline;
+    text-decoration-color: rgba(107, 104, 71, .35);
+    text-underline-offset: 4px;
+    transition: color .3s, text-decoration-color .3s
 }
 
 .rv-google:hover {
-    background: var(--brand-gold)
-}
-
-.rv-google svg,
-.rv-product svg {
-    width: 16px;
-    height: 16px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round
+    color: var(--brand-gold);
+    text-decoration-color: currentColor
 }
 
 .rv-stars {
     display: inline-flex;
-    gap: 2px
+    gap: 3px
 }
 
 .rv-stars i {
     display: grid;
-    color: #DDD3C3
+    color: rgba(221, 211, 195, .7)
 }
 
 .rv-stars i.on {
-    color: #C99A3C
+    color: #D4A64A
 }
 
 .rv-stars svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     fill: currentColor
 }
 
-/* track: cards peek past the edge so it is clear there is more */
+/* track: tall photo cards, next card peeks in */
 .rv-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(300px, calc((100% - 2 * (5% - 16px) - 60px) / 3.3));
+    grid-auto-columns: minmax(300px, calc((90vw - 60px) / 3.4));
     gap: 20px;
-    padding: 4px calc(5% - 16px) 10px;
-    scroll-padding-inline: calc(5% - 16px);
+    padding: 0 5% 4px;
+    scroll-padding-inline: 5%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -1440,171 +1402,146 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 }
 
 .rv-card {
+    position: relative;
     scroll-snap-align: start;
-    display: flex;
-    flex-direction: column;
+    aspect-ratio: 3 / 4;
     margin: 0;
-    border-radius: 24px;
-    background: #fff;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 1px 2px rgba(46, 44, 32, .04), 0 20px 40px -30px rgba(46, 44, 32, .5);
-    transition: transform .45s var(--ease), box-shadow .45s var(--ease)
+    background: #2E2C20;
+    isolation: isolate
 }
 
-.rv-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 1px 2px rgba(46, 44, 32, .04), 0 28px 50px -30px rgba(46, 44, 32, .6)
-}
-
-.rv-photo {
-    display: block;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: #EDE6DA
-}
-
-.rv-photo img {
+.rv-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
     width: 100%;
     height: 100%;
     object-fit: cover;
     pointer-events: none;
-    transition: transform 1s var(--ease)
+    transition: transform 1.4s var(--ease)
 }
 
-.rv-card:hover .rv-photo img {
+.rv-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(20, 18, 12, .18) 0%, rgba(20, 18, 12, 0) 22%, rgba(20, 18, 12, 0) 50%, rgba(20, 18, 12, .45) 100%)
+}
+
+.rv-card:hover .rv-bg {
     transform: scale(1.05)
 }
 
-.rv-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 22px 24px 20px;
-    font-family: "DM Sans", "Montserrat", sans-serif
-}
-
-.rv-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between
-}
-
-.rv-date {
-    font-size: 12.5px;
-    color: #A39A8E
-}
-
-.rv-card blockquote {
-    flex: 1;
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.65;
-    color: #3E3A2E
-}
-
-.rv-card figcaption {
-    display: flex;
-    align-items: center;
-    gap: 12px
-}
-
-.rv-avatar {
-    flex: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, #8A8761, var(--brand-olive-d));
-    color: #fff;
-    font-size: 13.5px;
-    font-weight: 500;
-    letter-spacing: .04em
-}
-
-.rv-who {
-    display: flex;
-    flex-direction: column
-}
-
-.rv-who b {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--brand-ink)
-}
-
-.rv-who small {
-    font-size: 13px;
-    color: #8C8378
-}
-
-/* the product they bought, linked */
+/* product label: small glass pill on the photo */
 .rv-product {
-    display: flex;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 14px;
-    border-radius: 14px;
-    background: #F7F3EC;
-    color: var(--brand-olive-d);
-    transition: background .3s, color .3s
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(251, 248, 241, .18);
+    border: 1px solid rgba(251, 248, 241, .35);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-family: "DM Sans", "Montserrat", sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: .02em;
+    transition: background .3s, color .3s, border-color .3s
 }
 
-.rv-product span {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    font-weight: 500
-}
-
-.rv-product small {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #A39A8E
+.rv-product svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    transition: transform .3s var(--ease)
 }
 
 .rv-product:hover {
-    background: var(--brand-olive);
-    color: #fff
-}
-
-.rv-product:hover small {
-    color: rgba(255, 255, 255, .7)
+    background: var(--brand-cream);
+    border-color: var(--brand-cream);
+    color: var(--brand-ink)
 }
 
 .rv-product:hover svg {
     transform: translateX(3px)
 }
 
-.rv-product svg {
-    transition: transform .3s var(--ease)
+.rv-body {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 20px 18px;
+    border-radius: 16px;
+    background: rgba(28, 25, 17, .5);
+    border: 1px solid rgba(255, 255, 255, .14);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    backdrop-filter: blur(16px) saturate(120%);
+    color: #fff
+}
+
+.rv-card blockquote {
+    margin: 0;
+    font-family: "Gilda Display", "Marcellus", serif;
+    font-size: 18px;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden
+}
+
+.rv-card figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, .16);
+    font-family: "DM Sans", "Montserrat", sans-serif
+}
+
+.rv-card figcaption b {
+    font-size: 14.5px;
+    font-weight: 500
+}
+
+.rv-card figcaption span {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, .72)
 }
 
 /* progress + arrows */
 .rv-controls {
     display: flex;
     align-items: center;
-    gap: 24px;
-    padding: 28px calc(5% - 16px) 0
+    gap: 28px;
+    padding: 32px 5% 0
 }
 
 .rv-progress {
     flex: 1;
-    height: 3px;
-    border-radius: 3px;
-    background: rgba(107, 104, 71, .15);
+    height: 2px;
+    background: rgba(107, 104, 71, .16);
     overflow: hidden
 }
 
 .rv-progress span {
     display: block;
     height: 100%;
-    border-radius: 3px;
-    background: var(--brand-olive);
+    background: var(--brand-ink);
     transition: transform .2s linear
 }
 
@@ -1614,26 +1551,26 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
 }
 
 .rv-arrows button {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    border: 0;
-    background: #fff;
+    border: 1px solid rgba(46, 44, 32, .2);
+    background: transparent;
     color: var(--brand-ink);
     display: grid;
     place-items: center;
     cursor: pointer;
-    box-shadow: 0 10px 24px -16px rgba(46, 44, 32, .5);
-    transition: background .3s, color .3s, opacity .3s
+    transition: background .3s, color .3s, border-color .3s, opacity .3s
 }
 
 .rv-arrows button:hover:not(:disabled) {
-    background: var(--brand-olive);
+    background: var(--brand-ink);
+    border-color: var(--brand-ink);
     color: #fff
 }
 
 .rv-arrows button:disabled {
-    opacity: .4;
+    opacity: .35;
     cursor: default
 }
 
@@ -1642,48 +1579,45 @@ body.menu-open .mm-help.mm-in { transition-delay: .44s }
     height: 18px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.8;
+    stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round
 }
 
 @media (max-width:767px) {
     .hcg-reviews {
-        padding: 8px 10px 72px
-    }
-
-    .rv-box {
-        padding: 44px 0 32px;
-        border-radius: 24px
+        padding: 24px 0 80px
     }
 
     .rv-head {
         flex-direction: column;
         align-items: flex-start;
-        padding: 0 20px 28px
+        gap: 18px;
+        padding: 0 5% 28px
     }
 
-    .rv-summary {
-        width: 100%
-    }
-
-    .rv-google {
-        margin-left: auto
+    .rv-score {
+        font-size: 52px
     }
 
     .rv-track {
-        grid-auto-columns: 82%;
-        gap: 14px;
-        padding: 4px 20px 10px;
-        scroll-padding-inline: 20px
+        grid-auto-columns: 80%;
+        gap: 12px
     }
 
     .rv-body {
-        padding: 20px 20px 18px
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 18px 18px 16px
+    }
+
+    .rv-card blockquote {
+        font-size: 17px
     }
 
     .rv-controls {
-        padding: 22px 20px 0
+        padding-top: 24px
     }
 
     .rv-arrows {

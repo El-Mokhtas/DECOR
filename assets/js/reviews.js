@@ -17,9 +17,9 @@
     /* product name -> photo + link shown on each review card */
     const P = "assets/imgs/products/";
     const PRODUCT_INFO = {
-        "Turkish Sofa Set": { img: P + "sofa-set/taupe/2.jpg", url: "shop.html?p=D0-0002" },
+        "Turkish Sofa Set": { img: P + "sofa-set/taupe/1.jpg", url: "shop.html?p=D0-0002" },
         "Turkish Embroidered Carpet": { img: P + "carpet/red/2.jpg", url: "shop.html?p=DB-0001" },
-        "White Queen Bed": { img: P + "queen-bed-white/1.jpg", url: "shop.html?p=BR-0002" },
+        "White Queen Bed": { img: P + "queen-bed-white/2.jpg", url: "shop.html?p=BR-0002" },
         "Yellow Queen Bed": { img: P + "queen-bed-yellow/1.jpg", url: "shop.html?p=BR-0003" },
         "Brown Queen Bed": { img: P + "queen-bed-brown/1.jpg", url: "shop.html?p=BR-0001" },
         "Upholstered Single Bed": { img: P + "single-bed/cream/2.jpg", url: "shop.html?p=BR-0006" },
@@ -53,18 +53,16 @@
     const star = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.3 1.1 6.1L12 17l-5.4 3 1.1-6.1-4.5-4.3 6.1-.8z" /></svg>';
     const stars = (n) => `<span class="rv-stars" role="img" aria-label="${n} out of 5 stars">${[1, 2, 3, 4, 5]
         .map((i) => `<i class="${i <= n ? "on" : ""}">${star}</i>`).join("")}</span>`;
-    const initials = (name) => name.replace(/\./g, "").split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
     const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>';
 
     /* rating summary */
     if (summary) {
         const box = section.querySelector(".rv-summary");
         box.innerHTML = `
-            <span class="rv-g" aria-hidden="true">G</span>
             <span class="rv-score">${summary.rating.toFixed(1)}</span>
             <span class="rv-summary-text">${stars(Math.round(summary.rating))}
-                <small>${summary.count ? `${summary.count} Google reviews` : "Google rating"}</small></span>
-            ${summary.url ? `<a href="${esc(summary.url)}" class="rv-google" target="_blank" rel="noopener" aria-label="See all reviews on Google">${arrow}</a>` : ""}`;
+                <small>${summary.count ? `${summary.count} reviews on Google` : "Average rating on Google"}</small>
+                ${summary.url ? `<a href="${esc(summary.url)}" class="rv-google" target="_blank" rel="noopener">Read all reviews</a>` : ""}</span>`;
         box.hidden = false;
     }
 
@@ -74,15 +72,12 @@
         const info = PRODUCT_INFO[r.product] || {};
         return `
         <figure class="rv-card">
-            ${info.img ? `<a class="rv-photo" href="${info.url || "#"}" tabindex="-1" aria-hidden="true"><img src="${info.img}" alt="" loading="lazy"></a>` : ""}
+            ${info.img ? `<img class="rv-bg" src="${info.img}" alt="" loading="lazy">` : ""}
+            ${r.product ? `<a class="rv-product" href="${info.url || "shop.html"}">${esc(r.product)}${arrow}</a>` : ""}
             <div class="rv-body">
-                <div class="rv-meta">${stars(r.rating)}${r.date ? `<span class="rv-date">${esc(r.date)}</span>` : ""}</div>
+                ${stars(r.rating)}
                 <blockquote>“${esc(r.text)}”</blockquote>
-                <figcaption>
-                    <span class="rv-avatar" aria-hidden="true">${esc(initials(r.name))}</span>
-                    <span class="rv-who"><b>${esc(r.name)}</b><small>${esc(r.location)}</small></span>
-                </figcaption>
-                ${r.product ? `<a class="rv-product" href="${info.url || "shop.html"}"><span><small>Purchased</small>${esc(r.product)}</span>${arrow}</a>` : ""}
+                <figcaption><b>${esc(r.name)}</b><span>${esc(r.location)}${r.date ? " · " + esc(r.date) : ""}</span></figcaption>
             </div>
         </figure>`;
     }).join("");
